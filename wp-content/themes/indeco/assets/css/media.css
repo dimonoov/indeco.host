@@ -1,0 +1,494 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 960px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .head  .h2{
+      text-align: center;
+    }
+  .main .molot-content .col-right{
+    width: 55%;
+
+  }
+  .main .molot-content .text-content ul li{
+    width: 50%;
+  }
+  .main .molot-content .text-content ul{
+    height: 320px;
+  }
+  .main .product-cat:not(.molot-content){
+    min-height: auto;
+  }
+  #bs-example-navbar-collapse-2{
+    display: table;
+  }
+  .filter-panel{
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  /*.filter-panel .sort{
+    padding-left: 0;
+  }*/
+  .filter-panel .sort, .filter-panel .per-pages{
+    margin-top: 0;
+    padding-left: 0;
+
+  }
+
+.navbar-form .form-control{
+  display: none;
+}
+#bs-example-navbar-collapse-2 > ul{
+  /*display: flex;
+  align-items: center;*/
+  display: table-cell;;
+  list-style: none;
+  height: 60px;
+    vertical-align: middle;
+}
+.navbar-form{
+  display: table-cell;
+  /*float: left;*/
+  width: 30px;
+  height: 60px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  vertical-align: middle;
+}
+  form .form-group button.fa{
+    top: 50%;
+    margin-top: -10px;
+  }
+  .main .wrap_table{
+    margin: 0 -15px;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .article_poster img{
+        max-width: 200px;
+        /*margin:0 auto;*/
+        display: block;
+    }
+    .navigation .nav-links .nav-previous, .navigation .nav-links .nav-next{
+        width:100%;
+    }
+  .map .block-gmap .map-info{
+    display: none;
+  }
+  .main   .product_cat .text-content{
+    text-align: center;
+  }
+  .main   .product_cat .text-content ul{
+    text-align: left;
+  }
+  .main   .product_cat .text-content ul li{
+    width: 100%;
+  }
+  .main div.product_cat  div.text-content ul{
+    height: auto;
+    display: inline-block;
+    margin: auto;
+    max-height: 100%;
+
+  }
+  .total-price-product{
+    text-align: center;
+  }
+  .total-price-product .total-price{
+    padding: 20px;
+  }
+  .wrap_table .basket_wrap .table2 .wid-10{
+   position: absolute;
+   top: -40px;
+   right: 5px;
+   height: 10px;
+ }
+  .form-1 .jcf-number{
+    margin: 0 30px;
+  }
+  .form-1 .jcf-number .jcf-btn-dec{
+    left: -24px;
+  }
+  .form-1 .jcf-number .jcf-btn-inc{
+    right: -24px;
+  }
+  .form-1 .jcf-number{
+    float: right;
+    margin-top: -20px!important;
+    width: 40px;
+  }
+  .main .wrap_table{
+    margin: initial;
+  }
+    .table2 thead::after{
+      display: none;
+    }
+  .wrap_table  td.product_foto {
+    position: absolute;
+    padding-left: 10px!important;
+    padding: 10px!important;
+    width: 50%!important;
+  }
+
+  .wrap_table  tr {
+    position: relative;
+
+
+  }
+  .wrap_table  tr img{
+    width: 100%;
+    max-width: 300px;
+    padding: 0 0 0 10px;
+  }
+  .navbar-form .form-group{
+    width: 30px;
+    height: 60px;
+  }
+  .product-item{
+    max-width: 320px;
+  }
+  .front-page .footer.top-line .navbar-header{
+    float: none;
+  }
+  .front-page .footer.top-line .navbar-brand{
+    margin-left: 0;
+    float: none;
+  }
+  .front-page .footer.top-line .navbar-brand img{
+    width: inherit;
+    margin-left: 15px;
+  }
+  .front-page .footer.top-line .navbar-nav> li a{
+        border-right: none;
+      }
+  form .form-group button.fa{
+    top: 20px;
+    display: none;
+  }
+  #bs-example-navbar-collapse-2 .collapse.nav.navbar-nav{
+    display: none;
+  }
+  .top-line .navbar-header{
+    height: 60px;
+    float: left;
+  }
+  #bs-example-navbar-collapse-2{
+  display: inline-block;
+  }
+  .top-line .navbar-toggle{
+    margin-top: 12px;
+  }
+  .top-line .navbar{
+    margin-bottom: 0;
+  }
+  .top-line .navbar .col-sm-12{
+    text-align: right;;
+  }
+  .top-line .navbar-brand{
+    /*float: none;*/
+  }
+  .top-line .navbar-toggle{
+    float: left;
+  }
+
+  /**
+  * адаптация таблиц
+  ***/
+
+
+  .wrap_table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  /* Черно-белые полоски */
+
+  .wrap_table th {
+  /*  background: #333;
+    color: white; */
+    font-weight: normal;
+  }
+
+  .wrap_table td, .wrap_table th {
+  	font-family: "OpenSansRegular",sans-serif;
+  	font-size: 14px;
+  	padding: 12px;
+  	line-height: 1.3;
+  	border: 1px solid #ccc;
+  	text-align: left;
+  	color:#fff;
+  }
+  .wrap_table td, .wrap_table th{
+    color: #000;
+  }
+  /* Заставьте таблицу больше не вести себя как таблица */
+  .wrap_table table, thead, tbody, th, td, tr {
+  	display: block;
+  }
+
+  /* Скройте заголовки таблицы (но в целях доступности не с display: none;) */
+  .wrap_table thead tr {
+  	position: absolute;
+  	top: -9999px;
+  	left: -9999px;
+  	display: none;
+  }
+
+  .wrap_table tr {
+  	margin-top: 5px;
+  	border: 1px solid #ccc; }
+		.wrap_table td {
+	  	/* Поведение как у «строки» */
+	  	border: none;
+	  	border-bottom: 1px solid #eee;
+	  	position: relative;
+	  	padding-left: 50%!important;
+	  	min-height: 30px;
+	    float: none!important;
+	    width: auto!important;
+	  	text-align: left!important;
+	  }
+
+  .wrap_table .basket_wrap td {
+  	/* Поведение как у «строки» */
+  	border: none;
+  	/*border-bottom: 1px solid #eee;*/
+  	position: relative;
+
+  	min-height: 30px;
+    float: none!important;
+    width: auto!important;
+  	text-align: left!important;
+
+		position: relative;
+		padding-left: 25%!important;
+
+		display: block;
+		margin-left: 46%!important;
+
+
+  }
+
+	.wrap_table .basket_wrap td.product_foto {
+    display: block;
+    float: left;
+    position: absolute;
+    margin-left: 0!important;
+    padding-left: 0!important;
+    width: 46%!important;
+}
+
+  .wrap_table td h3{
+  	font-size: 18px;
+  }
+  .wrap_table tr:nth-of-type(odd) {
+  	background: rgb(247,247,247)!important;
+  }
+
+  .wrap_table td:before {
+  	/* Теперь как у заголовка таблицы */
+  	position: absolute;
+  	/* Значения top/left имитируют отступ */
+  	top: 6px;
+  	left: 6px;
+  	width: 45%;
+  	padding-right: 10px;
+  	white-space: normal;
+  }
+
+  .wrap_table .basket_wrap td:nth-of-type(1):before { content: ""; text-align:left;  white-space: normal;}
+  .wrap_table .basket_wrap td:nth-of-type(2):before { content: "Наименование"; text-align:left; white-space: normal; }
+  .wrap_table .basket_wrap td:nth-of-type(3):before { content: "Артикул"; text-align:left; white-space: normal; }
+  /*.wrap_table .basket_wrap td:nth-of-type(4):before { content: "Колличество"; text-align:left; white-space: normal; }*/
+  .wrap_table .basket_wrap td:nth-of-type(4):before { content: "Цена"; text-align:left; white-space: normal; }
+  .wrap_table .basket_wrap td:nth-of-type(5):before { content: "Сумма"; text-align:left; white-space: normal; }
+}
+
+@media only screen and (max-width :650px) {
+.col-right, .col-left{
+  width: 100%!important;
+  max-width: 100%!important;
+}
+.head a.button{
+  margin-left: 0;
+}
+}
+
+
+
+
+
+
+@media only screen and (max-width : 480px) {
+  .ajax-solution .product-block .pb-thumb{
+    display: block;
+    padding-right: 0;
+  }
+  .ajax-solution .pb-description{
+    display: block;
+  }
+  .ajax-solution .product-block .pb-thumb img{
+    margin: auto;
+  }
+  .main .molot-content .text-content{
+    margin-left: 0;
+  }
+  .main .product-cat::after{
+    width: 100%;
+  }
+  .main .molot-content .text-content ul li{
+    width: 100%;
+  }
+  .sort   .jcf-select
+      min-width: 120px
+  .deliveri .block-content .content-item .item.tright{
+    text-align: right;
+  }
+  .deliveri .block-content .content-item .item{
+    font-size: 12px;
+  }
+  .deliveri .block-content{
+    padding: 15px 5px;
+  }
+  .deliveri .block-content .content-item{
+    padding: 5px 10px;
+  }
+  .btn-wrap.text-left, .btn-wrap.text-right{
+    text-align: center;
+  }
+
+
+  .wrap_table .basket_wrap .table2 tbody td:not([class="product_foto"]) {
+    padding-top: 40px;
+    padding-left: 5px!important;
+}
+  .main .basket_wrap  .w100 > div{
+      text-align: center
+  }
+  .footer  .foot-menu > div{
+    min-height: auto;
+  }
+  .w100{
+    width: 100%;
+  }
+  .top-line .cart-title a{
+    display: none;
+  }
+  .top-line .navbar-brand{
+    width: 150px;
+    margin-top: 3px;
+    margin-left: -5px;
+  }
+  .top-line .navbar-brand img {
+    width: 100%;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 420px) {
+
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 380px) {
+
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+  .wrap_table  tr td.product-foto {
+    overflow: hidden;
+  }
+  .wrap_table  tr img{
+    max-width: 170px
+  }
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .container {
+    /*width: inherit;*/
+}
+  .form-1 .jcf-number{
+    margin-right: 70px;
+  }
+  .main    .tbl_wrap{
+    margin: 0;
+  }
+  .navbar-header{
+    margin-right: 20px;
+  }
+  .navbar{
+    margin-bottom: 0;
+  }
+  .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
+    margin-left: 0;
+  }
+  #bs-example-navbar-collapse-2{
+    /*display: flex!important;*/
+    /*align-items: center;*/
+    text-align: right;
+  }
+
+  .header .wrap-content .btn-wrap{
+    text-align: right;
+    display: inline-block;
+    margin-top: -34px;
+    float: right;
+
+  }
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .basket_wrap{
+    margin: 0 -15px;
+  }
+  .navbar-form{
+    margin-top: 12px;
+    margin-bottom: 12px;
+    /*margin: 0;*/
+    /*overflow: hidden;*/
+    /*width: 40px;*/
+    margin-right: 20px;
+    padding: 0;
+    /*height: 60px;*/
+  }
+  #bs-example-navbar-collapse-2 > ul{
+    /*display: flex;
+    align-items: center;*/
+    display: inline-block;
+    list-style: none;
+  }
+  .navbar-form{
+    display: inline-block;
+  }
+}
+
+ /* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
