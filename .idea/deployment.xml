@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="http://cc55158.tmweb.ru/">
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="http://cc55158.tmweb.ru/">
     <serverData>
       <paths name="1-zabor.ru">
         <serverdata>
@@ -80,5 +80,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
   </component>
 </project>

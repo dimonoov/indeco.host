@@ -29,7 +29,7 @@ get_header(); ?>
 			</div>
 		</div>
 		<div class="container">
-			<div class="row">
+			<div class="row 1">
 				<?php
 					if ( have_posts() ) : // если имеются записи в блоге.
 						query_posts('cat=40');   // указываем ID рубрик, которые необходимо вывести.

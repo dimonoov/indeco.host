@@ -14,7 +14,7 @@
 
 	<div class="col-sm-12">
 
-		<article id="1 post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<article id="12 post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<?php
 			if ( is_sticky() && is_home() ) :
 				echo twentyseventeen_get_svg( array( 'icon' => 'thumb-tack' ) );
