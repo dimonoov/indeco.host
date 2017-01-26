@@ -9,6 +9,17 @@
 	font-style: normal;
 	font-weight: normal;
 }
+
+/* font-family: "RobotoThin"; */
+@font-face {
+	font-family: "RobotoThin";
+	src: url("../fonts/RobotoThin/RobotoThin.eot");
+	src: url("../fonts/RobotoThin/RobotoThin.eot?#iefix")format("embedded-opentype"),
+	url("../fonts/RobotoThin/RobotoThin.woff") format("woff"),
+	url("../fonts/RobotoThin/RobotoThin.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
 /* font-family: "RobotoLight"; */
 @font-face {
 	font-family: "RobotoLight";

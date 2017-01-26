@@ -265,7 +265,7 @@ function register_post_types() {
 
 }
 
-add_image_size( 'product', '230', '220', true);
+add_image_size( 'product', '250', '250', true);
 
 
 // Подключаем локализацию в самом конце подключаемых к выводу скриптов, чтобы скрипт

@@ -160,7 +160,7 @@ get_header();
                                         <ul class="main-params">
                                             <!--						// clips-->
                                             <?php $field = get_field_object('clips_weight_ekskavatora'); if(!empty($field['value'])):?>
-                                                <li><span class="label"><?php  echo 'oo'.$field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
                                             <?php endif; ?>
                                             <?php $field = get_field_object('clips_weight'); if(!empty($field['value'])): ?>
                                                 <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>

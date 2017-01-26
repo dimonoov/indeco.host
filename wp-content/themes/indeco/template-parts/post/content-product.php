@@ -189,6 +189,41 @@
 						<?php  $field = get_field_object('molot_nu'); if(!empty($field['value'])) : ?>
 							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
+<!--						// vibro-->
+						<?php  $field = get_field_object('vibro_weight_eks'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('vibro_weight_plot'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('vibro_height_plot'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('vibro_plastina'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('vibro_rotate'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('vibro_centerob'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('vibro_preasure'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('vibro_maslo'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('vibro_bar_pres'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('vibro_cost'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+
+
+
+
 
 					</ul>
 				</div>
@@ -273,7 +308,11 @@
 		<div class="tab-pane fade" id="files">
 			<div class="col-sm-12">
 				<div class="inner-desrc">
-					<p>Food truck fixie locavore, accusamus mcsweeney's marfa 'NULL'a single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+					<div class="desc-product">
+						<?php the_field('product_files');?>
+						<p></p>
+					</div>
+<!--					<p>Food truck fixie locavore, accusamus mcsweeney's marfa 'NULL'a single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>-->
 				</div>
 			</div>
 		</div>

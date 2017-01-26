@@ -98,6 +98,18 @@ address {
 /****/
 /** common*/
 /***/
+
+.btn-del{
+    background-image: url("../img/del.png");
+    display: inline-block;
+    width: 26px;
+    height:23px;
+    vertical-align: middle;
+    color: transparent;
+}
+.btn-del:hover, .btn-del:focus{
+    color: transparent;
+}
 .label{
   display: inline-block;
   padding: .2em .6em .3em;
@@ -1280,7 +1292,9 @@ section.news {
     font-size: 18px;
     text-align: center; }
   .main .table2 thead tr td {
-    color: #fff; }
+    color: #fff;
+      font-family: "RobotoThin" , sans-serif;
+  }
   .main .table2 thead tr {
     border-bottom: 1px solid #ced1d5; }
   .main .table2 tr, .main .table2 tr td {
@@ -1309,12 +1323,16 @@ section.news {
     width: 28%; }
   .main .table2 td.wid-9 {
     margin: 0;
+      text-align: center;
     width: 15%; }
   .main .table2 td.wid-10 {
     margin: 0;
     width: 5%; }
   .main .table2 tr.color-1 {
-    background: #f7f7f9; }
+    /*background: #f7f7f9;*/
+      padding-top: 10px;
+      border-bottom:1px solid #000000;
+  }
 
 .table2 tbody td.wid-5 {
   padding: 5px 10px 7px 14px; }
@@ -1323,18 +1341,30 @@ section.news {
 
 .form-1 .jcf-number {
   margin: 0 auto; }
-
+.jcf-number .jcf-btn-dec, .jcf-number .jcf-btn-inc{
+    width: 26px;
+    height: 23px;
+    border: none;
+}
+.jcf-number .jcf-btn-dec, .jcf-number .jcf-btn-inc,
+.jcf-number .jcf-btn-dec:hover, .jcf-number .jcf-btn-dec:hover,
+.jcf-number .jcf-btn-inc:hover, .jcf-number .jcf-btn-inc:hover
+{
+    background-color: transparent;
+}
 .jcf-number {
   width: auto;
   display: block;
   width: 70px; }
 
-.jcf-number .jcf-btn-inc {
+.jcf-number .jcf-btn-inc, .jcf-number .jcf-btn-inc:hover, .jcf-number .jcf-btn-inc:focus {
   top: 10px;
+    background-image: url('../img/str-right.png');
   right: -30px; }
 
-.jcf-number .jcf-btn-dec {
+.jcf-number .jcf-btn-dec, .jcf-number .jcf-btn-dec:hover, .jcf-number .jcf-btn-dec:focus{
   top: 10px;
+    background-image: url('../img/str-left.png');
   left: -30px; }
 
 .btn-s:active, .btn-s:focus {
@@ -1469,13 +1499,13 @@ section.news {
         .product-item .block-content .main-params li .nm,
         .product-item .block-content .main-params li .label{
             display: block;
-            width: 70%;
+            width: 85%;
           float: left;
         }
         .product-item .block-content .main-params li .value {
           float: right;
             display: block;
-            width: 30%;
+            width: 15%;
         }
     .product-item .block-content .price-card {
       text-align: center;

@@ -4,7 +4,7 @@
  */
 
 get_header(); ?>
-	<?php var_dump($_POST);?>
+<!--	--><?php //var_dump($_POST);?>
 	<main class="main">
 		<div class="">
 			<form class="form-1" id="basket-zakaz" action="<?php echo home_url()?>/checkout/" method="POST">
