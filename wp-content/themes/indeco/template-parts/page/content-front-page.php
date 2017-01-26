@@ -136,7 +136,7 @@
                                     <script src="<?php echo get_theme_file_uri( '/assets/js/select_change.js' );?>"></script>
 
 									<select id="industria" name="industria" required="required" >
-
+										<option class="hideme" value="v1">Cфера деятельности *</option>
                                         <?php foreach ($industria as $industry) :?>
                                             <option value="<?php echo $industry->slug;?>"><?php echo $industry->name;?></option>
 
@@ -158,7 +158,7 @@
 								<div><span id="step2">2</span></div>
 								<div>
 									<select id="application" class="disabled" name="campo_applicazione" disabled="true" required="required" >
-
+										<option class="hideme" value="v1">Область применения *</option>
                               <?php
                               $campo_args = array(
                                   'taxonomy'      => array( 'sector_cat'), // название таксономии с WP 4.5
@@ -236,7 +236,8 @@
 								<div><span id="step3">3</span></div>
 								<div>
 									<select id="attivita" class="disabled" name="attivita" required="required" disabled="true" ">
-                                        <?php
+									<option class="hideme" value="v1">Тип работ *</option>
+									<?php
                                         $attivita_args = array(
                                             'taxonomy'      => array( 'sector_cat'), // название таксономии с WP 4.5
                                             'orderby'       => 'id',
@@ -407,39 +408,7 @@
 </section>
 
 
-<style>
-    /*.tab-content>.tab-pane {display: block;visibility: hidden;}*/
-    /*.tab-content>.tab-pane.active {visibility: visible;}*/
 
-    .tab-content > .tab-pane,
-    .pill-content > .pill-pane {
-        display: block;
-        height: 0px;
-        opacity: 0;
-    }
-    .tab-content > .active,
-    .pill-content > .active {
-        opacity: 1;
-        height: auto;
-    }
-
-    .tab-pane.fade > div.col-sm-12{
-        float: none;
-    }
-    .tab-content > .active div.col-sm-12{
-        float: initial;
-    }
-    .nav-tabs > li > a{
-        z-index: 10;
-    }
-    .ajax-solution{
-        display: none;
-    }
-    .load {
-        text-align: center;
-        padding: 90px 0 20px;
-    }
-</style>
 
 <section class="ajax-solution" >
     <div id="solutionfinderindustry" class="full solution-finder-industry">

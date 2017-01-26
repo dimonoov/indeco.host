@@ -35,31 +35,8 @@ if( get_post_type() == 'product'){
 				</div>
 				<div class="col-md-9 pd0">
 
-					<?php $acf = get_posts(array('post_type' => 'acf'));?>
-					<?php
-					$meta_values = "";
-					$cust = array();
-					foreach	($acf as $f){
-//						var_dump($f);
-						// $meta_values = get_post_meta( $f->ID );
-						// var_dump($meta_values);
-// соберем все метаполя в объект $meta
-						// $meta = new stdClass;
-//						foreach( get_post_meta( $f->ID ) as $k => $v )
-//							var_dump($v[0]);
-
-// Теперь, допустим у записи есть метаполе 'book'
-// Получаем его так:
-//						var_dump($meta);
-//						foreach($meta_values as $value){
-//							var_dump($value);
-//							$cust = _wp_json_convert_string($value[0]);
-//							var_dump($cust);
-//						}
-					}
 
 
-					?>
 				<?php
 
 

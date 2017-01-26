@@ -15,67 +15,67 @@
 	<div class="content clearfix">
 		<div class="col-sm-5">
 			<div class="product-foto">
+				<?php if(get_field('action') == 1):?>
+					<div class="hits aktsiya">Акция</div>
+				<?php endif;?>
+				<?php if(!has_post_thumbnail()):?>
+					<div>
+						<img src='<?php echo get_template_directory_uri()?>/assets/img/No-image-found.jpg' alt=''>
+					</div>
+				<?php endif;?>
+				<?php if( class_exists('Dynamic_Featured_Image') ) {
+					global $dynamic_featured_image;
+					$featured_images = $dynamic_featured_image->get_featured_images(get_the_ID() ); ?>
+					<div class="slider-for">
+							<?php if(has_post_thumbnail()):?>
+								<div>
+									<?php the_post_thumbnail();?>
+								</div>
+							<?php endif;?>
 
-				<div class="slider-for">
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="product"/>
-					</div>
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="product"/>
-					</div>
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="product"/>
-					</div>
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="product"/>
-					</div>
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="product"/>
-					</div>
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="product"/>
-					</div>
-				</div>
-				<div class="slider-nav">
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/small1.jpg" alt="small" />
-					</div>
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/small1.jpg" alt="small" />
-					</div>
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/small1.jpg" alt="small" />
-					</div>
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/small1.jpg" alt="small" />
-					</div>
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/small1.jpg" alt="small" />
-					</div>
-					<div>
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/small1.jpg" alt="small" />
-					</div>
-				</div>
+							<?php if($featured_images):?>
+							<?php foreach( $featured_images as $image ) :?>
+								<div>
+									<img src="<?php echo $image['full']?>" alt="product"/>
+								</div>
+							<?php endforeach;?>
+							<?php endif;?>
+						</div>
+					<div class="slider-nav">
+						<?php if(has_post_thumbnail()):?>
+							<div>
+								<?php the_post_thumbnail()?>
+							</div>
 
-
-
-				<script type="text/javascript">
-					jQuery('.slider-for').slick({
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						arrows: false,
-						fade: true,
-						asNavFor: '.slider-nav'
-					});
-					jQuery('.slider-nav').slick({
-						slidesToShow: 4,
-						slidesToScroll: 1,
-						asNavFor: '.slider-for',
-						dots: false,
-						centerMode: false,
-						focusOnSelect: true
-					});
-				</script>
+						<?php endif;?>
+						<?php if($featured_images):?>
+						<?php foreach( $featured_images as $image ) :?>
+							<div>
+								<img src="<?php echo $image['thumb']?>" alt="product"/>
+							</div>
+						<?php endforeach;?>
+						<?php endif;?>
+					</div>
+<!--					--><?php //if($featured_images):?>
+						<script type="text/javascript">
+						jQuery('.slider-for').slick({
+							slidesToShow: 1,
+							slidesToScroll: 1,
+							arrows: false,
+							fade: true,
+							asNavFor: '.slider-nav'
+						});
+						jQuery('.slider-nav').slick({
+							slidesToShow: 4,
+							slidesToScroll: 1,
+							asNavFor: '.slider-for',
+							dots: false,
+							centerMode: false,
+							focusOnSelect: true
+						});
+					</script>
+<!--					--><?php //endif;?>
+				<?php } ?>
 			</div>
 		</div>
 
@@ -83,62 +83,113 @@
 			<div class="product-params">
 				<div class="block-title"><?php the_title();?></div>
 				<div class="block-content">
-
 					<ul>
-						<?php if( get_field('clips_weight_ekskavatora') ): ?>
-							<li><span class="label"></span><span class="value"><?php echo get_field('clips_weight_ekskavatora'); ?></span></li>
+<!--						// clips-->
+						<?php $field = get_field_object('clips_weight_ekskavatora'); if(!empty($field['value'])):?>
+							<li><span class="label"><?php  echo 'oo'.$field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_weight') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_weight'); ?></span></li>
+						<?php $field = get_field_object('clips_weight'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_zahvat') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_zahvat'); ?></span></li>
+						<?php  $field = get_field_object('clips_zahvat'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_height') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_height'); ?></span></li>
+						<?php  $field = get_field_object('clips_height'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_width') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_width'); ?></span></li>
+						<?php $field = get_field_object('clips_width');  if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_width_zahvata') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_width_zahvata'); ?></span></li>
+						<?php $field = get_field_object('clips_width_zahvata'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_maslo') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_maslo'); ?></span></li>
+						<?php  $field = get_field_object('clips_maslo'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_max_bar') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_max_bar'); ?></span></li>
+						<?php  $field = get_field_object('clips_max_bar');  if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_muzvk') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_muzvk'); ?></span></li>
+						<?php $field = get_field_object('clips_muzvk'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_muznn') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_muznn'); ?></span></li>
+						<?php $field = get_field_object('clips_muznn'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_dlina') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_dlina'); ?></span></li>
+						<?php  $field = get_field_object('clips_dlina');  if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_mdrm') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_mdrm'); ?></span></li>
+						<?php $field = get_field_object('clips_mdrm'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_vza') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_vz'); ?></span></li>
+						<?php  $field = get_field_object('clips_vza'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_vo') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_vo'); ?></span></li>
+						<?php $field = get_field_object('clips_vo');  if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-						<?php if( get_field('clips_spg') ): ?>
-							<li><span class="label"></span><span class="value"><?php the_field('clips_spg'); ?></span></li>
+						<?php  $field = get_field_object('clips_spg'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
 
 
-
-						<?php $field_name = "clips_skpmkm"; if( get_field($field_name) ): $field = get_field_object($field_name); ?>
-							<li>
-								<span class="label"><?php echo $field['label']?></span>
-								<span class="value"><?php echo $field['value']; ?></span>
-							</li>
+<!--						//grefer-->
+						<?php $field = get_field_object('grefer_weight'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
+						<?php $field = get_field_object('grefer_bar');  if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php $field = get_field_object('grefer_max_maslo');  if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php   $field = get_field_object('grefer_bar_route'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('grefer_debit_maslo'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php $field = get_field_object('grefer_max_power');  if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('grefer_max_razmah'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php $field = get_field_object('grefer_width_zahvat'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('grefer_compatible'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+
+<!--						// molot-->
+						<?php  $field = get_field_object('molot_weight_eks'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('molot_weight_work'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('molot_diam_pici'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('molot_maslo'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('molot_bar_g'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('molot_bar_e'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('molot_bar_reverse'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('molot_energy'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('molot_nu'); if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+
 					</ul>
 				</div>
 			</div>
@@ -166,123 +217,65 @@
 				<li class=""><a href="#files" data-toggle="tab" aria-expanded="false">Файлы</a></li>
 			</ul>
 		</div>
-<!-- 
-		<div id="myTabContent" class="tab-content">
-			<div class="tab-pane fade active in" id="descr">
-				<div class="col-sm-12">
-					<div class="inner-desrc">
-						<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+
+	</div>
+	<div id="myTabContent" class="tab-content">
+		<div class="tab-pane fade active in" id="descr">
+			<div class="col-sm-12">
+				<div class="inner-desrc">
+
+					<?php the_content();?>
+
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="related">
+		<?php
+		$related = get_field('related', get_the_ID());
+		?>
+		<?php foreach ($related as $rel => $item):?>
+			<div class="col-md-4 col-sm-6">
+				<div class="product-item">
+					<div class="block-title"><?php echo $item->post_title?></div>
+					<?php if(get_field('action') == 1):?>
+						<div class="hits aktsiya">Акция</div>
+					<?php endif;?>
+					<?php if(get_field('zakaz') == 1):?>
+						<div class="hits zakaz">Заказ</div>
+					<?php endif;?>
+					<div class="block-content">
+						<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="">
+						<ul class="main-params">
+							<li><span class="nm">Эксплуатационная масса:</span><span class="value">380 кг.</span></li>
+							<li><span class="nm">Максимальное открытие:</span><span class="value">1500 мм.</span></li>
+							<li><span class="nm">Грузоподъёмность:</span><span class="value">170 л.</span></li>
+							<li><span class="nm">Ширина щёк:</span><span class="value">600 мм.</span></li>
+						</ul>
+						<div class="price-card">
+							<span><?php the_field('price')?> <i class="fa fa-rub"></i></span>
+							<s><?php the_field('old_price')?>  <i class="fa fa-rub"></i></s>
+						</div>
+						<div class="btn-wrap">
+							<a href="<?php the_permalink();?>" class="details">Подробнее</a>
+							<form class="action_cart" metod="post">
+								<input class="nm" name="product_id" value="<?php the_ID();?>" type="hidden">
+								<input class="btn-buy btn-s" data-action="addToCart" value="Купить" type="submit" placeholder="">
+							</form>
+						</div>
+
 					</div>
 				</div>
 			</div>
-			<div class="tab-pane fade" id="related">
-				<div class="col-md-4 col-sm-6">
-					<div class="product-item">
-						<div class="block-title">title</div>
-						<div class="block-content">
-							<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="">
-							<ul class="main-params">
-								<li><span class="nm">Эксплуатационная масса:</span><span class="value">380 кг.</span></li>
-								<li><span class="nm">Максимальное открытие:</span><span class="value">1500 мм.</span></li>
-								<li><span class="nm">Грузоподъёмность:</span><span class="value">170 л.</span></li>
-								<li><span class="nm">Ширина щёк:</span><span class="value">600 мм.</span></li>
-							</ul>
-							<div class="price-card">
-								<span>411 100 <i class="fa fa-rub"></i></span>
-								<s>450 00 <i class="fa fa-rub"></i></s>
-							</div>
-							<div class="btn-wrap">
-								<a href="#" class="details">Подробнее</a>
-								<a href="#" class="btn-buy">Купить</a>
-							</div>
-							<div class="loading text-center">
-								<div class="progress-wrap">
-									<div class="progress" style="display: none;">
-										<div class="progress-bar progress-bar-info myprogress" style="width: 100%;"></div>
-									</div>
-								</div>
-								<div class="good" style="display: none;">
-									<img src="<?php echo get_theme_file_uri();?>/assets/http://indeco.loc/wp-content/themes/grifbriz/img/good.png" alt="good" height="25">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6">
-					<div class="product-item">
-						<div class="block-title">title</div>
-						<div class="block-content">
-							<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="">
-							<ul class="main-params">
-								<li><span class="nm">Эксплуатационная масса:</span><span class="value">380 кг.</span></li>
-								<li><span class="nm">Максимальное открытие:</span><span class="value">1500 мм.</span></li>
-								<li><span class="nm">Грузоподъёмность:</span><span class="value">170 л.</span></li>
-								<li><span class="nm">Ширина щёк:</span><span class="value">600 мм.</span></li>
-							</ul>
-							<div class="price-card">
-								<span>411 100 <i class="fa fa-rub"></i></span>
-								<s>450 00 <i class="fa fa-rub"></i></s>
-							</div>
-							<div class="btn-wrap">
-								<a href="#" class="details">Подробнее</a>
-								<a href="#" class="btn-buy">Купить</a>
-							</div>
-							<div class="loading text-center">
-								<div class="progress-wrap">
-									<div class="progress" style="display: none;">
-										<div class="progress-bar progress-bar-info myprogress" style="width: 100%;"></div>
-									</div>
-								</div>
-								<div class="good" style="display: none;">
-									<img src="<?php echo get_theme_file_uri();?>/assets/http://indeco.loc/wp-content/themes/grifbriz/img/good.png" alt="good" height="25">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6">
-					<div class="product-item">
-						<div class="block-title">title</div>
-						<div class="block-content">
-							<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="">
-							<ul class="main-params">
-								<li><span class="nm">Эксплуатационная масса:</span><span class="value">380 кг.</span></li>
-								<li><span class="nm">Максимальное открытие:</span><span class="value">1500 мм.</span></li>
-								<li><span class="nm">Грузоподъёмность:</span><span class="value">170 л.</span></li>
-								<li><span class="nm">Ширина щёк:</span><span class="value">600 мм.</span></li>
-							</ul>
-							<div class="price-card">
-								<span>411 100 <i class="fa fa-rub"></i></span>
-								<s>450 00 <i class="fa fa-rub"></i></s>
-							</div>
-							<div class="btn-wrap">
-								<a href="#" class="details">Подробнее</a>
-								<a href="#" class="btn-buy">Купить</a>
-							</div>
-							<div class="loading text-center">
-								<div class="progress-wrap">
-									<div class="progress" style="display: none;">
-										<div class="progress-bar progress-bar-info myprogress" style="width: 100%;"></div>
-									</div>
-								</div>
-								<div class="good" style="display: none;">
-									<img src="<?php echo get_theme_file_uri();?>/assets/http://indeco.loc/wp-content/themes/grifbriz/img/good.png" alt="good" height="25">
-								</div>
-							</div>
-						</div>
-					</div>
+		<?php endforeach;	?>
+
+
+	</div>
+		<div class="tab-pane fade" id="files">
+			<div class="col-sm-12">
+				<div class="inner-desrc">
+					<p>Food truck fixie locavore, accusamus mcsweeney's marfa 'NULL'a single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
 				</div>
 			</div>
-			<div class="tab-pane fade" id="files">
-				<div class="col-sm-12">
-					<div class="inner-desrc">
-						<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
-					</div>
-				</div>
-			</div>
-
-		</div> -->
-
-
+		</div>
 
 	</div>

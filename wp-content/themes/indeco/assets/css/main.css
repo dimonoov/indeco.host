@@ -98,6 +98,18 @@ address {
 /****/
 /** common*/
 /***/
+.label{
+  display: inline-block;
+  padding: .2em .6em .3em;
+  font-size:100%;
+  font-weight: normal;
+  line-height: 1;
+  color: #000;
+  text-align: left;
+  white-space: normal;
+  vertical-align: baseline;
+
+}
 a:hover, a:focus {
   color: #c6202e;
   text-decoration: none; }
@@ -846,6 +858,39 @@ section.quick-solution {
     color: #888;
     text-transform: uppercase; }
 
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+    display: block;
+    height: 0px;
+    opacity: 0;
+}
+.tab-content > .active,
+.pill-content > .active {
+    opacity: 1;
+    height: auto;
+}
+
+.tab-pane.fade > div.col-sm-12{
+    float: none;
+}
+.tab-content > .active div.col-sm-12{
+    float: initial;
+}
+.nav-tabs > li > a{
+    z-index: 10;
+}
+.ajax-solution{
+    display: none;
+}
+.load {
+    text-align: center;
+    padding: 90px 0 20px;
+}
+
+
+
+
+
 .pb-machines.variant img {
   width: auto;
   height: 80px;
@@ -1040,12 +1085,16 @@ section.news {
 
 .product-foto {
   max-width: 350px;
+  position: relative;
+  overflow: hidden;
   margin: 0 auto 30px; }
+
   .product-foto .slider-nav.slick-initialized.slick-slider {
     margin: 15px auto  15px;
     width: 86%; }
   .product-foto .slick-slide img {
     max-width: 345px;
+    height:auto;
     width: 100%; }
   .product-foto .slider-nav .slick-slide {
     margin: auto;
@@ -1100,10 +1149,16 @@ section.news {
   font-size: 14px;
   line-height: 1.2; }
   .product-params .block-content ul {
-    list-style: none; }
+    list-style: none;
+    display: table;
+    }
     .product-params .block-content ul li {
-      margin-bottom: 5px; }
-
+      margin-bottom: 5px;
+      display: table-row;
+    }
+    .product-params .block-content ul li span {
+      display: table-cell;
+    }
 .total-price-product {
   background-color: #edac1a;
   color: #000;
@@ -1346,35 +1401,43 @@ section.news {
 /****/
 /**catalog page**/
 /****/
+
+.hits {
+  position: absolute;
+  top: 8px;
+  right: -32px;
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 40px;
+  display: block;
+  color: #fff;
+  background-color: #ccc;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 15;
+  font-weight: bold;
+  text-transform: uppercase; }
+.hits.aktsiya {
+  background-color: red; }
+.hits.zakaz {
+  background-color: yellow;
+  color: #000; }
+
+
+
+
+
 .product-item {
   background-color: #fff;
   margin-bottom: 30px;
   overflow: hidden;
   margin: 0 auto 40px;
   position: relative; }
-  .product-item .hits {
-    position: absolute;
-    top: 8px;
-    right: -32px;
-    width: 120px;
-    height: 40px;
-    text-align: center;
-    font-size: 14px;
-    line-height: 40px;
-    display: block;
-    color: #fff;
-    background-color: #ccc;
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-    z-index: 15;
-    font-weight: bold;
-    text-transform: uppercase; }
-  .product-item .hits.aktsiya {
-    background-color: red; }
-  .product-item .hits.zakaz {
-    background-color: yellow;
-    color: #000; }
+
+
   .product-item .block-title {
     padding: 8px 10px;
     background-color: #343740;
@@ -1387,21 +1450,33 @@ section.news {
     padding-bottom: 5px; }
     .product-item .block-content img {
       width: 100%;
-      max-width: 320px; }
+        height:auto;
+      max-width: 180px; }
     .product-item .block-content .main-params {
       border-top: 1px solid #343740;
       border-bottom: 1px solid #343740;
       list-style: none;
       margin-top: 5px;
+      display: block;
+
+        text-align: left;
       padding: 7px 0; }
       .product-item .block-content .main-params li {
         padding: 5px;
+          display: table-row;
         overflow: hidden;
         font-size: 12px; }
-        .product-item .block-content .main-params li .nm {
-          float: left; }
+        .product-item .block-content .main-params li .nm,
+        .product-item .block-content .main-params li .label{
+            display: block;
+            width: 70%;
+          float: left;
+        }
         .product-item .block-content .main-params li .value {
-          float: right; }
+          float: right;
+            display: block;
+            width: 30%;
+        }
     .product-item .block-content .price-card {
       text-align: center;
       margin-bottom: 15px; }

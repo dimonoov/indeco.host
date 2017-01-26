@@ -265,7 +265,7 @@ function register_post_types() {
 
 }
 
-
+add_image_size( 'product', '230', '220', true);
 
 
 // Подключаем локализацию в самом конце подключаемых к выводу скриптов, чтобы скрипт
@@ -306,11 +306,6 @@ function myajax_data(){
     [qty] => QTY,
     [sum] => SUM
 );*/
-
-
-
-
-
 
 
 function add_to_cart() {

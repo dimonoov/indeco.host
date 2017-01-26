@@ -149,7 +149,8 @@ jQuery(document).ready(function($){
         "wrapNative": false,
         "wrapNativeOnMobile": false,
         "fakeDropInBody": false,
-        "useCustomScroll": false
+        "useCustomScroll": false,
+        "holder" : 'holder'
     });
     // jcf.setOptions('Radio', {
     //     "wrapNative": false,

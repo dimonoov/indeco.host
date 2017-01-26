@@ -147,29 +147,79 @@ get_header();
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product-item">
                                     <div class="block-title"><?php the_title()?></div>
-                                    <div class="hits aktsiya">Акция</div>
+                                    <?php if(get_field('action') == 1):?>
+                                        <div class="hits aktsiya">Акция</div>
+                                    <?php endif;?>
+                                    <?php if(get_field('zakaz') == 1):?>
+                                        <div class="hits zakaz">Заказ</div>
+                                    <?php endif;?>
                                     <div class="block-content">
-                                        <img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="">
+                                        <?php if(has_post_thumbnail()) : the_post_thumbnail(); else :?>
+                                            <img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt="">
+                                        <?php endif;?>
                                         <ul class="main-params">
-                                            <li><span class="nm">Эксплуатационная масса:</span><span class="value">380 кг.</span></li>
-                                            <li><span class="nm">Максимальное открытие:</span><span class="value">1500 мм.</span></li>
-                                            <li><span class="nm">Грузоподъёмность:</span><span class="value">170 л.</span></li>
-                                            <li><span class="nm">Ширина щёк:</span><span class="value">600 мм.</span></li>
-                                            <li><span class="nm">Масса:</span><span class="value"><?php echo the_field('massa');?> кг.</span></li>
-                                            <li><span class="nm">Грузоподъёмность:</span><span class="value"><?php echo the_field('capacity');?> л.</span></li>
+                                            <!--						// clips-->
+                                            <?php $field = get_field_object('clips_weight_ekskavatora'); if(!empty($field['value'])):?>
+                                                <li><span class="label"><?php  echo 'oo'.$field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php $field = get_field_object('clips_weight'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('clips_zahvat'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('clips_height'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php $field = get_field_object('clips_width');  if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+
+                                            <!--						//grefer-->
+                                            <?php $field = get_field_object('grefer_weight'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php $field = get_field_object('grefer_bar');  if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php $field = get_field_object('grefer_max_maslo');  if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php   $field = get_field_object('grefer_bar_route'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('grefer_debit_maslo'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+
+
+                                            <!--						// molot-->
+                                            <?php  $field = get_field_object('molot_weight_eks'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('molot_weight_work'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('molot_diam_pici'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('molot_maslo'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('molot_bar_g'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+
                                         </ul>
                                         <div class="price-card">
-
                                             <span><?php echo get_field('price')?> <i class="fa fa-rub"></i></span>
-                                            <s>450 00 <i class="fa fa-rub"></i></s>
+                                            <s><?php echo get_field('old_price')?> <i class="fa fa-rub"></i></s>
                                         </div>
                                         <div class="btn-wrap">
                                             <a href="<?php the_permalink();?>" class="details">Подробнее</a>
                                             <form class="action_cart" metod="post">
-
-                                                <input class="nm" name="product_id" value="12" type="hidden">
+                                                <input class="nm" name="product_id" value="<?php the_ID();?>" type="hidden">
                                                 <input class="btn-buy btn-s" data-action="addToCart" value="Купить" type="submit" placeholder="">
-
                                             </form>
 
                                         </div>
