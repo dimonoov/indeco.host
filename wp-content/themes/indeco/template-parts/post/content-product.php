@@ -18,6 +18,9 @@
 				<?php if(get_field('action') == 1):?>
 					<div class="hits aktsiya">Акция</div>
 				<?php endif;?>
+				<?php if(get_field('zakaz') == 1):?>
+					<div class="hits zakaz">Заказ</div>
+				<?php endif;?>
 				<?php if(!has_post_thumbnail()):?>
 					<div>
 						<img src='<?php echo get_template_directory_uri()?>/assets/img/No-image-found.jpg' alt=''>
@@ -86,7 +89,7 @@
 					<ul>
 <!--						// clips-->
 						<?php $field = get_field_object('clips_weight_ekskavatora'); if(!empty($field['value'])):?>
-							<li><span class="label"><?php  echo 'oo'.$field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
 						<?php $field = get_field_object('clips_weight'); if(!empty($field['value'])): ?>
 							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
@@ -127,10 +130,65 @@
 						<?php $field = get_field_object('clips_vo');  if(!empty($field['value'])) : ?>
 							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
+
+						<?php $field = get_field_object('clips_vz');  if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
 						<?php  $field = get_field_object('clips_spg'); if(!empty($field['value'])): ?>
 							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
 						<?php endif; ?>
-
+						<?php $field = get_field_object('clips_maslo_podacha');  if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php $field = get_field_object('clips_reglam_bar_rotate');  if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php $field = get_field_object('clips_soed_pat_gidr');  if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php $field = get_field_object('clips_velocity');  if(!empty($field['value'])) : ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_skpmkm'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<!--			clips_new-->
+						<?php  $field = get_field_object('clips_weight_string'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_weight_ruka'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_weight_without'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_debit_maslo'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_power_point'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_weight_string'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_width_chelu'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_razmah_chelust'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_dlina_knifes'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_ipe'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_hea'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
+						<?php  $field = get_field_object('clips_sovmes_molot'); if(!empty($field['value'])): ?>
+							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+						<?php endif; ?>
 
 <!--						//grefer-->
 						<?php $field = get_field_object('grefer_weight'); if(!empty($field['value'])): ?>
@@ -270,30 +328,120 @@
 		?>
 		<?php foreach ($related as $rel => $item):?>
 			<div class="col-md-4 col-sm-6">
-				<div class="product-item">
+				<div class="product-item eh1">
 					<div class="block-title"><?php echo $item->post_title?></div>
-					<?php if(get_field('action') == 1):?>
+					<?php if(get_field('action', $item->ID) == 1):?>
 						<div class="hits aktsiya">Акция</div>
 					<?php endif;?>
-					<?php if(get_field('zakaz') == 1):?>
+					<?php if(get_field('zakaz',  $item->ID) == 1):?>
 						<div class="hits zakaz">Заказ</div>
 					<?php endif;?>
 					<div class="block-content">
-						<img src="<?php echo get_theme_file_uri();?>/assets/img/product-foto.jpg" alt="">
+						<?php if(has_post_thumbnail($item->ID)) : echo get_the_post_thumbnail($item->ID); else :?>
+							<img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt="">
+						<?php endif;?>
 						<ul class="main-params">
-							<li><span class="nm">Эксплуатационная масса:</span><span class="value">380 кг.</span></li>
-							<li><span class="nm">Максимальное открытие:</span><span class="value">1500 мм.</span></li>
-							<li><span class="nm">Грузоподъёмность:</span><span class="value">170 л.</span></li>
-							<li><span class="nm">Ширина щёк:</span><span class="value">600 мм.</span></li>
+							<!--						// clips-->
+							<?php $field = get_field_object('clips_weight_ekskavatora', $item->ID); if(!empty($field['value'])):?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php $field = get_field_object('clips_weight', $item->ID); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('clips_zahvat', $item->ID); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('clips_height', $item->ID); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php $field = get_field_object('clips_width', $item->ID);  if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+
+<!--							clipsnew-->
+							<?php  $field = get_field_object('clips_weight_string'); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('clips_weight_ruka'); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('clips_weight_without'); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('clips_debit_maslo'); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('clips_power_point'); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+
+							<!--						//grefer-->
+							<?php $field = get_field_object('grefer_weight', $item->ID); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php $field = get_field_object('grefer_bar', $item->ID);  if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php $field = get_field_object('grefer_max_maslo', $item->ID);  if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php   $field = get_field_object('grefer_bar_route', $item->ID); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('grefer_debit_maslo', $item->ID); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('grefer_weight_up', $item->ID); if(!empty($field['value'])): ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+
+
+							<!--						// molot-->
+							<?php  $field = get_field_object('molot_weight_eks', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('molot_weight_work', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('molot_diam_pici', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('molot_maslo', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('molot_bar_g', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+
+
+<!--							//vibro-->
+							<?php  $field = get_field_object('vibro_weight_eks', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('vibro_weight_plot', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('vibro_height_plot', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('vibro_plastina', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('vibro_rotate', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
+							<?php  $field = get_field_object('vibro_centerob', $item->ID); if(!empty($field['value'])) : ?>
+								<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+							<?php endif; ?>
 						</ul>
 						<div class="price-card">
-							<span><?php the_field('price')?> <i class="fa fa-rub"></i></span>
-							<s><?php the_field('old_price')?>  <i class="fa fa-rub"></i></s>
+							<span><?php the_field('price', $item->ID)?> <i class="fa fa-rub"></i></span>
+							<s><?php the_field('old_price', $item->ID)?>  <i class="fa fa-rub"></i></s>
 						</div>
 						<div class="btn-wrap">
-							<a href="<?php the_permalink();?>" class="details">Подробнее</a>
+							<a href="<?php echo $item->guid;?>" class="details">Подробнее</a>
 							<form class="action_cart" metod="post">
-								<input class="nm" name="product_id" value="<?php the_ID();?>" type="hidden">
+								<input class="nm" name="product_id" value="<?php echo $item->ID;?>" type="hidden">
 								<input class="btn-buy btn-s" data-action="addToCart" value="Купить" type="submit" placeholder="">
 							</form>
 						</div>

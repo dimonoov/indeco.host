@@ -115,7 +115,7 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="wrap-content clearfix">
+							<div class="wrap-content bg-pic clearfix">
 								<div class="col-sm-9">
 									<div class="text-content">
 										<h2 class="h2">Инновационные ответы на потребности современного рынка</h2>

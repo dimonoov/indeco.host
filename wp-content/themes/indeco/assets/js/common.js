@@ -1,86 +1,93 @@
 
 jQuery(document).ready(function($){
+    //equalheight - одинаковая высота колонок
+    //Пример списка элементов:
+    //var eqElement = ".cat_container > div, .home_news > div"
 
     $('form#solution #submit-button').click(function(e){
         e.preventDefault();
-        console.log("attivita");
-        var attivita = $('select#attivita option:selected').val();
-        console.log(attivita);
+        if($(this).hasClass('red-variant')) {
+            console.log("attivita");
+            var attivita = $('select#attivita option:selected').val();
+            console.log(attivita);
 
-        $.ajax({
-            data: { attivita: attivita, 'action' : 'find_solution'},
-            url: myajax.url,
-            type: 'POST',
-            dataType: "json",
-            beforeSend: function(){
-                $(".ajax-solution").fadeIn();
-                $("#myTabContent").html('<div class="load" ><img src="/wp-content/themes/indeco/assets/img/loading-slider.gif"></div>');
-            },
-            success: function(res){
-                console.log(res);
-                if(!res) alert('Ошибка!');
-                if(res !== null){
+            $.ajax({
+                data: { attivita: attivita, 'action' : 'find_solution'},
+                url: myajax.url,
+                type: 'POST',
+                dataType: "json",
+                beforeSend: function(){
+                    $(".ajax-solution").fadeIn();
+                    $("#myTabContent").html('<div class="load" ><img src="/wp-content/themes/indeco/assets/img/loading-slider.gif"></div>');
+                },
+                success: function(res){
+                    console.log(res);
+                    if(!res) alert('Ошибка!');
+                    if(res !== null){
 
-                    $("#solutionfinderindustry").find('.nav.nav-tabs').html("");
-                    $("#myTabContent").html("");
+                        $("#solutionfinderindustry").find('.nav.nav-tabs').html("");
+                        $("#myTabContent").html("");
 
-                    var count = 0;
-                    for (var prop in res['json']) {
-                        console.log(res['json'][prop] ); // name, surname, age
-                        for (var child in res['json'][prop]) {
-                            $("#solutionfinderindustry").find('.nav.nav-tabs').append('<li><a href="#' + child + '" data-toggle="tab" aria-expanded="true">' + prop + '</a></li>');
-                            var active = "";
-                            if (count == 0)  active = "active in";
-                            count = count + 1;
+                        var count = 0;
+                        for (var prop in res['json']) {
+                            console.log(res['json'][prop] ); // name, surname, age
+                            for (var child in res['json'][prop]) {
+                                $("#solutionfinderindustry").find('.nav.nav-tabs').append('<li><a href="#' + child + '" data-toggle="tab" aria-expanded="true">' + prop + '</a></li>');
+                                var active = "";
+                                if (count == 0)  active = "active in";
+                                count = count + 1;
+                            }
                         }
+
+                        $("#myTabContent").html(res['html']);
+                        var slider = $('.responsive').slick({
+                            centerPadding: '1px',
+                            respondTo: 'slider',
+                            slickGoTo: 1,
+                            dots: true,
+                            infinite: true,
+                            speed: 300,
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            responsive: [
+                                {
+                                    breakpoint: 1200,
+                                    settings: {
+                                        slidesToShow: 2,
+                                        slidesToScroll: 1
+                                    }
+                                },
+                                {
+                                    breakpoint: 992,
+                                    settings: {
+                                        slidesToShow: 1,
+                                        slidesToScroll: 1
+                                    }
+                                }
+
+                            ]
+                        });
+
+                    }
+                    else if(!res['json']) {
+                        $('#solutionfinderindustry').find('.sfi-title').html('Товары не найдены');
                     }
 
-                    $("#myTabContent").html(res['html']);
-                    var slider = $('.responsive').slick({
-                        centerPadding: '1px',
-                        respondTo: 'slider',
-                        slickGoTo: 1,
-                        dots: true,
-                        infinite: true,
-                        speed: 300,
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        responsive: [
-                            {
-                                breakpoint: 1200,
-                                settings: {
-                                    slidesToShow: 2,
-                                    slidesToScroll: 1
-                                }
-                            },
-                            {
-                                breakpoint: 992,
-                                settings: {
-                                    slidesToShow: 1,
-                                    slidesToScroll: 1
-                                }
-                            }
 
-                        ]
-                    });
-
+                },
+                error: function(){
+                    alert('Error!');
                 }
-                else {
+            });
+            return false;
+        }
 
-                }
-
-
-            },
-            error: function(){
-                alert('Error!');
-            }
-        });
-        return false;
 
     });
 
     $('#application').change(function (){
         console.log("application");
+        $('#submit-button').removeClass('red-variant');
         $.ajax({
             type: "POST",
             url: myajax.url,
@@ -92,7 +99,7 @@ jQuery(document).ready(function($){
                 $("#attivita").attr('disabled', true);
             },
             success: function (msg) {
-
+                $('#step3').addClass('active');
                 $("#attivita").html(msg);
                 $("#attivita").attr('disabled', false);
                 //$('.popup-overlay-white').fadeIn(500);
@@ -104,6 +111,7 @@ jQuery(document).ready(function($){
 
     $('#industria').change(function (e){
         console.log("industry");
+        $('#submit-button').removeClass('red-variant');
         $.ajax({
             type: "POST",
             url: myajax.url,
@@ -115,7 +123,7 @@ jQuery(document).ready(function($){
                 $("#application").attr('disabled', true);
             },
             success: function (msg) {
-
+                $('#step2').addClass('active');
                 $("#application").html(msg);
                 $("#application").attr('disabled', false);
                 //$('.popup-overlay-white').fadeIn(500);
@@ -125,7 +133,9 @@ jQuery(document).ready(function($){
         })
     });
 
-
+    $('#attivita').change(function (e){
+        $('#submit-button').addClass('red-variant');
+    });
 
   //
   // console.log(document.location);
@@ -252,13 +262,6 @@ jQuery(document).ready(function($){
     });
 
 
-    //equalheight - одинаковая высота колонок
-    //Пример списка элементов:
-    //var eqElement = ".cat_container > div, .home_news > div"
-    var eqElement = ".eh";
-    $(window).load(function(){equalheight(eqElement);}).resize(function(){equalheight(eqElement);});
-    var eqElement1 = ".eht";
-    $(window).load(function(){equalheight(eqElement1);}).resize(function(){equalheight(eqElement1);});
 
       //  scroll
     var $menu = $("#menu");
@@ -400,6 +403,8 @@ jQuery(document).ready(function($){
                 else {
                     $("#top-cart").find(".fa-shopping-cart span").fadeOut();
                     $("#top-cart").find("a ").html("Корзина пуста");
+                    $(".client-info").remove();
+                    $(".btns").remove();
                     showCart(res["html"]);
                 }
 
@@ -498,7 +503,20 @@ jQuery(document).ready(function($){
         }
     );
 
+
+
+    $("[type=reset]").on('click', function (){
+        delete_product_in_cart(-1);
+        return false;
+    });
+
 });
+
+var eqElement = ".eh";
+jQuery(document).ready(function(){equalheight(eqElement);}).resize(function(){equalheight(eqElement);});
+
+var eqElement1 = ".eh1";
+jQuery(document).ready(function(){equalheight(eqElement1);}).resize(function(){equalheight(eqElement1);});
 
 
 

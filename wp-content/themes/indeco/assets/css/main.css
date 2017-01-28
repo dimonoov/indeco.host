@@ -98,7 +98,15 @@ address {
 /****/
 /** common*/
 /***/
-
+.jcf-list .jcf-option{
+  white-space: normal;
+}
+.jcf-select .jcf-select-text{
+  white-space: normal;
+}
+section.quick-solution .jcf-select-text{
+  line-height: 1.2;
+}
 .btn-del{
     background-image: url("../img/del.png");
     display: inline-block;
@@ -470,6 +478,14 @@ form .form-group {
 /**/
 /** top-line **/
 /**/
+.empty{
+  text-align: center;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 40px;
+  margin-bottom:20px;
+  background-color: #fff;
+}
 #top-cart {
   margin-right: 10px; }
 
@@ -514,7 +530,8 @@ form .form-group {
         font-size: 18px;
         background-color: red;
         padding: 2px;
-        width: 20px;
+        width: auto;
+        min-width: 20px;
         height: 20px;
         text-align: center;
         -webkit-border-radius: 50%;
@@ -533,7 +550,7 @@ form .form-group {
   background-repeat: no-repeat;
   background-position: right center;
   position: relative; }
-  .wrap-content::after {
+  .wrap-content.bg-pic::after {
     position: absolute;
     top: 0;
     right: 0;
@@ -552,6 +569,9 @@ form .form-group {
 
 .header .wrap-header img {
   width: 100%; }
+.header   .wrap-content{
+  position: relative;
+}
 
 /**/
 /** mobilemenu**/
@@ -795,6 +815,17 @@ section.quick-solution {
 /*****/
 /** ajax solution ***/
 /*****/
+.call-to-action.red-variant {
+  color: #FFF;
+  background: #C90000;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  border:none;
+}
+
 .ajax-solution {
   background-color: #fff;
   padding: 50px 15px; }
@@ -1257,7 +1288,7 @@ section.news {
   padding-bottom: 100px; }
   .main .wrap-content {
     margin: 0 15px;
-    padding: 0;
+    /*padding: 0;*/
     min-height: 300px; }
     .main .wrap-content .text-content {
       padding: 25px 25px 30px 10px; }
@@ -1457,7 +1488,22 @@ section.news {
   color: #000; }
 
 
-
+.main-params li {
+  padding: 5px;
+  display: table-row;
+  overflow: hidden;
+  font-size: 12px; }
+.main-params li .nm,
+.main-params li .label{
+  display: block;
+  width: 85%;
+  float: left;
+}
+.main-params li .value {
+  float: right;
+  display: block;
+  width: 15%;
+}
 
 
 .product-item {
@@ -1489,24 +1535,9 @@ section.news {
       margin-top: 5px;
       display: block;
 
-        text-align: left;
+      text-align: left;
       padding: 7px 0; }
-      .product-item .block-content .main-params li {
-        padding: 5px;
-          display: table-row;
-        overflow: hidden;
-        font-size: 12px; }
-        .product-item .block-content .main-params li .nm,
-        .product-item .block-content .main-params li .label{
-            display: block;
-            width: 85%;
-          float: left;
-        }
-        .product-item .block-content .main-params li .value {
-          float: right;
-            display: block;
-            width: 15%;
-        }
+
     .product-item .block-content .price-card {
       text-align: center;
       margin-bottom: 15px; }
@@ -1541,9 +1572,15 @@ section.news {
   margin-bottom: 50px;
   padding-bottom: 0; }
   .main .product-cat h2 {
-    margin: 20px; }
+    /*margin: 20px; */
+  }
   .main .product-cat .product_foto {
     text-align: center; }
+    .main .product-cat .product_foto a:hover,
+    .main .product-cat .product_foto a:focus{
+      text-decoration: underline;
+      color: #0b0b0b;
+    }
     .main .product-cat .product_foto img {
       width: 100%;
       max-width: 240px; }
@@ -1555,6 +1592,9 @@ section.news {
     .main .product-cat ul li a {
       font-size: 12px;
       color: #ccc; }
+    .main .product-cat ul li a:hover {
+      text-decoration: underline;
+    }
   .main .product-cat ul li.title-category {
     margin-bottom: 5px;
     font-weight: bold;
@@ -1567,7 +1607,8 @@ section.news {
     display: inline-block; }
   .main .product-cat .col-left {
     float: left;
-    max-width: 50%; }
+    /*max-width: 50%; */
+  }
   .main .product-cat::after {
     content: "";
     position: absolute;
@@ -1657,3 +1698,17 @@ section.news {
 /*****/
 .ajax-article .article_poster img {
   width: 100%; }
+
+
+
+
+
+/****/
+/***kontakt-page**/
+/*****/
+.kontakt{
+  margin-top: 50px;
+}
+.kontakt .deliveri .block-content .content-item .item.textarea-block textarea{
+
+}

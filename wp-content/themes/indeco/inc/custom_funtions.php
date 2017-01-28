@@ -339,7 +339,14 @@ function remove_from_cart() {
     $product_id = (int)$_POST['product_id'];
 
     session_start() ;
-
+    if($product_id == -1){
+        unset($_SESSION['cart']);
+        $rez['json']['qty'] = null;
+//        $rez['json']['sum'] = 0;
+        $rez['html'] = '<div class="empty">Корзина пуста</div><a class="go_back" href="/katalog">Вернуться в каталог</a>';
+        echo json_encode($rez,  JSON_HEX_TAG);
+        exit();
+    }
     recalc($product_id);
     $html = cart_view();
     $rez['html'] = $html;
@@ -474,16 +481,8 @@ function cart_view() {
         $content .= '    </div>';
         $content .= ' </div>';
     else :
-        $content .= '<style>   .empty{
-                    text-align: center;
-                    font-size: 24px;
-                    text-transform: uppercase;
-                    padding: 40px;
-                    margin-bottom:20px;
-                    background-color: #fff;
-                }
-            </style>';
-        $content .= '<div class="empty">Корзина пуста</div>';
+
+        $content .= '<div class="empty">Корзина пуста</div><a class="go_back" href="/katalog">Вернуться в каталог</a>';
 
     endif;
 
@@ -1178,13 +1177,47 @@ function industry(){
     $term_slug = $_POST['industry'];
     $term = term_exists($term_slug, 'sector_cat');
    // $term = get_term_by( 'id', $term['term_id'], "sector_cat" );
+//var_dump($term);
+    //$related_terms = get_field('related_terms', 'sector_cat' . '_' .$term['term_id']);
+    $args = array(
+        'taxonomy'      => array( 'sector_cat' ), // название таксономии с WP 4.5
+        'orderby'       => 'id',
+        'order'         => 'ASC',
+        'hide_empty'    => false,
+        'object_ids'    => null, //
+        'include'       => array(),
+        'exclude'       => array(),
+        'exclude_tree'  => array(),
+        'number'        => '',
+        'fields'        => 'all',
+        'count'         => false,
+        'slug'          => '',
+        'parent'         => $term['term_id'],
+        'hierarchical'  => true,
+        'child_of'      => 0,
+        'get'           => '', // ставим all чтобы получить все термины
+        'name__like'    => '',
+        'pad_counts'    => false,
+        'offset'        => '',
+        'search'        => '',
+        'cache_domain'  => 'core',
+        'name'          => '', // str/arr поле name для получения термина по нему. C 4.2.
+        'childless'     => false, // true не получит (пропустит) термины у которых есть дочерние термины. C 4.2.
+        'update_term_meta_cache' => true, // подгружать метаданные в кэш
+        'meta_query'    => '',
+    );
 
-    $related_terms = get_field('related_terms', 'sector_cat' . '_' .$term['term_id']);
+    $myterms = get_terms( $args );
+//    var_dump($myterms);
 
-//    var_dump( $related_terms );
-    if( $related_terms !== false){
+//    foreach( $myterms as $term ){
+//        print_r($term);
+//    }
+//    $chilren_term = get_terms($args)
 
-        foreach(  $related_terms as $term ){
+    if( !empty($myterms)){
+
+        foreach(  $myterms as $term ){
            echo '<option value="'.$term->slug.'">'.$term->name.'</option>';
         }
     }

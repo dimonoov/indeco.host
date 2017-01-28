@@ -174,6 +174,22 @@ get_header();
                                             <?php $field = get_field_object('clips_width');  if(!empty($field['value'])): ?>
                                                 <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
                                             <?php endif; ?>
+<!--                                            clipsnew-->
+                                            <?php  $field = get_field_object('clips_weight_string'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('clips_weight_ruka'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('clips_weight_without'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('clips_debit_maslo'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('clips_power_point'); if(!empty($field['value'])): ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
 
                                             <!--						//grefer-->
                                             <?php $field = get_field_object('grefer_weight'); if(!empty($field['value'])): ?>
@@ -209,7 +225,24 @@ get_header();
                                             <?php  $field = get_field_object('molot_bar_g'); if(!empty($field['value'])) : ?>
                                                 <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
                                             <?php endif; ?>
-
+                                            <?php  $field = get_field_object('vibro_weight_eks'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('vibro_weight_plot'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('vibro_height_plot'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('vibro_plastina'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('vibro_rotate'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
+                                            <?php  $field = get_field_object('vibro_centerob'); if(!empty($field['value'])) : ?>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                            <?php endif; ?>
                                         </ul>
                                         <div class="price-card">
                                             <span><?php echo get_field('price')?> <i class="fa fa-rub"></i></span>
@@ -244,7 +277,7 @@ get_header();
             </div>
         </div>
         <div class="row ">
-            <div class="wrap-content ">
+            <div class="wrap-content bg-pic ">
                 <div class="col-sm-9">
                     <div class="text-content">
                         <h2 class="h2">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</h2>

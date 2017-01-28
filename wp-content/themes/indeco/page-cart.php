@@ -98,7 +98,7 @@ get_header(); ?>
 											<span class="required">*</span> Телефон
 										</div>
 										<div class="item">
-											<input type="tel" name="tel">
+											<input type="tel" name="phone">
 										</div>
 									</div>
 								</div>
@@ -219,7 +219,7 @@ get_header(); ?>
 								<div class="block-content">
 									<div class="content-item">
 										<div class="item">
-											<select name="customer" id="delivery">
+											<select name="transport" id="delivery">
 												<option value="1">Транспортная компания</option>
 												<option value="2">group2</option>
 												<option value="3">group3</option>
@@ -249,7 +249,7 @@ get_header(); ?>
 								<div class="block-content">
 									<div class="content-item">
 										<div class="item textarea-block">
-											<textarea name="name" rows="3" ></textarea>
+											<textarea name="kom" rows="3" ></textarea>
 										</div>
 
 									</div>
@@ -261,7 +261,7 @@ get_header(); ?>
 					</div>
 				</div>
 				<div class="container">
-					<div class="row">
+					<div class="row btns">
 						<div class="col-md-5 col-sm-6 col-md-offset-1 col-xs-6 w100">
 							<div class="btn-wrap text-left">
 								<button type="reset"  class="details" value="">Очистить корзину</button>

@@ -167,7 +167,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 							if($assign->parent == 0
 //								&& !empty(is_post_in_children_term($assign->term_id, $assign->taxonomy))
-								&& !empty(is_post_in_term_tax( 'assign_cat', "product_cat", $assign->slug, $product->slug))
+//								&& !empty(is_post_in_term_tax( 'assign_cat', "product_cat", $assign->slug, $product->slug))
 							) : ?>
 								<li class="has-submenu">
 									<a href="#"> <?php echo $assign->name?> </a> <!-- На марку техники-->
