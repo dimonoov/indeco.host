@@ -3,7 +3,40 @@ jQuery(document).ready(function($){
     //equalheight - одинаковая высота колонок
     //Пример списка элементов:
     //var eqElement = ".cat_container > div, .home_news > div"
+    $('.link-more').click(function (e) {
+        e.preventDefault();
+        var link = $(this);
+        var cat = link.data('product');
+        var assign = link.data('assign');
+        var offset = link.data('offset');
+        var uri = link.data('uri');
+        console.log(offset);
+        $.ajax({
+            type: "POST",
+            url: myajax.url,
+            data: {
+                'action': 'product_more',
+                cat: cat,
+                assign: assign,
+                offset: offset,
+                uri: uri
+            },
+            beforeSend: function (msg) {
 
+            },
+            success: function (msg) {
+                var next = parseInt(offset)+3;
+                link.attr('data-offset',next);
+                $('#content-main').append(msg);
+
+
+
+                //$('.popup-overlay-white').fadeIn(500);
+                // window.location.href = "thanks.html";
+                // form[0].reset();
+            }
+        })
+    });
     $('form#solution #submit-button').click(function(e){
         e.preventDefault();
         if($(this).hasClass('red-variant')) {
@@ -86,6 +119,7 @@ jQuery(document).ready(function($){
     });
 
     $('#application').change(function (){
+        $("#step3").removeClass('active');
         console.log("application");
         $('#submit-button').removeClass('red-variant');
         $.ajax({
@@ -111,6 +145,8 @@ jQuery(document).ready(function($){
 
     $('#industria').change(function (e){
         console.log("industry");
+        $("#step3").removeClass('active');
+        $("#step2").removeClass('active');
         $('#submit-button').removeClass('red-variant');
         $.ajax({
             type: "POST",

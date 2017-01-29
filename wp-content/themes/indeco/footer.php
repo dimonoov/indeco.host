@@ -21,32 +21,47 @@
 			<div class="row foot-menu">
 				<div class="col-md-2 col-sm-4 col-xs-6 w100">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="#"><img src="<?php echo get_template_directory_uri()?>/assets/img/logo.png" alt=""></a>
+						<?php the_custom_logo(); ?>
+<!--						<a class="navbar-brand" href="#"><img src="--><?php //echo get_template_directory_uri()?><!--/assets/img/logo.png" alt=""></a>-->
 					</div>
 				</div>
+<!--				--><?php //get_template_part( 'template-parts/footer/footer', 'widgets' );?>
+				<?php if ( has_nav_menu( 'social' ) ) : ?>
+<!--				<nav class="social-navigation" role="navigation" aria-label="--><?php //_e( 'Footer Social Links Menu', 'twentyseventeen' ); ?><!--">-->
+<!--					--><?php
+//					wp_nav_menu( array(
+//						'theme_location' => 'social',
+//						'menu_class'     => 'social-links-menu',
+//						'depth'          => 2,
+//						'link_before'    => '<span class="screen-reader-text">',
+//						'link_after'     => '</span>' . twentyseventeen_get_svg( array( 'icon' => 'chain' ) ),
+//					) );
+//					?>
+<!--				</nav><!-- .social-navigation -->
+				<?php endif;?>
 				<div class="col-md-2 col-sm-4 col-xs-6 w100">
 					<p>О компании</p>
 					<ul class="foot-item">
-						<li><a href="#">Каталог продукции</a></li>
-						<li><a href="#">Скачать прайс</a></li>
-						<li><a href="#">Новости</a></li>
-						<li><a href="#">Контакты</a></li>
+						<li><a href="/katalog">Каталог</a></li>
+						<li><a href="/price">Скачать прайс</a></li>
+						<li><a href="/novosti">Новости</a></li>
+
 					</ul>
 				</div>
 				<div class="col-md-2 col-sm-4 col-xs-6 w100">
 					<p>Покупателям</p>
 					<ul class="foot-item">
-						<li><a href="#">Как купить</a></li>
-						<li><a href="#">Обслуживание</a></li>
-						<li><a href="#">Контакты</a></li>
+						<li><a href="/kak-kupit">Как купить</a></li>
+						<li><a href="/obsluzhivanie">Обслуживание</a></li>
+						<li><a href="/kontakty">Контакты</a></li>
 					</ul>
 				</div>
 				<div class="col-md-2 col-sm-4 col-xs-6 w100">
 					<p>Дополнения</p>
 					<ul class="foot-item">
-						<li><a href="#">Видео</a></li>
-						<li><a href="#">Фото</a></li>
-						<li><a href="#">Распродажа</a></li>
+						<li><a href="/video">Видео</a></li>
+						<li><a href="/foto">Фото</a></li>
+						<li><a href="/rasprodazha">Распродажа</a></li>
 					</ul>
 				</div>
 				<div class="col-md-2 col-sm-4 col-xs-6 w100">
@@ -67,9 +82,8 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					<p>
-						© 2016 Indeco Ind. SpA. Италия 70132 Bari З.И. Viale Lindemann 10 - T 531 080 +39 33 70 - F 080 537 +39 79 76 - E info@indeco.it   НДС No. / ИНН 05949910722 - Основной капитал € 5.200.000,00 (полностью оплачен) | Бари Бизнес Регистра н. 452362 | Общие условия продажи
-					</p>
+					<?php get_template_part( 'template-parts/footer/site', 'info' );?>
+
 				</div>
 			</div>
 		</div>

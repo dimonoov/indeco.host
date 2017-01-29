@@ -9,27 +9,33 @@
  */
 
 ?>
-<div class="site-branding">
-	<div class="wrap">
 
-		<?php the_custom_logo(); ?>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="wrap-content bg-pic site-branding clearfix">
+			<div class="col-sm-9">
+				<div class="text-content">
+					<h2 class="h2"><?php bloginfo( 'name' ); ?>Инновационные ответы на потребности современного рынка</h2>
+					<?php $description = get_bloginfo( 'description', 'display' );
+					if ( $description || is_customize_preview() ) : ?>
+						<p class="site-description"><?php echo $description; ?></p>
+					<?php endif; ?>
+<!--					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident voluptatum odit molestiae vel hic explicabo numquam dolor quia earum commodi, temporibus alias ducimus, sint odio laborum perspiciatis dignissimos rerum consectetur velit excepturi fuga nisi ut repellendus dolore. Unde eligendi tenetur, at reprehenderit? Esse eum laudantium, corrupti exercitationem, itaque sed atque. </p>-->
+<!--					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident voluptatum odit molestiae vel hic explicabo numquam dolor quia earum commodi, temporibus alias ducimus, sint odio laborum perspiciatis dignissimos rerum consectetur velit excepturi fuga nisi ut repellendus dolore. Unde eligendi tenetur, at reprehenderit? Esse eum laudantium, corrupti exercitationem, itaque sed atque. </p>-->
+				</div>
+			</div>
+			<div class="col-sm-3">
 
-		<div class="site-branding-text">
-			<?php if ( is_front_page() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php endif; ?>
+			</div>
+			<div class="col-sm-12">
+				<div class="btn-wrap">
+					<a href="#" class="button hist">История компании</a>
+<!--					<a href="#content" class="menu-scroll-down">--><?php //echo twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ); ?><!--<span class="screen-reader-text">--><?php //_e( 'Scroll down to content', 'twentyseventeen' ); ?><!--</span></a>-->
+				</div>
 
-			<?php $description = get_bloginfo( 'description', 'display' );
-				if ( $description || is_customize_preview() ) : ?>
-					<p class="site-description"><?php echo $description; ?></p>
-				<?php endif; ?>
-		</div><!-- .site-branding-text -->
+			</div>
+		</div>
+	</div>
 
-		<?php if ( ( twentyseventeen_is_frontpage() || ( is_home() && is_front_page() ) ) && ! has_nav_menu( 'top' ) ) : ?>
-		<a href="#content" class="menu-scroll-down"><?php echo twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ); ?><span class="screen-reader-text"><?php _e( 'Scroll down to content', 'twentyseventeen' ); ?></span></a>
-	<?php endif; ?>
 
-	</div><!-- .wrap -->
-</div><!-- .site-branding -->
+</div>

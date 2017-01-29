@@ -201,7 +201,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="head"><h2 class="h2">Новости</h2> <a href="#" class="show-all button">Посмотреть все</a> </div>
+				<div class="head"><h2 class="h2">Новости</h2> <a href="/novosti" class="show-all button">Посмотреть все</a> </div>
 
 			</div>
 		</div>

@@ -58,7 +58,8 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span></a>
-								<a class="navbar-brand" href="/"><img src="<?php echo get_theme_file_uri()?>/assets/img/logo.png" alt=""></a>
+								<?php the_custom_logo(); ?>
+<!--								<a class="navbar-brand" href="/"><img src="--><?php //echo get_theme_file_uri()?><!--/assets/img/logo.png" alt=""></a>-->
 							</div>
 							<div class="" id="bs-example-navbar-collapse-2">
 								<?php if ( has_nav_menu( 'top' ) ) : ?>
@@ -100,62 +101,5 @@
 				</div>
 			</nav>
 		</div>
+		<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
 
-		<?php if(twentyseventeen_is_static_front_page()):?>
-			<header class="header">
-				<div class="container">
-					<div class="row">
-
-						<div class="col-sm-12">
-							<div class="wrap-header">
-								<img src="<?php echo get_theme_file_uri()?>/assets/img/bg_header.jpg" alt="">
-							</div>
-						</div>
-
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="wrap-content bg-pic clearfix">
-								<div class="col-sm-9">
-									<div class="text-content">
-										<h2 class="h2">Инновационные ответы на потребности современного рынка</h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident voluptatum odit molestiae vel hic explicabo numquam dolor quia earum commodi, temporibus alias ducimus, sint odio laborum perspiciatis dignissimos rerum consectetur velit excepturi fuga nisi ut repellendus dolore. Unde eligendi tenetur, at reprehenderit? Esse eum laudantium, corrupti exercitationem, itaque sed atque. </p>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident voluptatum odit molestiae vel hic explicabo numquam dolor quia earum commodi, temporibus alias ducimus, sint odio laborum perspiciatis dignissimos rerum consectetur velit excepturi fuga nisi ut repellendus dolore. Unde eligendi tenetur, at reprehenderit? Esse eum laudantium, corrupti exercitationem, itaque sed atque. </p>
-									</div>
-								</div>
-								<div class="col-sm-3">
-
-								</div>
-								<div class="col-sm-12">
-									<div class="btn-wrap">
-										<a href="#" class="button hist">История компании</a>
-									</div>
-
-								</div>
-							</div>
-						</div>
-
-
-					</div>
-				</div>
-			</header>
-		<?php else :?>
-
-		<header class="header">
-			<div class="container">
-				<div class="row">
-
-					<div class="col-sm-12">
-						<div class="wrap-header">
-							<img src="<?php echo get_theme_file_uri()?>/assets/img/bg_header.jpg" alt="">
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-		</header>
-
-
-
-	<?php endif;?>

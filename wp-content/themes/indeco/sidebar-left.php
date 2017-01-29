@@ -145,7 +145,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 			array(
 				'taxonomy' => array( 'assign_cat'),
 //				'parent' => '0',
-//				'hide_empty' => false
+				'hide_empty' => true
 			)
 		);
 //var_dump($product_cat);
@@ -167,7 +167,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 							if($assign->parent == 0
 //								&& !empty(is_post_in_children_term($assign->term_id, $assign->taxonomy))
-//								&& !empty(is_post_in_term_tax( 'assign_cat', "product_cat", $assign->slug, $product->slug))
+								&& !empty(is_post_in_term_tax( 'assign_cat', "product_cat", $assign->slug, $product->slug))
 							) : ?>
 								<li class="has-submenu">
 									<a href="#"> <?php echo $assign->name?> </a> <!-- На марку техники-->
@@ -176,14 +176,11 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 										<?php foreach ($assign_cat as $child): ?>
 											<?php
-											if($child->parent == $assign->term_id
-												&& !empty(is_post_in_term_tax( 'assign_cat', "product_cat", $child->slug, $product->slug))
-											) :
-
-
+											$is_post_in_term_tax = is_post_in_term_tax( 'assign_cat', "product_cat", $child->slug, $product->slug);
+											if($child->parent == $assign->term_id && !empty($is_post_in_term_tax)) :
 												$term_link = get_term_link($product->term_id, $product->taxonomy);
 //												$term_get = get_term_link($child->term_id, $child->taxonomy);
-												echo "<li><a href='". $term_link .''.$child->slug."'>". $child->name ."</a></li>";
+												echo "<li><a href='". $term_link.$child->slug."'>". $child->name ." (".count($is_post_in_term_tax).") </a></li>";
 											endif;
 											?>
 										<?php endforeach; ?>

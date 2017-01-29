@@ -77,6 +77,9 @@
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
+    .navbar-brand, .custom-logo-link {
+        padding-top: 5px;
+    }
     .article_poster img{
         max-width: 200px;
         /*margin:0 auto;*/

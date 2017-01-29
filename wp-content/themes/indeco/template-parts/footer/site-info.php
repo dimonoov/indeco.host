@@ -9,6 +9,6 @@
  */
 
 ?>
-<div class="site-info">
-	<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentyseventeen' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentyseventeen' ), 'WordPress' ); ?></a>
-</div><!-- .site-info -->
+<p class="site-info">
+	© 2016 Indeco Ind. SpA. Италия 70132 Bari З.И. Viale Lindemann 10 - T 531 080 +39 33 70 - F 080 537 +39 79 76 - E info@indeco.it   НДС No. / ИНН 05949910722 - Основной капитал € 5.200.000,00 (полностью оплачен) | Бари Бизнес Регистра н. 452362 | Общие условия продажи
+</p><!-- .site-info -->

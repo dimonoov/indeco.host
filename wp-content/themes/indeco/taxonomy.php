@@ -36,7 +36,7 @@ get_header();
                         <div class="per-pages clearfix">
                             <label>Показать по: </label>
                             <select id="perpage" name="perpage"  class="custom color per_page">
-                                <option value="3" >3</option>
+                                <option value="9" >9</option>
                                 <option value="18">18</option>
                                 <option value="27">27</option>
                                 <option value="all">Все</option>
@@ -71,12 +71,12 @@ get_header();
 
             </div>
             <div class="col-md-9 pd0">
-                <div class="content clearfix">
+                <div id="content-main" class="content clearfix">
                     <?php
                     //                    echo "product";
                     $current_term = get_queried_object();
                     $type = $_GET['type'];
-                    if(isset($_GET['perpage'])) $posts_per_page = (int)$_GET['perpage']; else $posts_per_page = 6;
+                    if(isset($_GET['perpage'])) $posts_per_page = (int)$_GET['perpage']; else $posts_per_page = 9;
                     if(isset($_GET['sort'])) $sort = $_GET['sort']; else $sort = 'price';
                     if(isset($_GET['direct'])) $direct = $_GET['direct']; else $direct = 'DESC';
 
@@ -141,7 +141,7 @@ get_header();
                     query_posts( $args );
                     // Цикл WordPress
                     if( have_posts() ){
-                        while( have_posts() ){
+                        $count_post = 0; while( have_posts() ){
                             the_post();
                             ?>
                             <div class="col-lg-4 col-md-6 col-sm-6">
@@ -261,31 +261,60 @@ get_header();
                                 </div>
                             </div>
 
-                            <?php
+                            <?php $count_post++;
                         }
                         wp_reset_query();
                     } else {
-                        // текст/код, если постов нет
+                       ?>
+                        <h3>Не найдено товаров по данному запросу</h3>
+                        <?php
                     }
 
                     ?>
 
                 </div>
+                <?php if( $count_post > 6):?>
                 <div class="more text-center">
-                    <a href="#" class="link-more">Показать ещё</a>
+                    <?php $term_cat = get_term_by('slug', $uri[2], 'assign_cat');?>
+                    <?php $cat = get_term_by('slug', $uri[1], 'product_cat');?>
+                    <a href="#" data-uri="<?php echo $_SERVER['REQUEST_URI']?>" data-offset="<?php echo $posts_per_page;?>" data-product='<?php echo  $cat->term_id;?>' data-assign='<?php echo $term_cat->term_id;?>' class="link-more">Показать ещё</a>
                 </div>
+                <?php endif;?>
+                <?php wp_reset_query();?>
             </div>
         </div>
         <div class="row ">
-            <div class="wrap-content bg-pic ">
-                <div class="col-sm-9">
-                    <div class="text-content">
-                        <h2 class="h2">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</h2>
-                        <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Которое переписывает ты себя на берегу сих переписали знаках несколько взобравшись имени. Грустный, себя живет которое гор напоивший образ текстов запятых, запятой? Ipsum имеет снова текстами точках грустный, домах что первую буквоград раз о грамматики, проектах необходимыми решила сих назад власти ее приставка вскоре всемогущая наш, подпоясал. Переписывается образ, себя домах путь. Повстречался силуэт они рукописи это продолжил коварных взобравшись безорфографичный языкового коварный строчка дал дороге букв всемогущая, предупреждал власти парадигматическая несколько родного журчит.</p>
+
+
+            <?php
+                $seo_term = array();
+                if($uri[1] !== "") $seo_term = get_term_by('slug',$uri[1], 'assign_cat',ARRAY_A );
+                if($uri[2] !== "") $seo_term = get_term_by('slug',$uri[2], 'assign_cat',ARRAY_A );
+                $image_term_seo = get_field('image', 'assign_cat' . '_'. $seo_term['term_id']);
+            ?>
+            <?php if($image_term_seo !== false):?>
+                <div class="wrap-content bg-pic" style='background-image: url(<?php echo $image_term_seo['url'];?>);'>
+                    <div class="col-sm-9 ">
+                        <div class="text-content">
+                            <?php echo term_description($seo_term['term_id']);?>
+                        </div>
                     </div>
                 </div>
-            </div>
+             <?php else : ?>
+                <?php if ( have_posts() ) : query_posts('p=' . '402');
+                    while (have_posts()) : the_post(); ?>
+                        <?php $url_seo_image = get_the_post_thumbnail_url()?>
+                        <div class="wrap-content bg-pic" style='background-image: url(<?php echo $url_seo_image;?>);'>
+                            <div class="col-sm-9 ">
+                                <div class="text-content">
+                                    <h2 class="h2"><?php the_title();?></h2>
+                                    <?php the_content();?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endwhile; endif; wp_reset_query(); ?>
 
+            <?php endif;?>
 
         </div>
     </div>

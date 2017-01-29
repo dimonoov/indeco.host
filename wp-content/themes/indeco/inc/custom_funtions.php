@@ -568,7 +568,8 @@ function is_post_in_term_tax( $assign_cat = 'assign_cat', $product_cat = "produc
     // Определение запроса
     $args = array(
         'post_type' => 'product',
-        $assign_cat => $assign_slug
+        $assign_cat => $assign_slug,
+        'posts_per_page' => -1
     );
     $query = new WP_Query( $args );
 //    var_dump( $query);
@@ -580,6 +581,7 @@ function is_post_in_term_tax( $assign_cat = 'assign_cat', $product_cat = "produc
             $mas_id[] = get_the_ID();
         }
     }
+//    var_dump($mas_id);
     return $mas_id;
 
 }
@@ -1226,6 +1228,201 @@ function industry(){
 
 add_action('wp_ajax_industry', 'industry'); // wp_ajax_{значение параметра action}
 add_action('wp_ajax_nopriv_industry', 'industry'); // wp_ajax_nopriv_{значение параметра action}
+
+
+
+
+
+
+
+
+function product_more(){
+    $assign_id = $_POST['assign'];
+    $product_id = $_POST['cat'];
+    $offset = $_POST['offset'];
+    $uri =  explode('/', $_POST['uri']);
+
+    $args = array();
+    if(isset($_GET['perpage'])) $posts_per_page = (int)$_GET['perpage']; else $posts_per_page = 9;
+    if(isset($_GET['sort'])) $sort = $_GET['sort']; else $sort = 'price';
+    if(isset($_GET['direct'])) $direct = $_GET['direct']; else $direct = 'DESC';
+
+    if(term_exists($assign_id, 'assign_cat') && term_exists($product_id, 'product_cat') && $uri[2] !== "")
+    {
+        $args = array(
+            'posts_per_page' => 3,
+            'post_type' => 'product',
+            'tax_query' => array(
+
+                'relation' => 'AND',
+                array(
+                    'taxonomy' => 'assign_cat',
+                    'field'    => 'id',
+                    'terms'    => $assign_id
+                ),
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field'    => 'id',
+                    'terms'    => $product_id
+                )
+            ),
+
+            'meta_key' => $sort,
+            'orderby' => 'meta_value_num',
+            'direct' => $direct
+        );
+
+    }
+    elseif($uri[1] !== "")
+    {
+        $args = array(
+            'posts_per_page' => 3,
+            'offset' => $offset,
+            'post_type' => 'product',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field'    => 'slug',
+                    'terms'    => $uri[1]
+                )
+            )
+        );
+    }
+
+    $query = new WP_Query($args);
+
+    // the Loop
+    while ($query->have_posts()) : $query->the_post();
+        // the content of the post
+       ?>
+
+
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="product-item">
+                <div class="block-title"><?php the_title()?></div>
+                <?php if(get_field('action') == 1):?>
+                    <div class="hits aktsiya">Акция</div>
+                <?php endif;?>
+                <?php if(get_field('zakaz') == 1):?>
+                    <div class="hits zakaz">Заказ</div>
+                <?php endif;?>
+                <div class="block-content">
+                    <?php if(has_post_thumbnail()) : the_post_thumbnail(); else :?>
+                        <img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt="">
+                    <?php endif;?>
+                    <ul class="main-params">
+                        <!--						// clips-->
+                        <?php $field = get_field_object('clips_weight_ekskavatora'); if(!empty($field['value'])):?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php $field = get_field_object('clips_weight'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('clips_zahvat'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('clips_height'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php $field = get_field_object('clips_width');  if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <!--                                            clipsnew-->
+                        <?php  $field = get_field_object('clips_weight_string'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('clips_weight_ruka'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('clips_weight_without'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('clips_debit_maslo'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('clips_power_point'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+
+                        <!--						//grefer-->
+                        <?php $field = get_field_object('grefer_weight'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php $field = get_field_object('grefer_bar');  if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php $field = get_field_object('grefer_max_maslo');  if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php   $field = get_field_object('grefer_bar_route'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('grefer_debit_maslo'); if(!empty($field['value'])): ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+
+
+                        <!--						// molot-->
+                        <?php  $field = get_field_object('molot_weight_eks'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('molot_weight_work'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('molot_diam_pici'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('molot_maslo'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('molot_bar_g'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('vibro_weight_eks'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('vibro_weight_plot'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('vibro_height_plot'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('vibro_plastina'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('vibro_rotate'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                        <?php  $field = get_field_object('vibro_centerob'); if(!empty($field['value'])) : ?>
+                            <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                        <?php endif; ?>
+                    </ul>
+                    <div class="price-card">
+                        <span><?php echo get_field('price')?> <i class="fa fa-rub"></i></span>
+                        <s><?php echo get_field('old_price')?> <i class="fa fa-rub"></i></s>
+                    </div>
+                    <div class="btn-wrap">
+                        <a href="<?php the_permalink();?>" class="details">Подробнее</a>
+                        <form class="action_cart" metod="post">
+                            <input class="nm" name="product_id" value="<?php the_ID();?>" type="hidden">
+                            <input class="btn-buy btn-s" data-action="addToCart" value="Купить" type="submit" placeholder="">
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <?php
+    endwhile;
+//
+
+    exit();
+}
+
+add_action('wp_ajax_product_more', 'product_more'); // wp_ajax_{значение параметра action}
+add_action('wp_ajax_nopriv_product_more', 'product_more'); // wp_ajax_nopriv_{значение параметра action}
+
 
 
 
