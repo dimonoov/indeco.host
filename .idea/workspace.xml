@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a8cf966-680b-4853-beb6-8a768a3b0cad" name="Default" comment="migration&#10;">
+    <list default="true" id="2a8cf966-680b-4853-beb6-8a768a3b0cad" name="Default" comment="28.01.2017  products 46">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wp-content/themes/indeco/assets/img/logo-ico.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/indeco/assets/css/main.css" afterPath="$PROJECT_DIR$/wp-content/themes/indeco/assets/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/indeco/inc/custom_funtions.php" afterPath="$PROJECT_DIR$/wp-content/themes/indeco/inc/custom_funtions.php" />
     </list>
     <ignored path="indeco.host.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,45 +34,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="content-product.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/post/content-product.php">
+      <file leaf-file-name="taxonomy.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/taxonomy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="311" column="39" selection-start-line="311" selection-start-column="39" selection-end-line="311" selection-end-column="39" />
+            <state relative-caret-position="20">
+              <caret line="293" column="0" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
               <folding>
-                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="e#2333#2518#0#PHP" expanded="false" />
-                <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#1;n#!!top" expanded="false" />
-                <marker date="1485461872648" expanded="true" signature="1020:1039" ph="..." />
+                <element signature="e#7288#7470#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="taxonomy.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/taxonomy.php">
+      <file leaf-file-name="category-template.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-includes/category-template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="162" column="84" selection-start-line="162" selection-start-column="84" selection-end-line="162" selection-end-column="84" />
+            <state relative-caret-position="20">
+              <caret line="1136" column="9" selection-start-line="1136" selection-start-column="9" selection-end-line="1136" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom_funtions.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="page-katalog.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-katalog.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="141" column="29" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
+              <folding>
+                <element signature="e#444#1521#0#PHP" expanded="false" />
+                <marker date="1485695875776" expanded="true" signature="5399:5404" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header-image.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/header/header-image.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="60" column="59" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+              <folding>
+                <element signature="e#21266#21442#0" expanded="false" />
+                <element signature="e#21487#21621#0" expanded="false" />
+                <element signature="e#21672#21723#0" expanded="false" />
+                <element signature="e#21757#21785#0" expanded="false" />
+                <element signature="e#21812#22020#0" expanded="false" />
+                <element signature="e#22054#22283#0" expanded="false" />
+                <element signature="e#22324#22556#0" expanded="false" />
+                <element signature="e#22595#22663#0" expanded="false" />
+                <element signature="e#22689#22716#0" expanded="false" />
+                <element signature="e#22747#22892#0" expanded="false" />
+                <element signature="e#22935#22976#0" expanded="false" />
+                <element signature="e#23007#23230#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom_funtions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/inc/custom_funtions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="267" column="38" selection-start-line="267" selection-start-column="38" selection-end-line="267" selection-end-column="38" />
+            <state relative-caret-position="-94">
+              <caret line="1034" column="0" selection-start-line="1034" selection-start-column="0" selection-end-line="1034" selection-end-column="0" />
               <folding>
                 <element signature="n#create_taxonomy#0;n#!!top" expanded="false" />
                 <element signature="n#register_post_types#0;n#!!top" expanded="false" />
                 <element signature="n#myajax_data#0;n#!!top" expanded="false" />
                 <element signature="n#add_to_cart#0;n#!!top" expanded="false" />
-                <element signature="n#remove_from_cart#0;n#!!top" expanded="false" />
+                <element signature="e#16501#16526#0#PHP" expanded="false" />
                 <element signature="n#change_qty#0;n#!!top" expanded="false" />
                 <element signature="n#cart_view#0;n#!!top" expanded="false" />
                 <element signature="n#recalc#0;n#!!top" expanded="false" />
@@ -79,17 +132,20 @@
                 <element signature="n#Kama_Breadcrumbs#0;n#!!top" expanded="false" />
                 <element signature="n#more_tax_crumbs#0;n#!!top" expanded="false" />
                 <element signature="n#custom_remove_cpt_slug#0;n#!!top" expanded="false" />
-                <element signature="n#custom_parse_request_tricksy#0;n#!!top" expanded="false" />
+                <element signature="e#44886#44982#0#PHP" expanded="false" />
+                <element signature="e#45089#45209#0#PHP" expanded="false" />
                 <element signature="n#deleteGET#0;n#!!top" expanded="false" />
                 <element signature="n#View#0;n#!!top" expanded="false" />
-                <element signature="e#49714#49810#0#PHP" expanded="false" />
+                <element signature="n#find_solution#0;n#!!top" expanded="false" />
+                <element signature="n#industry#0;n#!!top" expanded="false" />
+                <element signature="e#53048#62687#0#HTML" expanded="false" />
+                <element signature="e#53597#53739#0#PHP" expanded="false" />
+                <element signature="e#63082#63178#0#PHP" expanded="false" />
                 <element signature="n#render_product_columns#0;n#!!top" expanded="false" />
-                <marker date="1485459533963" expanded="true" signature="19583:19589" ph=" " />
-                <marker date="1485459533963" expanded="true" signature="21629:21921" ph="..." />
-                <marker date="1485459533963" expanded="true" signature="21639:21901" ph="{...}" />
-                <marker date="1485459533963" expanded="true" signature="53556:53563" ph="–" />
-                <marker date="1485459533963" expanded="true" signature="55256:55263" ph="–" />
-                <marker date="1485459533963" expanded="true" signature="55457:55464" ph="–" />
+                <marker date="1485807206770" expanded="true" signature="19906:19912" ph=" " />
+                <marker date="1485807206770" expanded="true" signature="66924:66931" ph="–" />
+                <marker date="1485807206770" expanded="true" signature="68624:68631" ph="–" />
+                <marker date="1485807206770" expanded="true" signature="68825:68832" ph="–" />
               </folding>
             </state>
           </provider>
@@ -98,12 +154,20 @@
       <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="151" column="33" selection-start-line="151" selection-start-column="33" selection-end-line="151" selection-end-column="33" />
+            <state relative-caret-position="1780">
+              <caret line="168" column="10" selection-start-line="150" selection-start-column="5" selection-end-line="168" selection-end-column="10" />
               <folding>
-                <element signature="e#93#2872#0" expanded="false" />
-                <element signature="e#2916#3564#0" expanded="false" />
-                <element signature="e#3607#4261#0" expanded="false" />
+                <element signature="e#1205#4412#0" expanded="false" />
+                <element signature="e#1444#4366#0" expanded="false" />
+                <element signature="e#2262#2824#0" expanded="false" />
+                <element signature="e#2948#4051#0" expanded="false" />
+                <element signature="e#9825#9856#0" expanded="false" />
+                <element signature="e#11642#12096#0" expanded="false" />
+                <element signature="e#12212#12876#0" expanded="false" />
+                <element signature="e#14532#15960#0" expanded="false" />
+                <element signature="e#16023#16624#0" expanded="false" />
+                <element signature="e#16687#16929#0" expanded="false" />
+                <element signature="e#16993#17078#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -112,80 +176,21 @@
       <file leaf-file-name="content-front-page.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/page/content-front-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-623">
-              <caret line="434" column="50" selection-start-line="434" selection-start-column="50" selection-end-line="434" selection-end-column="50" />
+            <state relative-caret-position="2880">
+              <caret line="203" column="79" selection-start-line="203" selection-start-column="79" selection-end-line="203" selection-end-column="79" />
               <folding>
-                <element signature="n#div#0;n#section#1;n#!!top" expanded="false" />
-                <element signature="n#section#2;n#!!top" expanded="false" />
+                <element signature="e#323#1356#0#PHP" expanded="false" />
+                <element signature="e#3707#5539#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-katalog.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-katalog.php">
+      <file leaf-file-name="media.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/media.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="643" column="0" selection-start-line="643" selection-start-column="0" selection-end-line="643" selection-end-column="0" />
-              <folding>
-                <element signature="e#183#13634#0#HTML" expanded="false" />
-                <element signature="e#13685#34622#0#HTML" expanded="false" />
-                <element signature="e#34637#35172#0#HTML" expanded="false" />
-                <marker date="1485450785828" expanded="false" signature="13683:34622" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/functions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="460" column="69" selection-start-line="460" selection-start-column="69" selection-end-line="460" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="1501" column="20" selection-start-line="1501" selection-start-column="20" selection-end-line="1501" selection-end-column="20" />
-              <folding>
-                <element signature="e#19619#19670#0" expanded="false" />
-                <element signature="e#19703#19879#0" expanded="false" />
-                <element signature="e#19924#20058#0" expanded="false" />
-                <element signature="e#20109#20160#0" expanded="false" />
-                <element signature="e#20194#20222#0" expanded="false" />
-                <element signature="e#20249#20457#0" expanded="false" />
-                <element signature="e#20491#20720#0" expanded="false" />
-                <element signature="e#20761#20993#0" expanded="false" />
-                <element signature="e#21032#21100#0" expanded="false" />
-                <element signature="e#21126#21153#0" expanded="false" />
-                <element signature="e#21184#21329#0" expanded="false" />
-                <element signature="e#21372#21413#0" expanded="false" />
-                <element signature="e#21444#21667#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fonts.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/fonts.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page-cart.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-cart.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+            <state relative-caret-position="1600">
+              <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -203,16 +208,27 @@
         <option value="$PROJECT_DIR$/phinx.yml" />
         <option value="$PROJECT_DIR$/wp-content/themes/indeco/page.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/indeco/single.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/assets/css/fonts.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/page-kontakty.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/page-checkout.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/page-cart.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/tmpl/product.tpl" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/template-parts/post/content-product.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/sidebar-left.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/indeco/functions.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/template-parts/header/site-branding.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/template-parts/header/header-image.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/header.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/template-parts/footer/site-info.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/footer.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/template-parts/page/content-page.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/assets/css/media.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/indeco/assets/js/common.js" />
         <option value="$PROJECT_DIR$/wp-content/themes/indeco/template-parts/page/content-front-page.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/indeco/page-katalog.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/indeco/inc/custom_funtions.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/indeco/template-parts/post/content-product.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/indeco/page-cart.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/indeco/assets/css/fonts.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/indeco/taxonomy.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/page-katalog.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/indeco/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/wp-content/themes/indeco/inc/custom_funtions.php" />
       </list>
     </option>
   </component>
@@ -226,7 +242,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
+    <option name="width" value="1378" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -254,8 +270,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -325,122 +339,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="indeco" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco.host" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco.host" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template-parts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="post" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco.host" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco.host" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template-parts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="page" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco.host" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco.host" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template-parts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco.host" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco.host" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template-parts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="header" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -552,36 +450,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco.host" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco.host" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-content" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="indeco" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -606,6 +474,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -619,6 +489,14 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OpenServer5.2.4\OpenServer\domains\indeco.host\wp-content\themes\indeco\tmpl" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\OpenServer5.2.4\OpenServer\domains\indeco.host\wp-content\themes\indeco" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -680,36 +558,64 @@
       <updated>1485119182278</updated>
       <workItem from="1485119187841" duration="396000" />
       <workItem from="1485376011142" duration="10479000" />
-      <workItem from="1485425762170" duration="17761000" />
+      <workItem from="1485425762170" duration="18133000" />
+      <workItem from="1485525627422" duration="20653000" />
+      <workItem from="1485597400307" duration="18604000" />
+      <workItem from="1485683611236" duration="12276000" />
+      <workItem from="1485713590240" duration="2814000" />
+      <workItem from="1485798659724" duration="6900000" />
     </task>
+    <task id="LOCAL-00001" summary="27.21.2017">
+      <created>1485468533698</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1485468533699</updated>
+    </task>
+    <task id="LOCAL-00002" summary="28.01.2017  products 46">
+      <created>1485631360754</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1485631360754</updated>
+    </task>
+    <task id="LOCAL-00003" summary="28.01.2017  seo  header">
+      <created>1485696031719</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1485696031720</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28636000" />
+    <option name="totallyTimeSpent" value="90255000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19818456" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0538695" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16876972" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19818456" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18381241" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16868381" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16530278" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5400982" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14075287" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -725,44 +631,174 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="migration&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="migration&#10;" />
+    <MESSAGE value="27.21.2017" />
+    <MESSAGE value="28.01.2017  products 46" />
+    <MESSAGE value="28.01.2017  seo  header" />
+    <option name="LAST_COMMIT_MESSAGE" value="28.01.2017  seo  header" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/wp-content/themes/indeco/inc/custom_funtions.php</url>
-          <line>604</line>
+          <line>605</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/wp-content/themes/indeco/inc/custom_funtions.php</url>
-          <line>526</line>
+          <line>525</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/wp-content/themes/indeco/inc/custom_funtions.php</url>
-          <line>967</line>
+          <line>968</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/wp-content/themes/indeco/assets/js/common.js</url>
+          <line>145</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/post/content-product.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/taxonomy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3240">
+          <caret line="162" column="84" selection-start-line="162" selection-start-column="84" selection-end-line="162" selection-end-column="84" />
+          <folding>
+            <element signature="e#7288#7470#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/inc/custom_funtions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5340">
+          <caret line="267" column="38" selection-start-line="267" selection-start-column="38" selection-end-line="267" selection-end-column="38" />
+          <folding>
+            <element signature="n#create_taxonomy#0;n#!!top" expanded="false" />
+            <element signature="n#register_post_types#0;n#!!top" expanded="false" />
+            <element signature="n#myajax_data#0;n#!!top" expanded="false" />
+            <element signature="n#add_to_cart#0;n#!!top" expanded="false" />
+            <element signature="e#16501#16526#0#PHP" expanded="false" />
+            <element signature="n#change_qty#0;n#!!top" expanded="false" />
+            <element signature="n#cart_view#0;n#!!top" expanded="false" />
+            <element signature="n#recalc#0;n#!!top" expanded="false" />
+            <element signature="n#clear_cart#0;n#!!top" expanded="false" />
+            <element signature="n#get_price#0;n#!!top" expanded="false" />
+            <element signature="n#is_post_in_term_tax#0;n#!!top" expanded="false" />
+            <element signature="n#Kama_Breadcrumbs#0;n#!!top" expanded="false" />
+            <element signature="n#more_tax_crumbs#0;n#!!top" expanded="false" />
+            <element signature="n#custom_remove_cpt_slug#0;n#!!top" expanded="false" />
+            <element signature="e#44886#44982#0#PHP" expanded="false" />
+            <element signature="e#45089#45209#0#PHP" expanded="false" />
+            <element signature="n#deleteGET#0;n#!!top" expanded="false" />
+            <element signature="n#View#0;n#!!top" expanded="false" />
+            <element signature="n#find_solution#0;n#!!top" expanded="false" />
+            <element signature="n#industry#0;n#!!top" expanded="false" />
+            <element signature="e#53048#62687#0#HTML" expanded="false" />
+            <element signature="e#53597#53739#0#PHP" expanded="false" />
+            <element signature="e#63082#63178#0#PHP" expanded="false" />
+            <element signature="n#render_product_columns#0;n#!!top" expanded="false" />
+            <marker date="1485807206770" expanded="true" signature="19906:19912" ph=" " />
+            <marker date="1485807206770" expanded="true" signature="66924:66931" ph="–" />
+            <marker date="1485807206770" expanded="true" signature="68624:68631" ph="–" />
+            <marker date="1485807206770" expanded="true" signature="68825:68832" ph="–" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3020">
+          <caret line="151" column="33" selection-start-line="151" selection-start-column="33" selection-end-line="151" selection-end-column="33" />
+          <folding>
+            <element signature="e#1205#4412#0" expanded="false" />
+            <element signature="e#1444#4366#0" expanded="false" />
+            <element signature="e#2262#2824#0" expanded="false" />
+            <element signature="e#2948#4051#0" expanded="false" />
+            <element signature="e#9825#9856#0" expanded="false" />
+            <element signature="e#11642#12096#0" expanded="false" />
+            <element signature="e#12212#12876#0" expanded="false" />
+            <element signature="e#14532#15960#0" expanded="false" />
+            <element signature="e#16023#16624#0" expanded="false" />
+            <element signature="e#16687#16929#0" expanded="false" />
+            <element signature="e#16993#17078#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/page/content-front-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8680">
+          <caret line="434" column="50" selection-start-line="434" selection-start-column="50" selection-end-line="434" selection-end-column="50" />
+          <folding>
+            <element signature="e#323#1356#0#PHP" expanded="false" />
+            <element signature="e#3707#5539#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-katalog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12860">
+          <caret line="643" column="0" selection-start-line="643" selection-start-column="0" selection-end-line="643" selection-end-column="0" />
+          <folding>
+            <element signature="e#444#1521#0#PHP" expanded="false" />
+            <marker date="1485695875776" expanded="true" signature="5399:5404" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9200">
+          <caret line="460" column="69" selection-start-line="460" selection-start-column="69" selection-end-line="460" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="e#2333#2518#0#PHP" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#!!top" expanded="false" />
-            <marker date="1485461872648" expanded="true" signature="1020:1039" ph="..." />
+            <element signature="e#21266#21442#0" expanded="false" />
+            <element signature="e#21487#21621#0" expanded="false" />
+            <element signature="e#21672#21723#0" expanded="false" />
+            <element signature="e#21757#21785#0" expanded="false" />
+            <element signature="e#21812#22020#0" expanded="false" />
+            <element signature="e#22054#22283#0" expanded="false" />
+            <element signature="e#22324#22556#0" expanded="false" />
+            <element signature="e#22595#22663#0" expanded="false" />
+            <element signature="e#22689#22716#0" expanded="false" />
+            <element signature="e#22747#22892#0" expanded="false" />
+            <element signature="e#22935#22976#0" expanded="false" />
+            <element signature="e#23007#23230#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/fonts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/post/content-product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -771,19 +807,18 @@
         <state relative-caret-position="2140">
           <caret line="107" column="18" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
           <folding>
-            <element signature="e#19619#19670#0" expanded="false" />
-            <element signature="e#19703#19879#0" expanded="false" />
-            <element signature="e#19924#20058#0" expanded="false" />
-            <element signature="e#20109#20160#0" expanded="false" />
-            <element signature="e#20194#20222#0" expanded="false" />
-            <element signature="e#20249#20457#0" expanded="false" />
-            <element signature="e#20491#20720#0" expanded="false" />
-            <element signature="e#20761#20993#0" expanded="false" />
-            <element signature="e#21032#21100#0" expanded="false" />
-            <element signature="e#21126#21153#0" expanded="false" />
-            <element signature="e#21184#21329#0" expanded="false" />
-            <element signature="e#21372#21413#0" expanded="false" />
-            <element signature="e#21444#21667#0" expanded="false" />
+            <element signature="e#21266#21442#0" expanded="false" />
+            <element signature="e#21487#21621#0" expanded="false" />
+            <element signature="e#21672#21723#0" expanded="false" />
+            <element signature="e#21757#21785#0" expanded="false" />
+            <element signature="e#21812#22020#0" expanded="false" />
+            <element signature="e#22054#22283#0" expanded="false" />
+            <element signature="e#22324#22556#0" expanded="false" />
+            <element signature="e#22595#22663#0" expanded="false" />
+            <element signature="e#22689#22716#0" expanded="false" />
+            <element signature="e#22747#22892#0" expanded="false" />
+            <element signature="e#22935#22976#0" expanded="false" />
+            <element signature="e#23007#23230#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -792,7 +827,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2880">
           <caret line="144" column="39" selection-start-line="144" selection-start-column="39" selection-end-line="144" selection-end-column="39" />
-          <folding />
+          <folding>
+            <element signature="e#7288#7470#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -800,15 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1300">
           <caret line="74" column="42" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
-          <folding>
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="e#2333#2518#0#PHP" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#!!top" expanded="false" />
-            <marker date="1485461872648" expanded="true" signature="1020:1039" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -833,7 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="742">
           <caret line="943" column="9" selection-start-line="943" selection-start-column="9" selection-end-line="943" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,7 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -849,7 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -857,9 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -867,7 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -887,69 +908,253 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#setCookie#0" expanded="false" />
-            <element signature="n#!!block;n#opencookie#0" expanded="false" />
-            <element signature="n#!!block;n#readcooka#0" expanded="false" />
-            <element signature="e#2955#3322#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-katalog.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/fonts.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="643" column="0" selection-start-line="643" selection-start-column="0" selection-end-line="643" selection-end-column="0" />
-          <folding>
-            <element signature="e#183#13634#0#HTML" expanded="false" />
-            <element signature="e#13685#34622#0#HTML" expanded="false" />
-            <element signature="e#34637#35172#0#HTML" expanded="false" />
-            <marker date="1485450785828" expanded="false" signature="13683:34622" ph="..." />
-          </folding>
+        <state relative-caret-position="320">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-kontakty.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="45" column="27" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-checkout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3300">
+          <caret line="167" column="43" selection-start-line="167" selection-start-column="43" selection-end-line="167" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5220">
+          <caret line="263" column="40" selection-start-line="263" selection-start-column="40" selection-end-line="263" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/sidebar-left.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3460">
+          <caret line="182" column="145" selection-start-line="182" selection-start-column="145" selection-end-line="182" selection-end-column="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/tmpl/product.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/theme.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-56">
+          <caret line="1027" column="9" selection-start-line="1027" selection-start-column="9" selection-end-line="1027" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/post/content-product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50379">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="460" column="69" selection-start-line="460" selection-start-column="69" selection-end-line="460" selection-end-column="69" />
+        <state relative-caret-position="182">
+          <caret line="381" column="0" selection-start-line="381" selection-start-column="0" selection-end-line="381" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/footer/site-info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="12" column="271" selection-start-line="12" selection-start-column="271" selection-end-line="12" selection-end-column="271" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/footer/footer-widgets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/header/site-branding.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/page/content-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/general-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="890" column="64" selection-start-line="890" selection-start-column="48" selection-end-line="890" selection-end-column="64" />
+          <folding>
+            <marker date="1485114917000" expanded="true" signature="28836:28849" ph="..." />
+            <marker date="1485114917000" expanded="true" signature="55477:55659" ph="SELECT YEAR(... " />
+            <marker date="1485114917000" expanded="true" signature="56551:56686" ph="SELECT YEAR(... " />
+            <marker date="1485114917000" expanded="true" signature="57451:57695" ph="SELECT YEAR(... " />
+            <marker date="1485114917000" expanded="true" signature="58666:58904" ph="SELECT DISTI... " />
+            <marker date="1485114917000" expanded="true" signature="60308:60366" ph="SELECT * FRO... ${$wpdb-&gt;posts}" />
+            <marker date="1485114917000" expanded="true" signature="62669:62764" ph="SELECT 1 as ${$wpdb-&gt;posts}" />
+            <marker date="1485114917000" expanded="true" signature="64002:64216" ph="SELECT MONTH... " />
+            <marker date="1485114917000" expanded="true" signature="64245:64476" ph="SELECT MONTH... " />
+            <marker date="1485114917000" expanded="true" signature="64652:64793" ph="..." />
+            <marker date="1485114917000" expanded="true" signature="64787:64793" ph="..." />
+            <marker date="1485114917000" expanded="true" signature="65238:65244" ph="..." />
+            <marker date="1485114917000" expanded="true" signature="66047:66053" ph="..." />
+            <marker date="1485114917000" expanded="true" signature="66146:66381" ph="SELECT DISTI... ${$wpdb-&gt;posts}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/js/common.js">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/media.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="151" column="33" selection-start-line="151" selection-start-column="33" selection-end-line="151" selection-end-column="33" />
-          <folding>
-            <element signature="e#93#2872#0" expanded="false" />
-            <element signature="e#2916#3564#0" expanded="false" />
-            <element signature="e#3607#4261#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="1600">
+          <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/page/content-front-page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-623">
-          <caret line="434" column="50" selection-start-line="434" selection-start-column="50" selection-end-line="434" selection-end-column="50" />
+        <state relative-caret-position="2880">
+          <caret line="203" column="79" selection-start-line="203" selection-start-column="79" selection-end-line="203" selection-end-column="79" />
           <folding>
-            <element signature="n#div#0;n#section#1;n#!!top" expanded="false" />
-            <element signature="n#section#2;n#!!top" expanded="false" />
+            <element signature="e#323#1356#0#PHP" expanded="false" />
+            <element signature="e#3707#5539#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1780">
+          <caret line="168" column="10" selection-start-line="150" selection-start-column="5" selection-end-line="168" selection-end-column="10" />
+          <folding>
+            <element signature="e#1205#4412#0" expanded="false" />
+            <element signature="e#1444#4366#0" expanded="false" />
+            <element signature="e#2262#2824#0" expanded="false" />
+            <element signature="e#2948#4051#0" expanded="false" />
+            <element signature="e#9825#9856#0" expanded="false" />
+            <element signature="e#11642#12096#0" expanded="false" />
+            <element signature="e#12212#12876#0" expanded="false" />
+            <element signature="e#14532#15960#0" expanded="false" />
+            <element signature="e#16023#16624#0" expanded="false" />
+            <element signature="e#16687#16929#0" expanded="false" />
+            <element signature="e#16993#17078#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding>
+            <element signature="e#21266#21442#0" expanded="false" />
+            <element signature="e#21487#21621#0" expanded="false" />
+            <element signature="e#21672#21723#0" expanded="false" />
+            <element signature="e#21757#21785#0" expanded="false" />
+            <element signature="e#21812#22020#0" expanded="false" />
+            <element signature="e#22054#22283#0" expanded="false" />
+            <element signature="e#22324#22556#0" expanded="false" />
+            <element signature="e#22595#22663#0" expanded="false" />
+            <element signature="e#22689#22716#0" expanded="false" />
+            <element signature="e#22747#22892#0" expanded="false" />
+            <element signature="e#22935#22976#0" expanded="false" />
+            <element signature="e#23007#23230#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/header/header-image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-katalog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="141" column="29" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
+          <folding>
+            <element signature="e#444#1521#0#PHP" expanded="false" />
+            <marker date="1485695875776" expanded="true" signature="5399:5404" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/category-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1136" column="9" selection-start-line="1136" selection-start-column="9" selection-end-line="1136" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/taxonomy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="293" column="0" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
+          <folding>
+            <element signature="e#7288#7470#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/inc/custom_funtions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="267" column="38" selection-start-line="267" selection-start-column="38" selection-end-line="267" selection-end-column="38" />
+        <state relative-caret-position="-94">
+          <caret line="1034" column="0" selection-start-line="1034" selection-start-column="0" selection-end-line="1034" selection-end-column="0" />
           <folding>
             <element signature="n#create_taxonomy#0;n#!!top" expanded="false" />
             <element signature="n#register_post_types#0;n#!!top" expanded="false" />
             <element signature="n#myajax_data#0;n#!!top" expanded="false" />
             <element signature="n#add_to_cart#0;n#!!top" expanded="false" />
-            <element signature="n#remove_from_cart#0;n#!!top" expanded="false" />
+            <element signature="e#16501#16526#0#PHP" expanded="false" />
             <element signature="n#change_qty#0;n#!!top" expanded="false" />
             <element signature="n#cart_view#0;n#!!top" expanded="false" />
             <element signature="n#recalc#0;n#!!top" expanded="false" />
@@ -959,79 +1164,20 @@
             <element signature="n#Kama_Breadcrumbs#0;n#!!top" expanded="false" />
             <element signature="n#more_tax_crumbs#0;n#!!top" expanded="false" />
             <element signature="n#custom_remove_cpt_slug#0;n#!!top" expanded="false" />
-            <element signature="n#custom_parse_request_tricksy#0;n#!!top" expanded="false" />
+            <element signature="e#44886#44982#0#PHP" expanded="false" />
+            <element signature="e#45089#45209#0#PHP" expanded="false" />
             <element signature="n#deleteGET#0;n#!!top" expanded="false" />
             <element signature="n#View#0;n#!!top" expanded="false" />
-            <element signature="e#49714#49810#0#PHP" expanded="false" />
+            <element signature="n#find_solution#0;n#!!top" expanded="false" />
+            <element signature="n#industry#0;n#!!top" expanded="false" />
+            <element signature="e#53048#62687#0#HTML" expanded="false" />
+            <element signature="e#53597#53739#0#PHP" expanded="false" />
+            <element signature="e#63082#63178#0#PHP" expanded="false" />
             <element signature="n#render_product_columns#0;n#!!top" expanded="false" />
-            <marker date="1485459533963" expanded="true" signature="19583:19589" ph=" " />
-            <marker date="1485459533963" expanded="true" signature="21629:21921" ph="..." />
-            <marker date="1485459533963" expanded="true" signature="21639:21901" ph="{...}" />
-            <marker date="1485459533963" expanded="true" signature="53556:53563" ph="–" />
-            <marker date="1485459533963" expanded="true" signature="55256:55263" ph="–" />
-            <marker date="1485459533963" expanded="true" signature="55457:55464" ph="–" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/template-parts/post/content-product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="311" column="39" selection-start-line="311" selection-start-column="39" selection-end-line="311" selection-end-column="39" />
-          <folding>
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="e#2333#2518#0#PHP" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#!!top" expanded="false" />
-            <marker date="1485461872648" expanded="true" signature="1020:1039" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/page-cart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/taxonomy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="162" column="84" selection-start-line="162" selection-start-column="84" selection-end-line="162" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/fonts.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/indeco/assets/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="1501" column="20" selection-start-line="1501" selection-start-column="20" selection-end-line="1501" selection-end-column="20" />
-          <folding>
-            <element signature="e#19619#19670#0" expanded="false" />
-            <element signature="e#19703#19879#0" expanded="false" />
-            <element signature="e#19924#20058#0" expanded="false" />
-            <element signature="e#20109#20160#0" expanded="false" />
-            <element signature="e#20194#20222#0" expanded="false" />
-            <element signature="e#20249#20457#0" expanded="false" />
-            <element signature="e#20491#20720#0" expanded="false" />
-            <element signature="e#20761#20993#0" expanded="false" />
-            <element signature="e#21032#21100#0" expanded="false" />
-            <element signature="e#21126#21153#0" expanded="false" />
-            <element signature="e#21184#21329#0" expanded="false" />
-            <element signature="e#21372#21413#0" expanded="false" />
-            <element signature="e#21444#21667#0" expanded="false" />
+            <marker date="1485807206770" expanded="true" signature="19906:19912" ph=" " />
+            <marker date="1485807206770" expanded="true" signature="66924:66931" ph="–" />
+            <marker date="1485807206770" expanded="true" signature="68624:68631" ph="–" />
+            <marker date="1485807206770" expanded="true" signature="68825:68832" ph="–" />
           </folding>
         </state>
       </provider>

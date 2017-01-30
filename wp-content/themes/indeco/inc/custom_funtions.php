@@ -1007,7 +1007,7 @@ function more_tax_crumbs( $empty, $term, $that ){
 /**
  * Remove the slug from published post permalinks.
  */
-function custom_remove_cpt_slug( $post_link, $post, $leavename ) {
+function custom_remove_cpt_slug( $post_link, $post, $leavename, $sample ) {
 
     if ( 'product' != $post->post_type || 'publish' != $post->post_status ) {
         return $post_link;
@@ -1018,10 +1018,23 @@ function custom_remove_cpt_slug( $post_link, $post, $leavename ) {
 
     $post_link = str_replace( '/' . $post->post_type . '/', '/'.$terms_product_cat[0]->slug.'/'.$terms_assign_cat[0]->slug.'/', $post_link );
 
-    return $post_link;
-}
-add_filter( 'post_type_link', 'custom_remove_cpt_slug', 10, 3 );
+    $post_links = array();
+    foreach($terms_product_cat as $term_product){
+        foreach($terms_assign_cat as $term_assign){
 
+
+            $post_links[] = str_replace( '/' . $post->post_type . '/', '/'.$term_product->slug.'/'.$term_assign->slug.'/', $post_link );
+
+        }
+    }
+
+
+
+    return $post_links[0];
+}
+
+
+add_filter( 'post_type_link', 'custom_remove_cpt_slug', 10, 3 );
 
 function custom_parse_request_tricksy( $query ) {
 
@@ -1062,6 +1075,7 @@ function custom_parse_request_tricksy( $query ) {
         $query->is_tax = true;
         $query->is_archive = true;
         $query->is_singular = false;
+
 
     }
     else{

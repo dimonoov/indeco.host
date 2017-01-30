@@ -954,8 +954,12 @@ section.quick-solution .sf-sx .sf-title{
 .pill-content > .active {
     opacity: 1;
     height: auto;
-}
 
+}
+ #related.tab-pane{
+
+  overflow: hidden;
+}
 .tab-pane.fade > div.col-sm-12{
     float: none;
 }
@@ -1319,7 +1323,9 @@ section.news {
 .tab-content .tab-pane > div {
   padding-top: 15px;
   padding-bottom: 15px; }
-
+.product-item{
+  min-height: 560px;
+}
 #related .product-item .block-title {
   color: #edac1a;
   font-weight: bold; }
