@@ -327,7 +327,6 @@ function add_to_cart() {
         $_SESSION['cart'][$product->ID]['qty'] += $qty;
     }else{
         $_SESSION['cart'][$product->ID] = [
-
             'qty' => $qty,
             'name' => $product->post_title,
             'price' => '100', //$product->price
