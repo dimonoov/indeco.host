@@ -530,8 +530,6 @@ add_action('wp_ajax_nopriv_remove_from_cart', 'remove_from_cart'); // wp_ajax_no
 add_action('wp_ajax_add_to_cart', 'add_to_cart'); // wp_ajax_{значение параметра action}
 add_action('wp_ajax_nopriv_add_to_cart', 'add_to_cart'); // wp_ajax_nopriv_{значение параметра action}
 
-
-
 function get_price(){
     session_start();
     $price = get_post_meta($_POST['product_id'], 'price');
