@@ -308,6 +308,28 @@ function myajax_data(){
 );*/
 
 
+/*Array
+(
+    [grejfernye-zaxvaty/na-ekskavator/idg-2000] => Array
+    (
+        [qty] => QTY
+        [name] => NAME
+        [price] => PRICE
+        [img] => IMG
+        [id] => ID
+    )
+    [gidromoloty/na-ekskavator/hp-3000] => Array
+    (
+        [qty] => QTY
+        [name] => NAME
+        [price] => PRICE
+        [img] => IMG
+        [id] => ID
+    )
+)
+    [qty] => QTY,
+    [sum] => SUM
+);*/
 function add_to_cart() {
 
     $product_id = (int)$_POST['product_id'];
@@ -330,13 +352,13 @@ function add_to_cart() {
 
             'qty' => $qty,
             'name' => $product->post_title,
-            'price' => '100', //$product->price
+            'price' => get_field('price', $product->ID), //$product->price
             'img' => get_the_post_thumbnail_url( $product->ID, 'thumbnail' ) !== false ? get_the_post_thumbnail_url( $product->ID, 'thumbnail' ) : '/wp-content/themes/indeco/assets/img/No-image-found.jpg',
             'guid' =>  $link
         ];
     }
     $_SESSION['cart']['qty'] = isset($_SESSION['cart']['qty']) ? $_SESSION['cart']['qty'] + $qty : $qty;
-    $_SESSION['cart']['sum'] = isset($_SESSION['cart']['sum']) ? $_SESSION['cart']['sum'] + $qty * 100 : $qty * 100;
+    $_SESSION['cart']['sum'] = isset($_SESSION['cart']['sum']) ? $_SESSION['cart']['sum'] + $qty * $_SESSION['cart'][$product->ID]['price'] : $qty * $_SESSION['cart'][$product->ID]['price'];
 //    var_dump($_SESSION);
     echo json_encode($_SESSION['cart']);
     exit();
@@ -529,6 +551,7 @@ add_action('wp_ajax_nopriv_remove_from_cart', 'remove_from_cart'); // wp_ajax_no
 
 add_action('wp_ajax_add_to_cart', 'add_to_cart'); // wp_ajax_{значение параметра action}
 add_action('wp_ajax_nopriv_add_to_cart', 'add_to_cart'); // wp_ajax_nopriv_{значение параметра action}
+
 
 function get_price(){
     session_start();

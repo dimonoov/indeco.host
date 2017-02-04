@@ -534,7 +534,8 @@ jQuery(document).ready(function($){
         // var product_sum = $(this).closest('tr').find('.wid-9 strong span').text();
         // console.log(product_sum);
         var product_id = $(this).closest('tr').data('id');
-        if(current_qty > 1) {
+        // alert(current_qty);
+        if(current_qty != 1) {
             change_ajax_qty(product_id, qty, act);
         }else{
             alert("Такой товар только один в корзине. Удалите его");
