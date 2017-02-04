@@ -325,6 +325,9 @@
 		<div class="tab-pane fade" id="related">
 		<?php
 		$related = get_field('related', get_the_ID());
+		$uri =  explode('/', $_SERVER["REQUEST_URI"]);
+		//$before_link = ($uri[1] !== "") ? $uri[1].'/' : "";
+		//$before_link .= ($uri[2] !== "" && $before_link !=="") ? $uri[2].'/' : "";
 		?>
 		<?php foreach ($related as $rel => $item):?>
 			<div class="col-md-4 col-sm-6">
@@ -439,7 +442,8 @@
 							<s><?php the_field('old_price', $item->ID)?>  <i class="fa fa-rub"></i></s>
 						</div>
 						<div class="btn-wrap">
-							<a href="<?php echo $item->guid;?>" class="details">Подробнее</a>
+
+							<a href="<?php echo $before_link.$item->post_name;?>" class="details">Подробнее</a>
 							<form class="action_cart" metod="post">
 								<input class="nm" name="product_id" value="<?php echo $item->ID;?>" type="hidden">
 								<input class="btn-buy btn-s" data-action="addToCart" value="Купить" type="submit" placeholder="">

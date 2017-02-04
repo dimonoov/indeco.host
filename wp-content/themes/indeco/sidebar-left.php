@@ -157,7 +157,10 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		foreach( $product_cat as $product ){
 			?>
 				<li class="has-submenu">
-					<a href="#"><?php echo $product->name;?></a> <!--Гидромолоты-->
+
+						<a href="#"><?php echo $product->name;?></a> <!--Гидромолоты-->
+						<span class="all-product-cat align-right" data-href="/<?php echo $product->slug;?>">все</span>
+
 					<?php if($product->count !== 0) :?>
 					<ul class="submenu">
 						<?php foreach ($assign_cat as $assign): ?>
@@ -170,6 +173,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 								&& !empty(is_post_in_term_tax( 'assign_cat', "product_cat", $assign->slug, $product->slug))
 							) : ?>
 								<li class="has-submenu">
+
 									<a href="#"> <?php echo $assign->name?> </a> <!-- На марку техники-->
 
 									<ul class="sub-submenu">

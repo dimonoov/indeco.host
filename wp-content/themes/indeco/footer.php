@@ -42,7 +42,7 @@
 				<div class="col-md-2 col-sm-4 col-xs-6 w100">
 					<p>О компании</p>
 					<ul class="foot-item">
-						<li><a href="/katalog">Каталог</a></li>
+						<li><a href="/katalog-produkcii/">Каталог продукции</a></li>
 						<li><a href="/price">Скачать прайс</a></li>
 						<li><a href="/novosti">Новости</a></li>
 

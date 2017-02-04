@@ -66,45 +66,42 @@ get_header();
             </div> -->
         </div>
         <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs">
-                <?php get_sidebar('left');?>
+            <div class="col-sm-12">
+                <?php
+                //                    echo "product";
+                $current_term = get_queried_object();
+                $type = $_GET['type'];
+                if(isset($_GET['perpage'])) $posts_per_page = (int)$_GET['perpage']; else $posts_per_page = 9;
+                if(isset($_GET['sort'])) $sort = $_GET['sort']; else $sort = 'price';
+                if(isset($_GET['direct'])) $direct = $_GET['direct']; else $direct = 'DESC';
 
-            </div>
-            <div class="col-md-9 pd0">
-                <div id="content-main" class="content clearfix">
-                    <?php
-                    //                    echo "product";
-                    $current_term = get_queried_object();
-                    $type = $_GET['type'];
-                    if(isset($_GET['perpage'])) $posts_per_page = (int)$_GET['perpage']; else $posts_per_page = 9;
-                    if(isset($_GET['sort'])) $sort = $_GET['sort']; else $sort = 'price';
-                    if(isset($_GET['direct'])) $direct = $_GET['direct']; else $direct = 'DESC';
+                $product_type =  false !== term_exists( $type, 'assign_cat' )  ?  $type : $product_type =   0;
 
-                    $product_type =  false !== term_exists( $type, 'assign_cat' )  ?  $type : $product_type =   0;
+                $uri =  explode('/', $_SERVER["REQUEST_URI"]);
 
-                    $uri =  explode('/', $_SERVER["REQUEST_URI"]);
+                $args = array();
+                $term_cat = get_term_by('slug', $uri[2], 'assign_cat');
+                $cat = get_term_by('slug', $uri[1], 'product_cat');
 
-                    $args = array();
+                if($uri[2] !== "")
+                {
+                    $args = array(
+                        'posts_per_page' => $posts_per_page,
+                        'post_type' => 'product',
+                        'tax_query' => array(
 
-                    if($uri[2] !== "")
-                    {
-                        $args = array(
-                            'posts_per_page' => $posts_per_page,
-                            'post_type' => 'product',
-                            'tax_query' => array(
-
-                                'relation' => 'AND',
-                                array(
-                                    'taxonomy' => 'assign_cat',
-                                    'field'    => 'slug',
-                                    'terms'    => $uri[2]
-                                ),
-                                array(
-                                    'taxonomy' => 'product_cat',
-                                    'field'    => 'slug',
-                                    'terms'    => $uri[1]
-                                )
+                            'relation' => 'AND',
+                            array(
+                                'taxonomy' => 'assign_cat',
+                                'field'    => 'slug',
+                                'terms'    => $uri[2]
                             ),
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'field'    => 'slug',
+                                'terms'    => $uri[1]
+                            )
+                        ),
 //						   'meta_query' => array(
 //							   'relation' => 'OR',
 //							   array(
@@ -116,29 +113,59 @@ get_header();
 //								   'value' => 20
 //							   )
 //						   )
-                            'meta_key' => $sort,
-                            'orderby' => 'meta_value_num',
-                            'direct' => $direct
-                        );
-
-                    }
-                    elseif($uri[1] !== "")
-                    {
-                        $args = array(
-                            'posts_per_page' => $posts_per_page,
-                            'post_type' => 'product',
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'product_cat',
-                                    'field'    => 'slug',
-                                    'terms'    => $uri[1]
-                                )
+                        'meta_key' => $sort,
+                        'orderby' => 'meta_value_num',
+                        'direct' => $direct
+                    );
+                }
+                elseif($uri[1] !== "")
+                {
+                    $args = array(
+                        'posts_per_page' => $posts_per_page,
+                        'post_type' => 'product',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'field'    => 'slug',
+                                'terms'    => $uri[1]
                             )
-                        );
-                    }
+                        )
+                    );
+
+                }
 
 
-                    query_posts( $args );
+                query_posts( $args );
+
+
+                $value_assign = get_field('product_type', 'assign_cat' . '_'. $term_cat->term_id);
+                $value_assign = get_field($value_assign.'_seo_title', 'assign_cat' . '_'. $term_cat->term_id);
+
+                $value_cat = get_field('seo_title_cat', 'product_cat' . '_'. $cat->term_id);
+
+                if($value_assign)
+                {
+                    echo '<div class="seo_title"><h1 class="h1">'.$value_assign.'</h1></div>';
+
+                }else if($value_cat)
+                {
+                    echo '<div class="seo_title"><h1 class="h1">'.$value_cat.'</h1></div>';
+                }
+                ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 hidden-sm hidden-xs">
+                <?php get_sidebar('left');?>
+
+            </div>
+            <div class="col-md-9 pd0">
+                <div id="content-main" class="content clearfix">
+                    <?php
+
+
+                    // always good to see exactly what you are working with
+
                     // Цикл WordPress
                     if( have_posts() ){
                         $count_post = 0; while( have_posts() ){
@@ -275,25 +302,26 @@ get_header();
                 </div>
                 <?php if( $count_post > 6):?>
                 <div class="more text-center">
-                    <?php $term_cat = get_term_by('slug', $uri[2], 'assign_cat');?>
-                    <?php $cat = get_term_by('slug', $uri[1], 'product_cat');?>
+
                     <a href="#" data-uri="<?php echo $_SERVER['REQUEST_URI']?>" data-offset="<?php echo $posts_per_page;?>" data-product='<?php echo  $cat->term_id;?>' data-assign='<?php echo $term_cat->term_id;?>' class="link-more">Показать ещё</a>
                 </div>
                 <?php endif;?>
                 <?php wp_reset_query();?>
             </div>
         </div>
-        <div class="row ">
+        <div class="row">
 
 
             <?php
                 $seo_term = array();
-                if($uri[1] !== "") $seo_term = get_term_by('slug',$uri[1], 'assign_cat',ARRAY_A );
-                if($uri[2] !== "") $seo_term = get_term_by('slug',$uri[2], 'assign_cat',ARRAY_A );
-                $image_term_seo = get_field('image', 'assign_cat' . '_'. $seo_term['term_id']);
+                if($uri[1] !== "") $seo_term = get_term_by('slug',$uri[1], 'product_cat',ARRAY_A );
+              //  if($uri[2] !== "") $seo_term = get_term_by('slug',$uri[2], 'assign_cat',ARRAY_A );
+
+                $image_term_seo = get_field('image_cat_seo', 'product_cat' . '_'. $seo_term['term_id']);
+
             ?>
-            <?php if($image_term_seo !== false):?>
-                <div class="wrap-content bg-pic" style='background-image: url(<?php echo $image_term_seo['url'];?>);'>
+            <?php if($image_term_seo ):?>
+                <div class="wrap-content bg-pic" style='background-image: url(<?php echo $image_term_seo;?>);'>
                     <div class="col-sm-9 ">
                         <div class="text-content">
                             <?php echo term_description($seo_term['term_id']);?>
@@ -304,7 +332,7 @@ get_header();
                 <?php if ( have_posts() ) : query_posts('p=' . '402');
                     while (have_posts()) : the_post(); ?>
                         <?php $url_seo_image = get_the_post_thumbnail_url()?>
-                        <div class="wrap-content bg-pic" style='background-image: url(<?php echo $url_seo_image;?>);'>
+                        <div class="wrap-content bg-pic 1" style='background-image: url(<?php echo $url_seo_image;?>);'>
                             <div class="col-sm-9 ">
                                 <div class="text-content">
                                     <h2 class="h2"><?php the_title();?></h2>

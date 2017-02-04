@@ -14,10 +14,10 @@
                 <div class="slide">
                     <div class="product-block">
                         <div class="pb-thumb">
-                            <a href = "#"><?php echo $mas_posts['img']?></a>
+                           <?php echo $mas_posts['img']?>
                         </div>
                         <div class="pb-description ">
-                            <div class="pb-name"><span><?php echo $term;?> <span>M</span></span><a class="product_link" href="<?php echo get_the_permalink($mas_posts['id_post']) ?>"><?php echo $mas_posts['title']?></a></div>
+                            <div class="pb-name"><span><?php echo $term;?> <span>M</span></span><?php echo $mas_posts['title']?></div>
 
                             <ul class="main-params pb-specs">
                                     <!--						// clips-->
@@ -169,8 +169,7 @@
                                     foreach($assign_cat as $assign){
                                        	$assign_image = get_field('image', 'assign_cat' . '_' .$assign->term_id);
                                     ?>
-                                    <li><?php  echo $assign_image;
-                                    echo $assign->name;  ?></li>
+                                    <li><a href="<?php  echo '/'.$slug.'/'.$assign->slug.'/'.$mas_posts['name']; ?>"><?php  echo $assign_image; echo $assign->name;  ?></a></li>
                                     <?php
                                     }
                                     ?>

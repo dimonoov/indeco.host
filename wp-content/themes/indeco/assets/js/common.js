@@ -1,5 +1,9 @@
 
 jQuery(document).ready(function($){
+    $('.all-product-cat').on('click', function (e) {
+        var link = $(this).data('href');
+        document.location.href = link;
+    });
     //equalheight - одинаковая высота колонок
     //Пример списка элементов:
     //var eqElement = ".cat_container > div, .home_news > div"

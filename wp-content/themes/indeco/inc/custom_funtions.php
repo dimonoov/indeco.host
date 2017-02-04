@@ -1009,32 +1009,54 @@ function more_tax_crumbs( $empty, $term, $that ){
  */
 function custom_remove_cpt_slug( $post_link, $post, $leavename, $sample ) {
 
-    if ( 'product' != $post->post_type || 'publish' != $post->post_status ) {
+    if ( is_admin() || 'product' != $post->post_type || 'publish' != $post->post_status ) {
         return $post_link;
     }
 
     $terms_assign_cat = get_the_terms($post, "assign_cat");
     $terms_product_cat = get_the_terms($post, "product_cat");
 
-    $post_link = str_replace( '/' . $post->post_type . '/', '/'.$terms_product_cat[0]->slug.'/'.$terms_assign_cat[0]->slug.'/', $post_link );
+//    $post_link = str_replace( '/' . $post->post_type . '/', '/'.$terms_product_cat[0]->slug.'/'.$terms_assign_cat[0]->slug.'/', $post_link );
 
     $post_links = array();
+
     foreach($terms_product_cat as $term_product){
         foreach($terms_assign_cat as $term_assign){
-
 
             $post_links[] = str_replace( '/' . $post->post_type . '/', '/'.$term_product->slug.'/'.$term_assign->slug.'/', $post_link );
 
         }
     }
 
+//    return $post_links[0];
 
+        $post_link = substr($_SERVER['REQUEST_URI'],0,strpos($_SERVER['REQUEST_URI'],'?'));
+        if($post_link == "") $post_link = $_SERVER['REQUEST_URI'];
+        return  $post_link.$post->post_name;
+}
+add_filter( 'post_type_link', 'custom_remove_cpt_slug', 10, 3 );
 
-    return $post_links[0];
+function true_term_links( $url, $term, $taxonomy ){
+    $replace = $term->slug;
+    $uri =  explode('/', $_SERVER["REQUEST_URI"]);
+    $link_before_slug = "";
+    if(term_exists($uri[2])) $link_before_slug = $uri[1];
+    /* замены для рубрик/меток, опять-таки нужно указать ID и желаемый ярлык */
+//    if( $term->term_id == 5 )
+//        $replace = 'Без_рубрики';
+//    if( $term->term_id == 55 )
+//        $replace = 'Метка';
+    if($term->taxonomy == "assign_cat"){
+        $replace = $link_before_slug.'/'.$term->slug;
+
+    }
+
+    $url = str_replace($term->slug, $replace, $url );
+
+    return $url;
 }
 
-
-add_filter( 'post_type_link', 'custom_remove_cpt_slug', 10, 3 );
+add_filter( 'term_link', 'true_term_links', 10, 3 );
 
 function custom_parse_request_tricksy( $query ) {
 
@@ -1082,9 +1104,9 @@ function custom_parse_request_tricksy( $query ) {
         $assign_single  = explode('/', $query->query['category_name']);
         $query->query["assign_cat"] = $assign_single[1];
         $query->query_vars["assign_cat"] = $assign_single[1];
-//        var_dump($query);
-    }
 
+    }
+//        var_dump($query);
 
 }
 add_action( 'pre_get_posts', 'custom_parse_request_tricksy' );
@@ -1162,8 +1184,10 @@ function find_solution(){
         $ID = get_the_ID();
         $terms = get_the_terms( $ID, 'product_cat' );
         foreach ($terms  as $term){
+            $post_current = get_post();
             $content['json'][$term->name][$term->slug][$ID]['title'] = get_the_title(); // выведем заголовок поста
             $content['json'][$term->name][$term->slug][$ID]['link'] = get_the_permalink();
+            $content['json'][$term->name][$term->slug][$ID]['name'] = $post_current->post_name;
             $content['json'][$term->name][$term->slug][$ID]['img'] = get_the_post_thumbnail();
             $content['json'][$term->name][$term->slug][$ID]['price'] = get_field('price');
             $content['json'][$term->name][$term->slug][$ID]['id_post'] = $ID;
@@ -1607,6 +1631,23 @@ function render_product_columns( $column ) {
             break;
     }
 }
+
+
+function portfolio_page_template( $template ) {
+
+    if( ! is_tax() ) return $template;
+
+    $current_cat = get_queried_object();
+
+    if( $current_cat->parent == 0 ){
+        if ( $new_template = locate_template( array( 'katalog.php' ) ) )
+            $template =  $new_template ;
+    }
+
+    return $template;
+}
+
+add_filter( 'template_include', 'portfolio_page_template', 99 );
 
 
 

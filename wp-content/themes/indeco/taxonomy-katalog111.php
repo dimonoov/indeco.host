@@ -9,6 +9,7 @@ get_header(); ?>
 			font-size: 12px;
 			color: #ccc;
 		}
+
 	</style>
 	<main class="main">
 		<div class="container">
@@ -84,7 +85,6 @@ get_header(); ?>
                                 <?php endif; ?>
                                 <a href="<?php echo get_term_link($product->term_id);?>"><h2 class="h2"><?php echo $product->name;?></h2></a>
 							</div>
-
 						</div>
 						<div class="column col-right">
 							<div class="text-content">

@@ -64,11 +64,12 @@
 					?>
 					<div class="col-md-3 col-sm-6 col-xs-6 w100">
 						<div class="item <?php echo $style?>">
-							<a href="<?php echo get_term_link($product->term_id, $product->taxonomy);?>">  <h2 class="h2"><?php echo $product->name?></h2></a>
-							<?php
+									<?php
 							$image = get_field('image_cat', 'product_cat' . '_' .$product->term_id);
 							if( !empty($image) ): ?>
-								<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                <a href="<?php echo get_term_link($product->term_id, $product->taxonomy);?>">  <h2 class="h2"><?php echo $product->name?></h2><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /></a>
+
+
 							<?php endif; ?>
 						</div>
 					</div>
