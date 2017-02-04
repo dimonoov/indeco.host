@@ -312,10 +312,18 @@ function add_to_cart() {
 
     $product_id = (int)$_POST['product_id'];
     $qty = (int)$_POST['qty'];
+    $assign_cat_term = $_POST['assign_cat_term'];
+    $product_cat_term = $_POST['product_cat_term'];
+
+    $link = '/';
+    $link .= $product_cat_term;
+    $link .= $assign_cat_term !== '' ? "/".$assign_cat_term : $assign_cat_term;
+
     $product = get_post($product_id);
+    $link .= "/".$product->post_name;
     if(empty($product)) return false;
     session_start() ;
-    if(isset($_SESSION['cart'][$product->ID])){
+    if(isset($_SESSION['cart'][$product->ID]) && $_SESSION['cart'][$product->ID]['guid'] !== $link){
         $_SESSION['cart'][$product->ID]['qty'] += $qty;
     }else{
         $_SESSION['cart'][$product->ID] = [
@@ -323,8 +331,8 @@ function add_to_cart() {
             'qty' => $qty,
             'name' => $product->post_title,
             'price' => '100', //$product->price
-            'img' => get_the_post_thumbnail_url( $product->ID, 'thumbnail' ),
-            'guid' => $product->guid
+            'img' => get_the_post_thumbnail_url( $product->ID, 'thumbnail' ) !== false ? get_the_post_thumbnail_url( $product->ID, 'thumbnail' ) : '/wp-content/themes/indeco/assets/img/No-image-found.jpg',
+            'guid' =>  $link
         ];
     }
     $_SESSION['cart']['qty'] = isset($_SESSION['cart']['qty']) ? $_SESSION['cart']['qty'] + $qty : $qty;
@@ -343,7 +351,7 @@ function remove_from_cart() {
         unset($_SESSION['cart']);
         $rez['json']['qty'] = null;
 //        $rez['json']['sum'] = 0;
-        $rez['html'] = '<div class="empty">Корзина пуста</div><a class="go_back" href="/katalog">Вернуться в каталог</a>';
+        $rez['html'] = '<div class="empty">Корзина пуста</div><a class="go_back" href="/katalog-produkcii/">Вернуться в каталог</a>';
         echo json_encode($rez,  JSON_HEX_TAG);
         exit();
     }
@@ -459,7 +467,7 @@ function cart_view() {
               if(is_int($id)) :
                   $content .='     <tr data-id="'.$id.'" id="product-'.$id.'" class="color-1">';
                   $content .='      <td class="product_foto">';
-                  $content .='        <img src="'.$cart_item['img'].'" alt="'.$cart_item['name'].'">';
+                  $content .='        <img src="'.$cart_item['img'].'" alt="'.$cart_item['name'].'" width="150" height="150">';
                   $content .='    </td>';
                   $content .='    <td class="wid-5"><a href="'.$cart_item['guid'].'">'.$cart_item['name'].'</a>';
                   $content .= '         <input type="hidden" name="products_id['.$id.']" value="'.$cart_item['qty'].'"><input type="hidden" name="products_qty[]" value="'.$cart_item['qty'].'"></td>';
@@ -1275,9 +1283,9 @@ add_action('wp_ajax_nopriv_industry', 'industry'); // wp_ajax_nopriv_{значе
 
 
 function product_more(){
-    $assign_id = $_POST['assign'];
-    $product_id = $_POST['cat'];
-    $offset = $_POST['offset'];
+    $assign_id = (int)$_POST['assign'];
+    $product_id = (int)$_POST['cat'];
+    $offset = (int)$_POST['offset'];
     $uri =  explode('/', $_POST['uri']);
 
     $args = array();
@@ -1290,8 +1298,8 @@ function product_more(){
         $args = array(
             'posts_per_page' => 3,
             'post_type' => 'product',
+            'offset' => $offset,
             'tax_query' => array(
-
                 'relation' => 'AND',
                 array(
                     'taxonomy' => 'assign_cat',
@@ -1304,10 +1312,9 @@ function product_more(){
                     'terms'    => $product_id
                 )
             ),
-
             'meta_key' => $sort,
             'orderby' => 'meta_value_num',
-            'direct' => $direct
+            'order' => $direct
         );
 
     }
@@ -1323,15 +1330,19 @@ function product_more(){
                     'field'    => 'slug',
                     'terms'    => $uri[1]
                 )
-            )
+            ),
+            'meta_key' => $sort,
+            'orderby' => 'meta_value_num',
+            'order' => $direct
         );
     }
 
     $query = new WP_Query($args);
-
+//    add_filter( 'post_type_link', 'custom_remove_cpt_slug', 10, 3 );
     // the Loop
     while ($query->have_posts()) : $query->the_post();
         // the content of the post
+        $post_current = get_post();
        ?>
 
 
@@ -1345,8 +1356,12 @@ function product_more(){
                     <div class="hits zakaz">Заказ</div>
                 <?php endif;?>
                 <div class="block-content">
-                    <?php if(has_post_thumbnail()) : the_post_thumbnail(); else :?>
-                        <img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt="">
+                    <?php if(has_post_thumbnail()) :?>
+                        <a href="<?php the_permalink()?>"><?php  the_post_thumbnail();?></a>
+                    <?php else :?>
+                        <a href="<?php the_permalink()?>">
+                            <img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt="">
+                        </a>
                     <?php endif;?>
                     <ul class="main-params">
                         <!--						// clips-->
@@ -1440,8 +1455,11 @@ function product_more(){
                         <s><?php echo get_field('old_price')?> <i class="fa fa-rub"></i></s>
                     </div>
                     <div class="btn-wrap">
-                        <a href="<?php the_permalink();?>" class="details">Подробнее</a>
+
+                        <a href="<?php echo $post_current->post_name;?>" class="details">Подробнее</a>
                         <form class="action_cart" metod="post">
+                            <input type="hidden" value="<?php echo $uri[2]?>" name="assign_cat_term">
+                            <input type="hidden" value="<?php echo $uri[1]?>" name="product_cat_term">
                             <input class="nm" name="product_id" value="<?php the_ID();?>" type="hidden">
                             <input class="btn-buy btn-s" data-action="addToCart" value="Купить" type="submit" placeholder="">
                         </form>

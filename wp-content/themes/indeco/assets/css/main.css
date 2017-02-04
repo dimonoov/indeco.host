@@ -73,14 +73,15 @@ address {
 /**navigat ****/
 /*****/
 .loading {
-  width: 110px !important;
+  /*width: 110px !important;*/
   height: 36px;
   background-image: url("/wp-content/themes/indeco/assets/img/loading2.gif");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   background-color: white !important;
-  border: 1px solid #000 !important; }
+  /*border: 1px solid #ccc !important; */
+  }
 
 .loading:active, .loading:focus {
   outline: none !important; }
@@ -995,7 +996,9 @@ section.quick-solution .sf-sx .sf-title{
 }
 
 
-
+.pb-machines.variant ul li {
+    list-style-type: none;
+}
 
 
 .pb-machines.variant img {
@@ -1283,6 +1286,8 @@ section.news {
     .total-price-product .product-card .details, .total-price-product .total-price .details {
       margin-bottom: 0;
       display: inline-block;
+      width: 75px;
+      vertical-align: middle;
       border: none; }
     .total-price-product .product-card .input[type=number], .total-price-product .total-price .input[type=number] {
       width: 50px; }
@@ -1341,7 +1346,8 @@ section.news {
   padding-top: 15px;
   padding-bottom: 15px; }
 .product-item{
-  min-height: 560px;
+  min-height: 562px;
+    overflow: hidden;
 }
 #related .product-item .block-title {
   color: #edac1a;

@@ -295,6 +295,9 @@
 
 					<form class="action_cart" metod="post">
 						<input type="number" step="1" value="1" min="1" max="1000" id="qty_1349090">
+                        <?php $uri =  explode('/', $_SERVER["REQUEST_URI"]);?>
+                        <input type="hidden" value="<?php echo $uri[2]?>" name="assign_cat_term">
+                        <input type="hidden" value="<?php echo $uri[1]?>" name="product_cat_term">
 						<input class="nm" name="product_id" value="<?php the_ID()?>" type="hidden">
 						<input class="details btn-s" data-action="addToCart" value="Купить" type="submit" placeholder="">
 
@@ -316,7 +319,19 @@
 		<div class="tab-pane fade active in" id="descr">
 			<div class="col-sm-12">
 				<div class="inner-desrc">
-
+                    <div class="pb-machines variant">Вид использования<br>
+                        <ul>
+                            <?php
+                            $assign_cat = get_the_terms(get_the_ID(), 'assign_cat');
+                            foreach($assign_cat as $assign){
+                                $assign_image = get_field('image', 'assign_cat' . '_' .$assign->term_id);
+                                ?>
+                                <li> - <?php  echo $assign_image; echo $assign->name;  ?></li>
+                                <?php
+                            }
+                            ?>
+                        </ul>
+                    </div>
 					<?php the_content();?>
 
 				</div>
@@ -341,6 +356,8 @@
 					<?php endif;?>
 					<div class="block-content">
 						<?php if(has_post_thumbnail($item->ID)) : echo get_the_post_thumbnail($item->ID); else :?>
+
+                            <a href="<?php the_post_thumbnail()?>"></a>
 							<img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt="">
 						<?php endif;?>
 						<ul class="main-params">
@@ -443,8 +460,10 @@
 						</div>
 						<div class="btn-wrap">
 
-							<a href="<?php echo $before_link.$item->post_name;?>" class="details">Подробнее</a>
+							<a href="<?php echo $item->post_name;?>" class="details">Подробнее</a>
 							<form class="action_cart" metod="post">
+                                <input type="hidden" value="<?php echo $uri[2]?>" name="assign_cat_term">
+                                <input type="hidden" value="<?php echo $uri[1]?>" name="product_cat_term">
 								<input class="nm" name="product_id" value="<?php echo $item->ID;?>" type="hidden">
 								<input class="btn-buy btn-s" data-action="addToCart" value="Купить" type="submit" placeholder="">
 							</form>

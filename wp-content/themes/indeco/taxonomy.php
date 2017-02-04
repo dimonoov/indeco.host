@@ -8,15 +8,97 @@
  * @version 1.0
  */
 get_header();
+$is_post_in_term_tax = array();
+
+//                    echo "product";
+
 ?>
 <main class="main">
     <div class="container">
+
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="breadcrumbs">
                     <?php if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(''); ?>
                 </div>
             </div>
+<!--            положение не менять!!!-->
+            <?php
+            $current_term = get_queried_object();
+            $type = $_GET['type'];
+            if(isset($_GET['perpage'])) $posts_per_page = (int)$_GET['perpage']; else $posts_per_page = 9;
+            if(isset($_GET['sort'])) $sort = $_GET['sort']; else $sort = 'price';
+            if(isset($_GET['direct'])) $direct = $_GET['direct']; else $direct = 'DESC';
+
+            $product_type =  false !== term_exists( $type, 'assign_cat' )  ?  $type : $product_type =   0;
+            $uri =  explode('/', $_SERVER["REQUEST_URI"]);
+
+            $args = array();
+            $term_cat = get_term_by('slug', $uri[2], 'assign_cat');
+            $cat = get_term_by('slug', $uri[1], 'product_cat');
+
+            if($uri[2] !== "")
+            {
+                $is_post_in_term_tax = is_post_in_term_tax( 'assign_cat', "product_cat", $uri[2], $uri[1]);
+
+                $args = array(
+                    'posts_per_page' => $posts_per_page,
+                    'post_type' => 'product',
+                    'tax_query' => array(
+
+                        'relation' => 'AND',
+                        array(
+                            'taxonomy' => 'assign_cat',
+                            'field'    => 'slug',
+                            'terms'    => $uri[2]
+                        ),
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'slug',
+                            'terms'    => $uri[1]
+                        )
+                    ),
+//						   'meta_query' => array(
+//							   'relation' => 'OR',
+//							   array(
+//								   'key' => 'color',
+//								   'value' => 'blue'
+//							   ),
+//							   array(
+//								   'key' => 'price',
+//								   'value' => 20
+//							   )
+//						   )
+                    'meta_key' => $sort,
+                    'orderby' => 'meta_value_num',
+                    'order' => $direct
+                );
+            }
+            elseif($uri[1] !== "")
+            {
+                $is_post_in_term_tax = is_post_in_term_tax( 'assign_cat', "product_cat", -1, $uri[1]);
+                $args = array(
+                    'posts_per_page' => $posts_per_page,
+                    'post_type' => 'product',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'slug',
+                            'terms'    => $uri[1]
+                        )
+                    ),
+                    'meta_key' => $sort,
+                    'orderby' => 'meta_value_num',
+                    'order' => $direct
+                );
+
+            }
+
+
+            query_posts( $args );
+
+
+            ?>
             <div class="col-md-6 col-sm-12">
                 <div class="filtr-panel">
                     <?php
@@ -28,7 +110,7 @@ get_header();
                         <div class="sort clearfix">
                             <label>Сортировать по:</label>
                             <select id="sort" name="sort"  class="custom color sort_by">
-                                <option value="price" >Цене</option>
+                                <option value="price" selected >Цене</option>
                                 <option value="massa">Массе</option>
                                 <option value="capacity">Грузоподъёмности</option>
                             </select>
@@ -36,10 +118,25 @@ get_header();
                         <div class="per-pages clearfix">
                             <label>Показать по: </label>
                             <select id="perpage" name="perpage"  class="custom color per_page">
-                                <option value="9" >9</option>
-                                <option value="18">18</option>
-                                <option value="27">27</option>
-                                <option value="all">Все</option>
+                                <?php if(count($is_post_in_term_tax) > 9) {?>
+                                    <option  value="9" >9</option>
+                                <?php } else { ?>
+                                    <option  value="-1" >Все</option>
+                                <?php }?>
+
+
+                                <?php  for(  $i = 9; $i <= count($is_post_in_term_tax); $i++ ):?>
+
+                                    <?php if(($i%6) == 0) {?>
+                                        <?php if($i == 6) $selected = 'selected="selected"';  else $selected = "";?>
+                                        <option  value="<?php echo $i?>" ><?php echo $i?></option>
+                                    <?php } else { ?>
+
+                                    <?php } ?>
+                                    <?php if($i == count($is_post_in_term_tax)) :?>
+                                        <option value="-1" >Все</option>
+                                    <?php endif; ?>
+                                <?php endfor;?>
                             </select>
                         </div>
                     </form>
@@ -65,78 +162,10 @@ get_header();
 
             </div> -->
         </div>
+
         <div class="row">
             <div class="col-sm-12">
                 <?php
-                //                    echo "product";
-                $current_term = get_queried_object();
-                $type = $_GET['type'];
-                if(isset($_GET['perpage'])) $posts_per_page = (int)$_GET['perpage']; else $posts_per_page = 9;
-                if(isset($_GET['sort'])) $sort = $_GET['sort']; else $sort = 'price';
-                if(isset($_GET['direct'])) $direct = $_GET['direct']; else $direct = 'DESC';
-
-                $product_type =  false !== term_exists( $type, 'assign_cat' )  ?  $type : $product_type =   0;
-
-                $uri =  explode('/', $_SERVER["REQUEST_URI"]);
-
-                $args = array();
-                $term_cat = get_term_by('slug', $uri[2], 'assign_cat');
-                $cat = get_term_by('slug', $uri[1], 'product_cat');
-
-                if($uri[2] !== "")
-                {
-                    $args = array(
-                        'posts_per_page' => $posts_per_page,
-                        'post_type' => 'product',
-                        'tax_query' => array(
-
-                            'relation' => 'AND',
-                            array(
-                                'taxonomy' => 'assign_cat',
-                                'field'    => 'slug',
-                                'terms'    => $uri[2]
-                            ),
-                            array(
-                                'taxonomy' => 'product_cat',
-                                'field'    => 'slug',
-                                'terms'    => $uri[1]
-                            )
-                        ),
-//						   'meta_query' => array(
-//							   'relation' => 'OR',
-//							   array(
-//								   'key' => 'color',
-//								   'value' => 'blue'
-//							   ),
-//							   array(
-//								   'key' => 'price',
-//								   'value' => 20
-//							   )
-//						   )
-                        'meta_key' => $sort,
-                        'orderby' => 'meta_value_num',
-                        'direct' => $direct
-                    );
-                }
-                elseif($uri[1] !== "")
-                {
-                    $args = array(
-                        'posts_per_page' => $posts_per_page,
-                        'post_type' => 'product',
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'product_cat',
-                                'field'    => 'slug',
-                                'terms'    => $uri[1]
-                            )
-                        )
-                    );
-
-                }
-
-
-                query_posts( $args );
-
 
                 $value_assign = get_field('product_type', 'assign_cat' . '_'. $term_cat->term_id);
                 $value_assign = get_field($value_assign.'_seo_title', 'assign_cat' . '_'. $term_cat->term_id);
@@ -162,10 +191,7 @@ get_header();
             <div class="col-md-9 pd0">
                 <div id="content-main" class="content clearfix">
                     <?php
-
-
                     // always good to see exactly what you are working with
-
                     // Цикл WordPress
                     if( have_posts() ){
                         $count_post = 0; while( have_posts() ){
@@ -181,9 +207,11 @@ get_header();
                                         <div class="hits zakaz">Заказ</div>
                                     <?php endif;?>
                                     <div class="block-content">
-                                        <?php if(has_post_thumbnail()) : the_post_thumbnail(); else :?>
-                                            <img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt="">
-                                        <?php endif;?>
+                                        <?php if(has_post_thumbnail()) { ?>
+                                            <a href="<?php the_permalink();?>"><?php  the_post_thumbnail();?></a>
+                                        <?php } else { ?>
+                                            <a href="<?php the_permalink();?>"><img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt=""></a>
+                                        <?php } ?>
                                         <ul class="main-params">
                                             <!--						// clips-->
                                             <?php $field = get_field_object('clips_weight_ekskavatora'); if(!empty($field['value'])):?>
@@ -276,8 +304,10 @@ get_header();
                                             <s><?php echo get_field('old_price')?> <i class="fa fa-rub"></i></s>
                                         </div>
                                         <div class="btn-wrap">
-                                            <a href="<?php the_permalink();?>" class="details">Подробнее</a>
+                                            <a rel="nofollow" href="<?php the_permalink();?>" class="details">Подробнее</a>
                                             <form class="action_cart" metod="post">
+                                                <input type="hidden" value="<?php echo $uri[2]?>" name="assign_cat_term">
+                                                <input type="hidden" value="<?php echo $uri[1]?>" name="product_cat_term">
                                                 <input class="nm" name="product_id" value="<?php the_ID();?>" type="hidden">
                                                 <input class="btn-buy btn-s" data-action="addToCart" value="Купить" type="submit" placeholder="">
                                             </form>
@@ -300,25 +330,21 @@ get_header();
                     ?>
 
                 </div>
-                <?php if( $count_post > 6):?>
-                <div class="more text-center">
+                <?php  if( $count_post > 6 && $posts_per_page !== -1):?>
+                <div id="more_block" class="more text-center">
 
-                    <a href="#" data-uri="<?php echo $_SERVER['REQUEST_URI']?>" data-offset="<?php echo $posts_per_page;?>" data-product='<?php echo  $cat->term_id;?>' data-assign='<?php echo $term_cat->term_id;?>' class="link-more">Показать ещё</a>
+                    <a href="#" id="link_more" data-count="<?php echo count($is_post_in_term_tax) ?>" data-uri="<?php echo $_SERVER['REQUEST_URI']?>" data-offset='<?php echo $posts_per_page;?>' data-product='<?php echo  $cat->term_id;?>' data-assign='<?php echo $term_cat->term_id;?>' class="link-more">Показать ещё</a>
                 </div>
                 <?php endif;?>
                 <?php wp_reset_query();?>
             </div>
         </div>
         <div class="row">
-
-
             <?php
                 $seo_term = array();
                 if($uri[1] !== "") $seo_term = get_term_by('slug',$uri[1], 'product_cat',ARRAY_A );
               //  if($uri[2] !== "") $seo_term = get_term_by('slug',$uri[2], 'assign_cat',ARRAY_A );
-
                 $image_term_seo = get_field('image_cat_seo', 'product_cat' . '_'. $seo_term['term_id']);
-
             ?>
             <?php if($image_term_seo ):?>
                 <div class="wrap-content bg-pic" style='background-image: url(<?php echo $image_term_seo;?>);'>

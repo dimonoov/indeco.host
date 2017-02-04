@@ -13,6 +13,7 @@
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
+//global $is_post_in_term_tax;
 ?>
 
 <!--<aside id="secondary" class="widget-area" role="complementary">-->
@@ -173,11 +174,8 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 								&& !empty(is_post_in_term_tax( 'assign_cat', "product_cat", $assign->slug, $product->slug))
 							) : ?>
 								<li class="has-submenu">
-
 									<a href="#"> <?php echo $assign->name?> </a> <!-- На марку техники-->
-
 									<ul class="sub-submenu">
-
 										<?php foreach ($assign_cat as $child): ?>
 											<?php
 											$is_post_in_term_tax = is_post_in_term_tax( 'assign_cat', "product_cat", $child->slug, $product->slug);
@@ -189,7 +187,6 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 											?>
 										<?php endforeach; ?>
 									</ul>
-
 								</li>
 							<?php endif;?>
 						<?php endforeach;?>

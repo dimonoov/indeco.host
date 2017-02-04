@@ -165,7 +165,6 @@
                                 <ul>
                                     <?php
                                     $assign_cat = get_the_terms($mas_posts['id_post'], 'assign_cat');
-
                                     foreach($assign_cat as $assign){
                                        	$assign_image = get_field('image', 'assign_cat' . '_' .$assign->term_id);
                                     ?>
@@ -174,7 +173,6 @@
                                     }
                                     ?>
                                 </ul>
-
                             </div>
                        </div>
                     </div>

@@ -14,32 +14,47 @@ jQuery(document).ready(function($){
         var assign = link.data('assign');
         var offset = link.data('offset');
         var uri = link.data('uri');
-        console.log(offset);
-        $.ajax({
-            type: "POST",
-            url: myajax.url,
-            data: {
-                'action': 'product_more',
-                cat: cat,
-                assign: assign,
-                offset: offset,
-                uri: uri
-            },
-            beforeSend: function (msg) {
+        var count = link.data('count');
+        console.log(count+ 'cou' + offset);
+        if(count >= offset){
+            $.ajax({
+                type: "POST",
+                url: myajax.url,
+                data: {
+                    'action': 'product_more',
+                    cat: cat,
+                    assign: assign,
+                    offset: offset,
+                    uri: uri,
+                    count: count
 
-            },
-            success: function (msg) {
-                var next = parseInt(offset)+3;
-                link.attr('data-offset',next);
-                $('#content-main').append(msg);
+                },
+                beforeSend: function (msg) {
+
+                },
+                success: function (msg) {
+                    var next = parseInt(offset)+3;
+                    console.log(link);
+                    // var link_more = document.getElementById('link_more');
+                    var link_more = jQuery('#link_more');
+                    console.log(link_more);
+                    jQuery.data(link_more, 'offset', next);
+
+                    link.data('offset',next);
+                    console.log(link.data('offset')+'offset');
+                    $('#content-main').append(msg);
+                    $('#more_block').find('#link_more').data('offset', next);
 
 
+                    //$('.popup-overlay-white').fadeIn(500);
+                    // window.location.href = "thanks.html";
+                    // form[0].reset();
+                }
+            })
+        }else{
+            link.fadeOut();
+        }
 
-                //$('.popup-overlay-white').fadeIn(500);
-                // window.location.href = "thanks.html";
-                // form[0].reset();
-            }
-        })
     });
     $('form#solution #submit-button').click(function(e){
         e.preventDefault();
@@ -128,6 +143,7 @@ jQuery(document).ready(function($){
         $('#submit-button').removeClass('red-variant');
         $.ajax({
             type: "POST",
+            url: myajax.url,
             url: myajax.url,
             data: {
                 'action': 'industry',
@@ -370,6 +386,8 @@ jQuery(document).ready(function($){
       e.preventDefault();
         var thisForm = this;
         var product_id = $(this).find('input.nm').val();
+        var assign_cat_term = $(this).find('input[name="assign_cat_term"]').val();
+        var product_cat_term = $(this).find('input[name="product_cat_term"]').val();
         var qty = $(this).find('input[type="number"]').val();
         if(!qty) qty = 1;
         console.log(product_id );
@@ -400,7 +418,7 @@ jQuery(document).ready(function($){
           console.log(error);
         },
 
-        data: 'product_id=' + product_id + '&action=add_to_cart' + '&qty=' + qty,
+        data: 'product_id=' + product_id + '&action=add_to_cart' + '&qty=' + qty + '&assign_cat_term=' + assign_cat_term + '&product_cat_term=' + product_cat_term,
         success: function(html){
             console.log(html);
             console.log(html["qty"]);
