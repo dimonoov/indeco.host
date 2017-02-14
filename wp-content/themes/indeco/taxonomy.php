@@ -15,7 +15,6 @@ $is_post_in_term_tax = array();
 ?>
 <main class="main">
     <div class="container">
-
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="breadcrumbs">
@@ -44,6 +43,7 @@ $is_post_in_term_tax = array();
                 $args = array(
                     'posts_per_page' => $posts_per_page,
                     'post_type' => 'product',
+                    'post_status'=>'publish',
                     'tax_query' => array(
 
                         'relation' => 'AND',
@@ -76,10 +76,11 @@ $is_post_in_term_tax = array();
             }
             elseif($uri[1] !== "")
             {
-                $is_post_in_term_tax = is_post_in_term_tax( 'assign_cat', "product_cat", -1, $uri[1]);
+                $is_post_in_term_tax = is_post_in_term_tax( 'assign_cat', "product_cat", $uri[2], $uri[1], $assign_cat);
                 $args = array(
                     'posts_per_page' => $posts_per_page,
                     'post_type' => 'product',
+                    'post_status'=>'publish',
                     'tax_query' => array(
                         array(
                             'taxonomy' => 'product_cat',
@@ -94,11 +95,28 @@ $is_post_in_term_tax = array();
 
             }
 
-
             query_posts( $args );
-
-
-            ?>
+//       	meta key
+//    		$mas_meta = array();
+//            if( have_posts() ) {
+//        		while( have_posts() ) {
+//        			the_post();
+//        			$the_ID_post  = $post->ID;
+//        			$mas_meta[$the_ID_post][] = get_metadata('post', $the_ID_post, '', 1 );
+//        		}
+//            }
+//            $filter_mas_meta = array();
+//            foreach($mas_meta as $key => $meta_key ){
+//                foreach($meta_key[0] as $k => $meta_values){
+//                    $piece = substr($k, 0, 1);
+//                    if($piece !== "_") {
+//                        $field = get_field_object($k);
+//                        $filter_mas_meta[$k] = $field['label'];;
+//                    }
+//	            }
+//            }
+           ?>
+        
             <div class="col-md-6 col-sm-12">
                 <div class="filtr-panel">
                     <?php
@@ -110,9 +128,48 @@ $is_post_in_term_tax = array();
                         <div class="sort clearfix">
                             <label>Сортировать по:</label>
                             <select id="sort" name="sort"  class="custom color sort_by">
+
+                            	                    <?php
+                            	                    	 
+	                            	                // wp_reset_query();
+                            	// $description = get_metadata('term', $term->term_id, 'txseo_seo_description', 1 )
+								// $title = get_metadata('term', $term->term_id, 'txseo_seo_title', 1 );
+								
+								// с версии WP 4.4 можно использовать встроенные функции 
+								// $description = get_term_meta( $term->term_id, 'txseo_seo_description', 1 );
+								// $title = get_term_meta( $term->term_id, 'txseo_seo_title', 1 );
+                            	?>
+                            	<?php // $sort_option = get_metadata( 'term', $cat->term_id, '' ); var_dump($sort_option);?>
+                            	<?php  $counter = 0; foreach($filter_mas_meta as $key => $filter){
+//                            	    if($key !== 'dfiFeatured' ){
+//                            	        if( $key !== "related" ){
+//                                            if($key !== "artikul"){
+//                                                if($key !== 'product_files') {
+//                                                    if ($key !== 'zakaz') {
+//                                                        if ($key !== 'action') {
+//
+//                                                        if ($counter == 0) {
+//                                                            $selected = "selected";
+//                                                        } else {
+//                                                            $selected = "";
+//                                                        } ?>
+<!---->
+<!--                                                        <option --><?php //echo $selected; ?>
+<!--                                                            value="--><?php //echo $key ?><!--">--><?php //echo $filter ?><!--</option>-->
+<!--                                                        --><?php
+//                                                        $counter++;
+//                                                        }
+//                                                    }
+//                                                }
+//                                            }
+//                                        }
+//
+//                                    }
+
+                                }?>
                                 <option value="price" selected >Цене</option>
                                 <option value="massa">Массе</option>
-                                <option value="capacity">Грузоподъёмности</option>
+<!--                                <option value="capacity">Грузоподъёмности</option>-->
                             </select>
                         </div>
                         <div class="per-pages clearfix">
@@ -123,15 +180,11 @@ $is_post_in_term_tax = array();
                                 <?php } else { ?>
                                     <option  value="-1" >Все</option>
                                 <?php }?>
-
-
                                 <?php  for(  $i = 9; $i <= count($is_post_in_term_tax); $i++ ):?>
-
                                     <?php if(($i%6) == 0) {?>
                                         <?php if($i == 6) $selected = 'selected="selected"';  else $selected = "";?>
                                         <option  value="<?php echo $i?>" ><?php echo $i?></option>
                                     <?php } else { ?>
-
                                     <?php } ?>
                                     <?php if($i == count($is_post_in_term_tax)) :?>
                                         <option value="-1" >Все</option>
@@ -142,39 +195,25 @@ $is_post_in_term_tax = array();
                     </form>
                 </div>
             </div>
-            <!-- <div class="col-sm-12">
-              <form class="filter-panel" onclick="beforeSubmit();"  method="get" action="">
-                <div class="sort">
-                  <p>Сортировать по:</p>
 
-                  <button onclick="beforeSubmit();" class="param" type="submit" value="price"  name="sort" placeholder="Все">цене</button>
-                  <button onclick="beforeSubmit();" class="param" type="submit" value="massa"  name="sort" placeholder="Все">массе</button>
-                  <button onclick="beforeSubmit();" class="param" type="submit" value="weight" name="sort" placeholder="Все">грузоподъёмности</button>
-                </div>
-                <div class="per-pages">
-                  <p class="">Товаров на странице: </p>
-                  <button onclick="beforeSubmit();" class="param" type="submit" name="amount" value="9">9</button>
-                  <button onclick="beforeSubmit();" class="param" type="submit" name="amount" value="18">18</button>
-                  <button onclick="beforeSubmit();" class="param" type="submit" name="amount" value="22">22</button>
-                  <button onclick="beforeSubmit();" class="param" type="submit" name="amount" value="all" placeholder="Все">Все</button>
-                </div>
-              </form>
-
-            </div> -->
         </div>
 
         <div class="row">
             <div class="col-sm-12">
                 <?php
-
+                $value_assign_title = "";
                 $value_assign = get_field('product_type', 'assign_cat' . '_'. $term_cat->term_id);
-                $value_assign = get_field($value_assign.'_seo_title', 'assign_cat' . '_'. $term_cat->term_id);
+                foreach ($value_assign as $assign){
+                    if($assign == $uri[1] ){
+                        $value_assign_title = get_field($assign.'_seo_title', 'assign_cat' . '_'. $term_cat->term_id);
+                    }
+                }
 
                 $value_cat = get_field('seo_title_cat', 'product_cat' . '_'. $cat->term_id);
 
-                if($value_assign)
+                if($value_assign_title)
                 {
-                    echo '<div class="seo_title"><h1 class="h1">'.$value_assign.'</h1></div>';
+                    echo '<div class="seo_title"><h1 class="h1">'.$value_assign_title.'</h1></div>';
 
                 }else if($value_cat)
                 {
@@ -197,7 +236,7 @@ $is_post_in_term_tax = array();
                         $count_post = 0; while( have_posts() ){
                             the_post();
                             ?>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="col-lg-4 col-md-6 col-sm-6 tovar">
                                 <div class="product-item">
                                     <div class="block-title"><?php the_title()?></div>
                                     <?php if(get_field('action') == 1):?>
@@ -218,7 +257,9 @@ $is_post_in_term_tax = array();
                                                 <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
                                             <?php endif; ?>
                                             <?php $field = get_field_object('clips_weight'); if(!empty($field['value'])): ?>
-                                                <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
+                                                <li><span class="label"><?php  echo $field['label'] ?></span>
+                                                    <span class="value"><?php  echo $field['value'] ?></span>
+                                                </li>
                                             <?php endif; ?>
                                             <?php  $field = get_field_object('clips_zahvat'); if(!empty($field['value'])): ?>
                                                 <li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
@@ -304,8 +345,8 @@ $is_post_in_term_tax = array();
                                             <s><?php echo get_field('old_price')?> <i class="fa fa-rub"></i></s>
                                         </div>
                                         <div class="btn-wrap">
-                                            <a rel="nofollow" href="<?php the_permalink();?>" class="details">Подробнее</a>
-                                            <form class="action_cart" metod="post">
+                                            <a  href="<?php the_permalink();?>" class="details">Подробнее</a>
+                                            <form class="action_cart" method="post">
                                                 <input type="hidden" value="<?php echo $uri[2]?>" name="assign_cat_term">
                                                 <input type="hidden" value="<?php echo $uri[1]?>" name="product_cat_term">
                                                 <input class="nm" name="product_id" value="<?php the_ID();?>" type="hidden">
@@ -330,7 +371,8 @@ $is_post_in_term_tax = array();
                     ?>
 
                 </div>
-                <?php  if( $count_post > 6 && $posts_per_page !== -1):?>
+
+                <?php  if( $count_post > 6 && $posts_per_page !== -1 &&  count($is_post_in_term_tax) > 9):?>
                 <div id="more_block" class="more text-center">
 
                     <a href="#" id="link_more" data-count="<?php echo count($is_post_in_term_tax) ?>" data-uri="<?php echo $_SERVER['REQUEST_URI']?>" data-offset='<?php echo $posts_per_page;?>' data-product='<?php echo  $cat->term_id;?>' data-assign='<?php echo $term_cat->term_id;?>' class="link-more">Показать ещё</a>
@@ -343,30 +385,40 @@ $is_post_in_term_tax = array();
             <?php
                 $seo_term = array();
                 if($uri[1] !== "") $seo_term = get_term_by('slug',$uri[1], 'product_cat',ARRAY_A );
-              //  if($uri[2] !== "") $seo_term = get_term_by('slug',$uri[2], 'assign_cat',ARRAY_A );
                 $image_term_seo = get_field('image_cat_seo', 'product_cat' . '_'. $seo_term['term_id']);
+                if($uri[2] !== "") $seo_term = get_term_by('slug',$uri[2], 'assign_cat',ARRAY_A );
+
             ?>
-            <?php if($image_term_seo ):?>
+
+            <?php if($seo_term ):?>
                 <div class="wrap-content bg-pic" style='background-image: url(<?php echo $image_term_seo;?>);'>
                     <div class="col-sm-9 ">
                         <div class="text-content">
-                            <?php echo term_description($seo_term['term_id']);?>
+<!--                            <h2 class="h2">--><?php //echo $seo_term['name'];?><!--</h2>-->
+                            <?php
+                            $value_assign_content = "";
+
+                            foreach ($value_assign as $assign){
+                                if($assign == $uri[1] ){
+                                    $value_assign_content = get_field($assign.'_seo_content', 'assign_cat' . '_'. $term_cat->term_id);
+
+                                }
+                            }
+
+                            if($value_assign_content)
+                            {
+                                echo '<div class="seo_title"><h1 class="h1">'.$value_assign_content.'</h1></div>';
+                            }
+                            else
+                            {
+                                echo term_description($seo_term['term_id']);
+                            }
+                              ?>
+
+
                         </div>
                     </div>
                 </div>
-             <?php else : ?>
-                <?php if ( have_posts() ) : query_posts('p=' . '402');
-                    while (have_posts()) : the_post(); ?>
-                        <?php $url_seo_image = get_the_post_thumbnail_url()?>
-                        <div class="wrap-content bg-pic 1" style='background-image: url(<?php echo $url_seo_image;?>);'>
-                            <div class="col-sm-9 ">
-                                <div class="text-content">
-                                    <h2 class="h2"><?php the_title();?></h2>
-                                    <?php the_content();?>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endwhile; endif; wp_reset_query(); ?>
 
             <?php endif;?>
 

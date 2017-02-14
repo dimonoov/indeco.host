@@ -3,8 +3,6 @@
  * Template name: Страница каталог
  */
 
-get_header(); ?>
-	<?php
 
 function send_mail($info_client, $new_post){
 
@@ -82,7 +80,7 @@ function add_order(){
 	$info_client['transport'] = $_POST['transport'];
 	$info_client['payment'] = $_POST['payment'];
 	$info_client['kom'] = $_POST['city'];
-var_dump($info_client);
+// var_dump($info_client);
 
 
 
@@ -135,7 +133,7 @@ var_dump($info_client);
 			$cart_products_post[] = get_post($key);
 		}
 	}
-	var_dump($cart_products_post);
+	// var_dump($cart_products_post);
 	update_field( 'products', $cart_products_post, $post_id );
 //	update_field( 'reg', $_SESSION['sum'], $post_id );
 	update_field( 'region', $info_client['region'], $post_id );
@@ -147,16 +145,32 @@ var_dump($info_client);
 	update_field( 'delivery', $info_client['delivery'], $post_id );
 	update_field( 'komment', $info_client['komment'], $post_id );
 
-echo $post_id.'IDPOST';
+// echo $post_id.'IDPOST';
 
 	if($post_id){
 
          $out['result']='ok';
+         
+         unset($_SESSION['cart']);
+         
+         ?>
+         <script>
+         	 $("#top-cart").find(".fa-shopping-cart span").fadeOut();
+            $("#top-cart").find("a ").html("Корзина пуста");
+           // showCart(res["html"]);
+			$(".client-info").remove();
+			$(".btns").remove();
+         </script>
+         
+         <?php
+         
+         
      }else{
          $out['result']='error';
      }
 
-var_dump($out);
+// var_dump($out);
+// 
 
 	//  echo json_encode($out);
 
@@ -167,8 +181,11 @@ add_order();
 //add_action('wp_ajax_nopriv_add_order', 'add_order');
 send_mail($info_client, $_SESSION['cart']);
 
-
 ?>
+
+<?php get_header(); ?>
+	
+	
 	<main class="main">
 		<div class="container">
 			<div class="row client-info">

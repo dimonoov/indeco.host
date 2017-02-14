@@ -58,6 +58,7 @@ get_header(); ?>
 				get_template_part( 'template-parts/post/content', 'none' );
 
 			endif;
+            wp_reset_query();
 			?>
 
 		</main><!-- #main -->

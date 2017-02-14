@@ -87,6 +87,31 @@
 				<div class="block-title"><?php the_title();?></div>
 				<div class="block-content">
 					<ul>
+						<?php
+						$mas_meta = get_metadata('post', get_the_ID(), '', 1 );
+						$filter_mas_meta = array();
+						foreach($mas_meta as $k => $meta_values){
+							$piece = substr($k, 0, 1);
+							if($piece !== "_") {?>
+								<?php $field = get_field_object($k);
+//								var_dump($field );
+								if(!empty($field['value']) && !is_array($field['value'])  && $field['name'] !== "price"  && $field['name'] !== "old_price" && $field['name'] !== "action" && $field['name'] !== "zakaz"):?>
+									<li><span class="label"><?php  echo $field['label'] ?></span>
+										<span class="value"><?php  echo $field['value'] ?></span>
+									</li>
+								<?php endif; ?>
+
+								<?php
+								$field = get_field_object($k);
+								$filter_mas_meta[$k] = $field['label'];;
+							}
+						}
+						//
+//						var_dump($mas_meta);
+						?>
+					</ul>
+
+					<ul>
 <!--						// clips-->
 						<?php $field = get_field_object('clips_weight_ekskavatora'); if(!empty($field['value'])):?>
 							<li><span class="label"><?php  echo $field['label'] ?></span><span class="value"><?php  echo $field['value'] ?></span></li>
@@ -355,11 +380,14 @@
 						<div class="hits zakaz">Заказ</div>
 					<?php endif;?>
 					<div class="block-content">
-						<?php if(has_post_thumbnail($item->ID)) : echo get_the_post_thumbnail($item->ID); else :?>
+						<?php if(has_post_thumbnail($item->ID)) {?>
+                            <a href="<?php echo $item->post_name;?>">
+                                <?php  the_post_thumbnail($item->ID);?>
+                            </a>
+                         <?php } else {?>
+                            <a href="<?php the_post_thumbnail()?>"><img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt=""></a>
 
-                            <a href="<?php the_post_thumbnail()?>"></a>
-							<img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt="">
-						<?php endif;?>
+						<?php } ?>
 						<ul class="main-params">
 							<!--						// clips-->
 							<?php $field = get_field_object('clips_weight_ekskavatora', $item->ID); if(!empty($field['value'])):?>

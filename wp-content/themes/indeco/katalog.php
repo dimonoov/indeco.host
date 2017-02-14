@@ -145,6 +145,47 @@ get_header(); ?>
                     </div>
                 <?php endwhile; endif; wp_reset_query(); ?>
 			</div>
+
+
+
+
+            <div class="row">
+                <?php
+                $uri =  explode('/', $_SERVER["REQUEST_URI"]);
+                $seo_term = array();
+                if($uri[1] !== "") $seo_term = get_term_by('slug',$uri[1], 'product_cat',ARRAY_A );
+                //  if($uri[2] !== "") $seo_term = get_term_by('slug',$uri[2], 'assign_cat',ARRAY_A );
+                $image_term_seo = get_field('image_cat_seo', 'product_cat' . '_'. $seo_term['term_id']);
+                ?>
+                <?php if($image_term_seo ):?>
+                    <div class="wrap-content bg-pic" style='background-image: url(<?php echo $image_term_seo;?>);'>
+                        <div class="col-sm-9 ">
+                            <div class="text-content">
+                                <h2 class="h2"><?php echo $seo_term['name'];?></h2>
+                                <?php echo term_description($seo_term['term_id']);?>
+                            </div>
+                        </div>
+                    </div>
+                <?php else : ?>
+                    <?php if ( have_posts() ) : query_posts('p=' . '402');
+                        while (have_posts()) : the_post(); ?>
+                            <?php $url_seo_image = get_the_post_thumbnail_url()?>
+                            <div class="wrap-content bg-pic 1" style='background-image: url(<?php echo $url_seo_image;?>);'>
+                                <div class="col-sm-9 ">
+                                    <div class="text-content">
+                                        <h2 class="h2"><?php the_title();?></h2>
+                                        <?php the_content();?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endwhile; endif; wp_reset_query(); ?>
+
+                <?php endif;?>
+
+            </div>
+
+
+
 		</div>
 	</main>
 

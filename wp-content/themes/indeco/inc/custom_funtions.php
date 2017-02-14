@@ -511,7 +511,7 @@ function cart_view() {
         $content .= ' </div>';
     else :
 
-        $content .= '<div class="empty">Корзина пуста</div><a class="go_back" href="/katalog">Вернуться в каталог</a>';
+        $content .= '<div class="empty">Корзина пуста</div><a class="go_back" href="/katalog-produkcii">Вернуться в каталог</a>';
 
     endif;
 
@@ -593,24 +593,43 @@ add_action('wp_ajax_nopriv_update_cart', 'add_to_cart'); // wp_ajax_nopriv_{зн
 //}
 
 
-function is_post_in_term_tax( $assign_cat = 'assign_cat', $product_cat = "product_cat", $assign_slug, $product_slug){
+function is_post_in_term_tax( $assign_cat = 'assign_cat', $product_cat = "product_cat", $assign_slug, $product_slug, $flag = 'product_cat'){
     // Определение запроса
-    $args = array(
-        'post_type' => 'product',
-        $assign_cat => $assign_slug,
-        'posts_per_page' => -1
-    );
-    $query = new WP_Query( $args );
+    if($flag == 'product_cat'){
+        $args = array(
+            'post_type' => 'product',
+            $assign_cat => $assign_slug,
+            'posts_per_page' => -1
+        );
+        $query = new WP_Query( $args );
 //    var_dump( $query);
-    if(is_wp_error( $query)) return false;
-    $mas_id = array();
-    while ( $query->have_posts() ) {
-        $query->the_post();
-        if (has_term($product_slug,  $product_cat, get_the_ID())){
-            $mas_id[] = get_the_ID();
+        if(is_wp_error( $query)) return false;
+        $mas_id = array();
+        while ( $query->have_posts() ) {
+            $query->the_post();
+            if (has_term($product_slug,  $product_cat, get_the_ID())){
+                $mas_id[] = get_the_ID();
+            }
+        }
+//    var_dump($mas_id);
+    }else{
+        $args = array(
+            'post_type' => 'product',
+            $product_cat => $product_slug,
+            'posts_per_page' => -1
+        );
+        $query = new WP_Query( $args );
+//    var_dump( $query);
+        if(is_wp_error( $query)) return false;
+        $mas_id = array();
+        while ( $query->have_posts() ) {
+            $query->the_post();
+            if (has_term($product_slug,  $product_cat, get_the_ID())){
+                $mas_id[] = get_the_ID();
+            }
         }
     }
-//    var_dump($mas_id);
+
     return $mas_id;
 
 }
@@ -662,8 +681,8 @@ class Kama_Breadcrumbs {
         'markup'          => 'schema.org', // 'markup' - микроразметка. Может быть: 'rdf.data-vocabulary.org', 'schema.org', '' - без микроразметки
         // или можно указать свой массив разметки:
          array( 'wrappatt'=>'<ul>%s</ul>', 'linkpatt'=>'<a href="%s">%s</a>', 'sep_after'=>'', ),
-        'priority_tax'    => array('product_cat'), // приоритетные таксономии, нужно когда запись в нескольких таксах
-        'priority_terms'  => array(), // 'priority_terms' - приоритетные элементы таксономий, когда запись находится в нескольких элементах одной таксы одновременно.
+        'priority_tax'    => array('product_cat', 'category'), // приоритетные таксономии, нужно когда запись в нескольких таксах
+        'priority_terms'  => array('novosti'), // 'priority_terms' - приоритетные элементы таксономий, когда запись находится в нескольких элементах одной таксы одновременно.
         // Например: array( 'category'=>array(45,'term_name'), 'tax_name'=>array(1,2,'name') )
         // 'category' - такса для которой указываются приор. элементы: 45 - ID термина и 'term_name' - ярлык.
         // порядок 45 и 'term_name' имеет значение: чем раньше тем важнее. Все указанные термины важнее неуказанных...
@@ -869,6 +888,7 @@ class Kama_Breadcrumbs {
                     if( ! $out = apply_filters('post_tax_crumbs', '', $term, $this ) ){
                         $_crumbs = $this->_tax_crumbs( $term, 'self' );
                         $out = $this->_add_title( $_crumbs, $post );
+                        
                     }
                 }
                 // не древовидная такса (метки)
@@ -886,9 +906,14 @@ class Kama_Breadcrumbs {
                 // древовидная такса (рибрики)
                 else {
                     if( ! $out = apply_filters('term_tax_crumbs', '', $term, $this ) ){
-                        $_crumbs = $this->_tax_crumbs( $term, 'parent' );
-                        $out = $this->_add_title( $_crumbs, $term, esc_html($term->name) );
-                    }
+                        
+                        if($term->slug == 'novosti'){
+                        	$out = '<li>Новости</li>';
+                        }else{
+                        	$_crumbs = $this->_tax_crumbs( $term, 'parent' );
+                        	$out = $this->_add_title( $_crumbs, $term, esc_html($term->name) );
+                        }
+                    }	
                 }
             }
             // влоежния от записи без терминов
@@ -1008,6 +1033,7 @@ function more_tax_crumbs( $empty, $term, $that ){
 
         // тип недвижимости
         $term = get_query_var('assign_cat');
+        
 //        global $wp_query;
 //        var_dump($wp_query->query_vars);
 //        $out .= $term.'55';
@@ -1025,10 +1051,29 @@ function more_tax_crumbs( $empty, $term, $that ){
 
         }
 
+        if($term == "" )  $term = get_query_var('product_cat');
+
+        if( $term && ($term = get_term_by('slug', $term, 'product_cat')) ){
+            // запись
+            if( $is_post_filter ){
+                $_crumbs = $that->_tax_crumbs( $term, 'self' );
+                $out .= $that->_add_title( $_crumbs, $post );
+            }
+            // такса
+            else {
+                $_crumbs = $that->_tax_crumbs( $term, 'self' );
+                // $out .= $that->_add_title( $_crumbs, $term, esc_html($term->name) );  // добавляла дублирубщий термин gydromoloty, gydromoloty
+            }
+
+        }
+
         return $out;
     }
 
 
+        return  $out;
+
+//    }
     return $empty;
 }
 
@@ -1069,7 +1114,7 @@ function true_term_links( $url, $term, $taxonomy ){
     $replace = $term->slug;
     $uri =  explode('/', $_SERVER["REQUEST_URI"]);
     $link_before_slug = "";
-    if(term_exists($uri[2])) $link_before_slug = $uri[1];
+    if(term_exists($uri[2]) && $uri[2] !== 'katalog-produkcii') $link_before_slug = $uri[1];
     /* замены для рубрик/меток, опять-таки нужно указать ID и желаемый ярлык */
 //    if( $term->term_id == 5 )
 //        $replace = 'Без_рубрики';
@@ -1079,8 +1124,12 @@ function true_term_links( $url, $term, $taxonomy ){
         $replace = $link_before_slug.'/'.$term->slug;
 
     }
+    if($term->taxonomy == "category"){
+        $replace = $term->slug;
 
-    $url = str_replace($term->slug, $replace, $url );
+    }
+
+    $url = str_replace('category/'.$term->slug, $replace, $url );
 
     return $url;
 }
@@ -1367,7 +1416,7 @@ function product_more(){
        ?>
 
 
-        <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="col-lg-4 col-md-6 col-sm-6 tovar">
             <div class="product-item">
                 <div class="block-title"><?php the_title()?></div>
                 <?php if(get_field('action') == 1):?>
@@ -1378,9 +1427,9 @@ function product_more(){
                 <?php endif;?>
                 <div class="block-content">
                     <?php if(has_post_thumbnail()) :?>
-                        <a href="<?php the_permalink()?>"><?php  the_post_thumbnail();?></a>
+                        <a href="<?php echo $post_current->post_name;?>"><?php  the_post_thumbnail();?></a>
                     <?php else :?>
-                        <a href="<?php the_permalink()?>">
+                        <a href="<?php echo $post_current->post_name;?>">
                             <img src="<?php echo get_theme_file_uri();?>/assets/img/No-image-found.jpg" alt="">
                         </a>
                     <?php endif;?>
@@ -1478,7 +1527,7 @@ function product_more(){
                     <div class="btn-wrap">
 
                         <a href="<?php echo $post_current->post_name;?>" class="details">Подробнее</a>
-                        <form class="action_cart" metod="post">
+                        <form class="action_cart" method="post" action="">
                             <input type="hidden" value="<?php echo $uri[2]?>" name="assign_cat_term">
                             <input type="hidden" value="<?php echo $uri[1]?>" name="product_cat_term">
                             <input class="nm" name="product_id" value="<?php the_ID();?>" type="hidden">
@@ -1492,6 +1541,69 @@ function product_more(){
         </div>
         <?php
     endwhile;
+    ?>
+    <script>
+        $('form.action_cart').submit(function(e){
+
+            e.preventDefault();
+            var thisForm = this;
+            var product_id = $(this).find('input.nm').val();
+            var assign_cat_term = $(this).find('input[name="assign_cat_term"]').val();
+            var product_cat_term = $(this).find('input[name="product_cat_term"]').val();
+            var qty = $(this).find('input[type="number"]').val();
+            if(!qty) qty = 1;
+            console.log(product_id );
+
+            $.ajax({
+                url: myajax.url,
+                type: 'POST',
+                dataType: "json",
+                beforeSend: function(xhr){
+                    // действие при отправке формы, сразу после нажатия на кнопку #submit
+                    $(thisForm).parent().parent().parent().css("opacity", "0.9");
+                    $(thisForm).find('.btn-s').val("");
+                    $(thisForm).find('.btn-s').addClass('loading');
+
+
+                },
+
+                error: function (request, status, error) {
+                    if(status==500){
+                        alert('Ошибка при добавлении товара');
+                    } else if(status=='timeout'){
+                        alert('Ошибка: Сервер не отвечает, попробуй ещё.');
+                    } else {
+                        // ворпдрессовские ошибочки, не уверен, что это самый оптимальный вариант
+                        // если знаете способ получше - поделитесь
+                        var errormsg = request.responseText;
+                    }
+                    console.log(error);
+                },
+
+                data: 'product_id=' + product_id + '&action=add_to_cart' + '&qty=' + qty + '&assign_cat_term=' + assign_cat_term + '&product_cat_term=' + product_cat_term,
+                success: function(html){
+                    console.log(html);
+                    console.log(html["qty"]);
+                    $(thisForm).find('.btn-s').removeClass('loading');
+                    $(thisForm).find('.btn-s').addClass('good');
+                    setTimeout(function(){
+                        $(thisForm).parent().parent().parent().css("opacity", "1");
+                        $(thisForm).find('.btn-s').removeClass('good');
+                        $(thisForm).find('.btn-s').val("КУПИТЬ");
+                    },1500);
+                    $("#top-cart").find('.fa-shopping-cart span').html(html['qty']).fadeIn();
+                    $("#top-cart").find('a span').text(html['sum']);
+                    $("#top-cart").find('a i').addClass('fa fa-rub');
+
+                }
+            });
+
+            return false;
+        });
+
+    </script>
+
+    <?php
 //
 
     exit();
@@ -1688,6 +1800,23 @@ function portfolio_page_template( $template ) {
 
 add_filter( 'template_include', 'portfolio_page_template', 99 );
 
+
+
+if ( function_exists( 'add_image_size' ) ) {
+    add_image_size( 'poster',370, 230, true ); // 220 pixels wide by 180 pixels tall, hard crop mode
+
+
+    add_action('wp_ajax_sendform', 'sendform');
+    add_action('wp_ajax_nopriv_sendform', 'sendform');
+
+    function sendform(){
+        // echo "1";
+        require_once ( get_stylesheet_directory() . '/send/mail.php' );
+
+        echo "44";
+    }
+
+}
 
 
 

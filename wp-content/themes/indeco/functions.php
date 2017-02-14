@@ -62,7 +62,12 @@ function twentyseventeen_setup() {
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'top'    => __( 'Top Menu', 'twentyseventeen' ),
-		'social' => __( 'Social Links Menu', 'twentyseventeen' ),
+		'social' => 'Присоединяйтесь',
+		'customers'    =>'Покупателям',
+		'about'    => 'О компании',
+		'dop'    => 'Дополнения',
+		'sposob'    => 'Способы оплаты',
+
 	) );
 
 	/*
@@ -188,7 +193,9 @@ function twentyseventeen_setup() {
 					'link_instagram',
 					'link_email',
 				),
+
 			),
+
 		),
 	) );
 }
@@ -442,7 +449,7 @@ function twentyseventeen_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'twentyseventeen-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '1.0', true );
+//	wp_enqueue_script( 'twentyseventeen-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '1.0', true );
 
     wp_enqueue_script( 'jquerymy', get_theme_file_uri( '/assets/libs/jquery/dist/jquery.min.js' ),  true );
 	//custom
@@ -580,7 +587,16 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+/**
+ * My functions
+ */
+require get_parent_theme_file_path( '/inc/term_metadata.php' );
+
 /**
  * My functions
  */
 require get_parent_theme_file_path( '/inc/custom_funtions.php' );
+
+
+

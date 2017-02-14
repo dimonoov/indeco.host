@@ -15,7 +15,7 @@
 		<div class="wrap-content bg-pic site-branding clearfix">
 			<div class="col-sm-9">
 				<div class="text-content">
-					<h2 class="h2"><?php bloginfo( 'name' ); ?>Инновационные ответы на потребности современного рынка</h2>
+					<h2 class="h2"><?php bloginfo( 'name' ); ?></h2>
 					<?php $description = get_bloginfo( 'description', 'display' );
 					if ( $description || is_customize_preview() ) : ?>
 						<p class="site-description"><?php echo $description; ?></p>

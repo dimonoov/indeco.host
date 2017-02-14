@@ -206,32 +206,27 @@
 
 			</div>
 		</div>
-		<div class="row">
 
-			<div class="col-md-4 col-sm-6">
-				<div class="product-item">
-					<img src="<?php echo get_theme_file_uri()?>/assets/img/product/product1.jpg" alt="">
-					<h2 class="h2">От стали к солнечной энергии</h2>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis hic officiis magni magnam ipsam dicta temporibus eaque reprehenderit, voluptatibus ullam, at accusantium assumenda enim dolor necessitatibus delectus. Explicabo, expedita voluptatibus. <a href="#" class="details_link">Подробнее</a></p>
+        <div class="row 2">
+                <?php
+                $news = new WP_Query('cat=40&posts_per_page=3');
+                if ( $news->have_posts() ) : // если имеются записи в блоге.
+               //     	query_posts('cat=40');   // указываем ID рубрик, которые необходимо вывести.
 
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6">
-				<div class="product-item">
-					<img src="<?php echo get_theme_file_uri()?>/assets/img/product/product1.jpg" alt="">
-					<h2 class="h2">От стали к солнечной энергии</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis hic . <a href="#" class="details_link">Подробнее</a></p>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6">
-				<div class="product-item">
-					<img src="<?php echo get_theme_file_uri()?>/assets/img/product/product1.jpg" alt="">
-					<h2 class="h2">От стали к солнечной энергии</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis hic officiis magni magnam ipsam dicta temporibus eaque reprehenderit, voluptatibus ullam, at accusantium assumenda enim dolor necessitatibus delectus. Explicabo, expedita voluptatibus. <a href="#" class="details_link">Подробнее</a></p>
-				</div>
-			</div>
-		</div>
+                    while ( $news->have_posts() ) : $news->the_post();
+
+                        get_template_part( 'template-parts/page/content', 'page-novosti' );
+
+
+                    endwhile; // End of the loop.
+                endif;
+                /* Сбрасываем настройки цикла. Если ниже по коду будет идти еще один цикл, чтобы не было сбоя. */
+                wp_reset_query();
+
+                ?>
+            </div>
+
 	</div>
 </section>
 

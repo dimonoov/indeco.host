@@ -31,11 +31,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
 		<title><?php bloginfo( 'title' ); ?></title>
-		<style>
-			#wpadminbar {
-				position: fixed!important;
-			}
-		</style>
+
 <?php wp_head(); ?>
 </head>
 
@@ -81,10 +77,11 @@
 										else $style =  'style="display:none"';
 									?>
                                     <li>
-                                        <i class="fa fa-shopping-cart" aria-hidden="true"><span <?php echo $style;?>><?php echo $_SESSION['cart']['qty']?></span></i>
-                                        <a href="/cart">
+                                    	  <a href="/cart">
+                                    	  	    <i class="fa fa-shopping-cart" aria-hidden="true"><span <?php echo $style;?>><?php echo $_SESSION['cart']['qty']?></span></i>
+
 											<?php if(isset($_SESSION['cart']['sum'])) :?>
-											<span><?php echo $_SESSION['cart']['sum']?></span> <i class="fa fa-rub" aria-hidden="true"></i>
+											<span><?php echo $_SESSION['cart']['sum']?></span> <i class="cost fa fa-rub" aria-hidden="true"></i>
 											<?php else : ?>
 												<span>Корзина пуста</span><i></i>
 											<?php endif; ?>

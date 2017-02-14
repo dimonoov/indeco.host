@@ -52,27 +52,20 @@ get_header();
 							<div class="block-content">
 
 								<div class="content-item">
-									<h4 class="h4">Адрес</h4>
-									<p>Россия, г. Санкт-Петербург, Лиговский проспект, 113 лит."В",
-										офис № 31.</p>
+                                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); // Цикл начинается. Если есть записи в цикле, то выводим их ?>
 
-									<h4 class="h4">Часы работы офиса</h4>
-									<p>Пн-Пт с 11:00 до 18:00	Сб-Вс: Выходной</p>
+                                    <?php the_content();?>
 
-									<h4 class="h4">Почтовый адрес</h4>
-									<p>123007, г. Москва, а/я 87, ООО «Регистратор доменных имён REG.RU»</p>
-
-									<h4 class="h4">Контактные телефоны:</h4>
-									<p><a href="tel:+76953354547">+7 695 335 45 47</a></p>
-									<p><a href="tel:+70985584565">+7 098 558 45 65</a></p>
-
+                                    <?php endwhile; else: // Если записей нет, то выводим сообщение об этом ?>
+                                        <p><?php echo 'Извините, записей нет'; ?></p>
+                                    <?php endif; // Цикл заканчивается ?>
 								</div>
 
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-6">
-						<div class="deliveri">
+						<form class="ajaxform deliveri" method="post">
 							<div class="block-title">БЫСТРАЯ СВЯЗЬ</div>
 							<div class="block-content">
 
@@ -82,7 +75,7 @@ get_header();
 									</div>
 									<div class="item">
 
-										<input  id="name" name="name" type="text">
+										<input  id="name" name="name" required type="text">
 
 									</div>
 
@@ -93,7 +86,7 @@ get_header();
 									</div>
 									<div class="item">
 
-										<input  id="email" name="email" type="text">
+										<input  id="email" name="email" required type="text">
 
 									</div>
 
@@ -104,7 +97,7 @@ get_header();
 									</div>
 									<div class="item">
 
-										<input  id="phone" name="phone" type="text">
+										<input  id="phone" name="phone" required type="text">
 
 									</div>
 
@@ -126,7 +119,7 @@ get_header();
 
 
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>

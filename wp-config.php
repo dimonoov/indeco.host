@@ -29,8 +29,8 @@ define('DB_USER', 'cc55158_molotok');
 define('DB_PASSWORD', 'SQRT14916253649');
 
 /** Имя сервера MySQL */
-define('DB_HOST', '92.53.125.77');
-
+//define('DB_HOST', '92.53.125.77');
+define('DB_HOST', 'localhost');
 /** Кодировка базы данных для создания таблиц. */
 define('DB_CHARSET', 'utf8mb4');
 

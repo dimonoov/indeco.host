@@ -386,7 +386,7 @@
   .w100{
     width: 100%;
   }
-  .top-line .cart-title a{
+  .top-line .cart-title a > span, .top-line .cart-title a i.cost{
     display: none;
   }
   .top-line .navbar-brand{

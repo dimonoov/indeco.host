@@ -43,8 +43,14 @@ jQuery(document).ready(function($){
                     link.data('offset',next);
                     console.log(link.data('offset')+'offset');
                     $('#content-main').append(msg);
+
                     $('#more_block').find('#link_more').data('offset', next);
 
+                    var length = document.getElementsByClassName('tovar').length;
+                    console.log(length);
+                    if(count == length){
+                        $('#more_block').find('#link_more').fadeOut();
+                    }
 
                     //$('.popup-overlay-white').fadeIn(500);
                     // window.location.href = "thanks.html";
@@ -381,7 +387,7 @@ jQuery(document).ready(function($){
 
 
 
-    jQuery('form.action_cart').submit(function(e){
+   $('form.action_cart').submit(function(e){
 
       e.preventDefault();
         var thisForm = this;
@@ -429,9 +435,9 @@ jQuery(document).ready(function($){
                 $(thisForm).find('.btn-s').removeClass('good');
                 $(thisForm).find('.btn-s').val("КУПИТЬ");
             },1500);
-            $("#top-cart").find('.fa-shopping-cart span').html(html['qty']).fadeIn();
-            $("#top-cart").find('a span').text(html['sum']);
-            $("#top-cart").find('a i').addClass('fa fa-rub');
+            $("#top-cart").find('.fa-shopping-cart > span').html(html['qty']).fadeIn();
+            $("#top-cart").find('a > span').text(html['sum']);
+            $("#top-cart").find('a i.cost').addClass('fa fa-rub');
 
         }
       });
@@ -453,13 +459,13 @@ jQuery(document).ready(function($){
                 if(!res) alert('Ошибка!');
                 console.log(res["html"]);
                 if(res['json']['qty'] !== null){
-                    $("#top-cart").find(".fa-shopping-cart span").html(res['json']['qty']);
-                    $("#top-cart").find("a span").html(res['json']['sum']);
+                    $("#top-cart").find(".fa-shopping-cart > span").html(res['json']['qty']);
+                    $("#top-cart").find("a > span").html(res['json']['sum']);
                     $("#product-" + product_id).remove();
                     $("#product-" + product_id).css("opacity", '1');
                 }
                 else {
-                    $("#top-cart").find(".fa-shopping-cart span").fadeOut();
+                    $("#top-cart").find(".fa-shopping-cart > span").fadeOut();
                     $("#top-cart").find("a ").html("Корзина пуста");
                     $(".client-info").remove();
                     $(".btns").remove();
@@ -500,16 +506,19 @@ jQuery(document).ready(function($){
                     if(!res) alert('Ошибка!');
 
                     if(res['json']['cart']['qty'] !== null){
-                        $("#top-cart").find(".fa-shopping-cart span").html(res['json']['cart']['qty']);
-                        $("#top-cart").find("a span").html(res['json']['cart']['sum']);
+                        $("#top-cart").find(".fa-shopping-cart > span").html(res['json']['cart']['qty']);
+                        $("#top-cart").find("a > span").html(res['json']['cart']['sum']);
                         $("#product-" + product_id).find('.wid-9 strong span').text(res['json']['product']['sum']);
                         $('#cart').find('.total-price .price span').text(res['json']['cart']['sum']);
                         $("#product-" + product_id).css("opacity", '1');
                     }
                     else {
-                        $("#top-cart").find(".fa-shopping-cart span").fadeOut();
+                        $("#top-cart").find(".fa-shopping-cart > span").fadeOut();
                         $("#top-cart").find("a ").html("Корзина пуста");
                         showCart(res["html"]);
+						$(".client-info").remove();
+						$(".btns").remove();
+
                     }
 
 
@@ -576,6 +585,59 @@ jQuery(document).ready(function(){equalheight(eqElement);}).resize(function(){eq
 
 var eqElement1 = ".eh1";
 jQuery(document).ready(function(){equalheight(eqElement1);}).resize(function(){equalheight(eqElement1);});
+
+
+
+
+
+
+//Аякс отправка форм
+//Документация: http://api.jquery.com/jquery.ajax/
+$("form.ajaxform").submit(function(e) {
+    var base_url = window.location.origin;
+    var form  = $(this);
+    var form_class = form.attr('class');
+    // var form_id  = form.attr('id');
+    // console.log(form_id);
+
+    // if( form_id !== "form-modal"  && form_id !== "commentform" ){
+        $.ajax({
+            type: "POST",
+            url: myajax.url,
+            data: form.serialize()+'&action=sendform',
+            beforeSend: function(){
+                $(".submit-result").append('<img src="/wp-content/themes/twentysixteen/img/loading2.gif" width="20">');
+            }
+        }).done(function() {
+            $('.ajaxform .block-content').html('<div class="thanks text-center"><div class="cont"><h3 class="h3">Ваша заявка принята</h3>.<br><h2 class="h2"> Спасибо!</h2></div></div>');
+            // $(".submit-result img").remove();
+            // $("#success_link").trigger('click');
+
+            // if(form_id=="foot_form") dataLayer.push({ 'event':'Forma','eventCategory':'Forma', 'eventAction': 'formapodval'});
+
+            // if(form_id == "calc") {
+            //
+            //     yaCounter40263864.reachGoal("formakalculator");
+            //     dataLayer.push({ 'event':'Forma','eventCategory':'Forma', 'eventAction': 'formakalculator'});
+            //
+            // }
+
+
+            form[0].reset();
+            // var magnificPopup = $.magnificPopup.instance;
+            // setTimeout(function(){
+            //     magnificPopup.close();
+            // }, 2000);
+        });
+
+
+    // }
+
+    return false;
+
+});
+
+
 
 
 
